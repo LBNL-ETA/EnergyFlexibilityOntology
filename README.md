@@ -35,25 +35,25 @@ There are already plenty of data schemas and ontologies in the market. EFOnt doe
 
 | Ontology, Schema, Dictionary | Building Construction | Building Geometry | Building Topology | End-use Systems | Distributed Energy Resources | Occupant Behavior | Indoor Environment  | Sensing, IoT | Energy Management, Control | Demand Response | Energy Audit | Metrics, KPIs | Flexibility Resources, Characteristics, Quantification |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| IFC4 / BIM |        x | x |   |   |   |   |   |   |   |   |   |   |   |
-| BES Ontology |      x | x |   |   |   |   |   |   |   |   |   |   |   |
-| Brick Schema |        |   | x | x |   | x | x | x |   |   |   |   |   |
-| BOT |                 |   | x |   |   |   |   |   |   |   |   |   |   |
-| obXML Schema |        |   |   |   |   | x |   |   |   |   |   |   |   |
-| DERs-Ontology |       |   |   |   | x |   |   |   |   |   |   |   |   |
-| DogOnt |              |   |   | x |   |   | x | x | x |   |   |   |   |
-| SAREF4 |              |   |   |   |   |   |   | x | x |   |   |   |   |
-| DigitalBuildings |    |   |   | x |   |   |   |   |   |   |   |   |   |
-| OEMA Ontologies |     |   |   | x |   | x | x |   | x | x |   |   |   |
-| Project Haystack |    |   |   | x |   |   | x |   |   |   |   |   |   |
-| ThinkHome |         x |   |   | x |   | x | x | x |   |   |   |   |   |
-| OpenADR |             |   |   | x |   |   |   | x |   | x |   |   |   |
-| EM-KPI |              |   |   | x |   | x | x |   | x |   |   | x |   |
-| KPI-Onto |            |   |   | x |   |   |   |   |   |   |   | x |   |
-| EnergyPlus IDD |    x | x | x |   | x | x | x | x | x |   |   |   |   |
-| BuildingSync |      x |   | x |   |   | x | x | x |   |   | x |   |   |
-| HPXML |             x |   | x |   | x | x | x | x |   | x |   |   |   |
-| BEDES |             x |   | x |   | x | x | x | x | x | x | x | x |   |
+| [IFC4 / BIM](https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL/index.html) |        x | x |   |   |   |   |   |   |   |   |   |   |   |
+| [BES Ontology](https://innoweb.mondragon.edu/ontologies/dabgeo/domain-task/application_type/home_energy_assessment_device_control/buildingelementsstructure/1.0/index-en.html) |      x | x |   |   |   |   |   |   |   |   |   |   |   |
+| [Brick Schema](https://brickschema.org/ontology/) |        |   | x | x |   | x | x | x |   |   |   |   |   |
+| [BOT](https://w3c-lbd-cg.github.io/bot/) |                 |   | x |   |   |   |   |   |   |   |   |   |   |
+| [obXML Schema](https://behavior.lbl.gov/?q=obXML) |        |   |   |   |   | x |   |   |   |   |   |   |   |
+| [DERs-Ontology](https://innoweb.mondragon.edu/ontologies/dabgeo/common-domain/ders/1.0/index-en.html) |       |   |   |   | x |   |   |   |   |   |   |   |   |
+| [DogOnt](http://iot-ontologies.github.io/dogont/) |              |   |   | x |   |   | x | x | x |   |   |   |   |
+| [SAREF4](https://saref.etsi.org/saref4ener/v1.1.2/) |              |   |   |   |   |   |   | x | x |   |   |   |   |
+| [DigitalBuildings](https://google.github.io/digitalbuildings/) |    |   |   | x |   |   |   |   |   |   |   |   |   |
+| [OEMA Ontologies](https://innoweb.mondragon.edu/ontologies/oema/index-en.html) |     |   |   | x |   | x | x |   | x | x |   |   |   |
+| [Project Haystack](https://project-haystack.org/) |    |   |   | x |   |   | x |   |   |   |   |   |   |
+| [ThinkHome](https://www.auto.tuwien.ac.at/index.php/research-fields/ontology) |         x |   |   | x |   | x | x | x |   |   |   |   |   |
+| [OpenADR](https://albaizq.github.io/OpenADRontology/OnToology/ontology/openADRontology.owl/documentation/index-en.html) |             |   |   | x |   |   |   | x |   | x |   |   |   |
+| [EM-KPI](http://energy.linkeddata.es/em-kpi/ontology/index-en.html) |              |   |   | x |   | x | x |   | x |   |   | x |   |
+| [KPI-Onto](https://github.com/KDMG/kpionto) |            |   |   | x |   |   |   |   |   |   |   | x |   |
+| [EnergyPlus IDD](https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/idd-conventions.html#idd-conventions) |    x | x | x |   | x | x | x | x | x |   |   |   |   |
+| [BuildingSync](https://buildingsync.net/) |      x |   | x |   |   | x | x | x |   |   | x |   |   |
+| [HPXML](https://www.hpxmlonline.com/) |             x |   | x |   | x | x | x | x |   | x |   |   |   |
+| [BEDES](https://bedes.lbl.gov/bedes-online) |             x |   | x |   | x | x | x | x | x | x | x | x |   |
 
 ### EFOnt Example
 A few examples will be added to the examples folder in the future for demonstration purposes.
