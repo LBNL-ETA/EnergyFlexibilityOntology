@@ -30,11 +30,12 @@ The figure below shows a hierarchical ecosystem of major existing data schemas a
 ![EcoSys](resources/data_tools_ecosystem.png)
 
 
-### EFOnt vs Other Ontologies
+### EFOnt vs other Ontologies
 There are already plenty of data schemas and ontologies in the market. EFOnt does not intend to reinvent the wheel and start from scratch. Luckily, the EFOnt is easily adaptive and compatible to other ontologies with the help of same underlying Semantic Web technologies. The table an comparison of a few existing ontologies and data dictionaries related to building.
 
 | Ontology, Schema, Dictionary | Building Construction | Building Geometry | Building Topology | End-use Systems | Distributed Energy Resources | Occupant Behavior | Indoor Environment  | Sensing, IoT | Energy Management, Control | Demand Response | Energy Audit | Metrics, KPIs | Flexibility Resources, Characteristics, Quantification |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **EFOnt** |   |   |   |   |   |   |   |   |   |   |   | x | x |
 | [IFC4 / BIM](https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL/index.html) |        x | x |   |   |   |   |   |   |   |   |   |   |   |
 | [BES Ontology](https://innoweb.mondragon.edu/ontologies/dabgeo/domain-task/application_type/home_energy_assessment_device_control/buildingelementsstructure/1.0/index-en.html) |      x | x |   |   |   |   |   |   |   |   |   |   |   |
 | [Brick Schema](https://brickschema.org/ontology/) |        |   | x | x |   | x | x | x |   |   |   |   |   |
