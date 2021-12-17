@@ -57,7 +57,7 @@ There are already plenty of data schemas and ontologies in the market. EFOnt doe
 | [BEDES](https://bedes.lbl.gov/bedes-online) |             x |   | x |   | x | x | x | x | x | x | x | x |   |
 
 ### EFOnt Example
-A few examples will be added to the examples folder in the future for demonstration purposes.
+A few examples will be added to the examples folder in the future for demonstrations.
 
 <hr>
 
