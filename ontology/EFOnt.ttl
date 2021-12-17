@@ -1,0 +1,1781 @@
+@prefix : <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core> .
+
+<http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Characterizes
+:Characterizes rdf:type owl:ObjectProperty ;
+               rdfs:domain :FlexibleLoadCharacteristic ;
+               rdfs:range :FlexibleOperation ;
+               rdfs:label "characterizes" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Quantifies
+:Quantifies rdf:type owl:ObjectProperty ;
+            rdfs:domain :EnergyFlexibilityKPI ;
+            rdfs:range :EnergyFlexibility ;
+            rdfs:label "quantifiesEnergyFlexibility" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#allows
+:allows rdf:type owl:ObjectProperty ;
+        rdfs:domain :FlexibilityResources ;
+        rdfs:range :FlexibleOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#enables
+:enables rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isEnabledBy ;
+         rdfs:domain :FlexibleOperation ;
+         rdfs:range :EnergyFlexibility .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasCharacteristic
+:hasCharacteristic rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :isCharacteristicOf ;
+                   rdfs:domain :Occupant ;
+                   rdfs:range :OccupantCharacteristic .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasDataRequirementOf
+:hasDataRequirementOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasDataSource
+:hasDataSource rdf:type owl:ObjectProperty ;
+               rdfs:domain :Variable ;
+               rdfs:range :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasDataType
+:hasDataType rdf:type owl:ObjectProperty ;
+             rdfs:domain :Variable ;
+             rdfs:range :DataType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasDescription
+:hasDescription rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasFlexibilityModeOf
+:hasFlexibilityModeOf rdf:type owl:ObjectProperty ;
+                      owl:inverseOf :isFlexibilityModeOf ;
+                      rdfs:domain :EnergyFlexibility ;
+                      rdfs:label "hasFlexibilityMode" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasFormula
+:hasFormula rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :KeyPerformanceIndicator ;
+            rdfs:range :Formula .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasInfluenceOn
+:hasInfluenceOn rdf:type owl:ObjectProperty ;
+                rdfs:domain :FlexibleOperation ;
+                rdfs:range :BuildingService ;
+                rdfs:label "influences" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasInput
+:hasInput rdf:type owl:ObjectProperty ;
+          rdfs:domain :Formula ;
+          rdfs:range :Variable .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasInterestIn
+:hasInterestIn rdf:type owl:ObjectProperty ;
+               owl:inverseOf :ofInterestTo ;
+               rdfs:domain :Stakeholder ;
+               rdfs:range :KeyPerformanceIndicator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasLevelOfDetails
+:hasLevelOfDetails rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Model ;
+                   rdfs:range :LevelOfDetails .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasModelType
+:hasModelType rdf:type owl:ObjectProperty ;
+              rdfs:domain :Simulation ;
+              rdfs:range :Model .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasOperation
+:hasOperation rdf:type owl:ObjectProperty ;
+              rdfs:domain :Formula ;
+              rdfs:range :MathOpertion .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasPerformanceGoal
+:hasPerformanceGoal rdf:type owl:ObjectProperty ;
+                    rdfs:domain :FlexibleOperation ;
+                    rdfs:range :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasScope
+:hasScope rdf:type owl:ObjectProperty ;
+          rdfs:domain :EnergyFlexibility ;
+          rdfs:range :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasUnitOfMeasure
+:hasUnitOfMeasure rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Variable ;
+                  rdfs:range :UnitOfMeasure ;
+                  rdfs:comment "Describe the unit of a variable or a formula output."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#isCharacteristicOf
+:isCharacteristicOf rdf:type owl:ObjectProperty ;
+                    rdfs:domain :OccupantCharacteristic ;
+                    rdfs:range :Occupant .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#isEnabledBy
+:isEnabledBy rdf:type owl:ObjectProperty ;
+             rdfs:domain :EnergyFlexibility ;
+             rdfs:range :FlexibleOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#isFlexibilityModeOf
+:isFlexibilityModeOf rdf:type owl:ObjectProperty ;
+                     rdfs:range :EnergyFlexibility .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#isUnderCondition
+:isUnderCondition rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain :Variable ;
+                  rdfs:range :OperationCondition .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#needsSensor
+:needsSensor rdf:type owl:ObjectProperty ;
+             rdfs:domain :Measurement ;
+             rdfs:range :Sensor .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#needsSoftware
+:needsSoftware rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Simulation ;
+               rdfs:range :Software .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ofInterestTo
+:ofInterestTo rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#provideService
+:provideService rdf:type owl:ObjectProperty ;
+                owl:inverseOf :receiveService ;
+                rdfs:domain :BuildingService ;
+                rdfs:range :Occupant .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#pursues
+:pursues rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#quantifiesBuildingService
+:quantifiesBuildingService rdf:type owl:ObjectProperty ;
+                           rdfs:domain :BuildingServiceKPI ;
+                           rdfs:range :BuildingService .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#receiveService
+:receiveService rdf:type owl:ObjectProperty ;
+                rdfs:domain :Occupant ;
+                rdfs:range :BuildingService ;
+                rdfs:label "receivesService" .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasAcronym
+:hasAcronym rdf:type owl:DatatypeProperty ;
+            rdfs:domain :KeyPerformanceIndicator ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasActivationMethod
+:hasActivationMethod rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :ThermallyActivatedBuildingSystem ;
+                     rdfs:range xsd:NCName .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasArgumentName
+:hasArgumentName rdf:type owl:DatatypeProperty ;
+                 rdfs:range xsd:NCName .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasArgumentPosition
+:hasArgumentPosition rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:nonNegativeInteger .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasMinimumDuration
+:hasMinimumDuration rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :SerialValue ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "Minimum duration of a timeseries in minutes."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasMinimumTemporalResolution
+:hasMinimumTemporalResolution rdf:type owl:DatatypeProperty ;
+                              rdfs:domain :SerialValue ;
+                              <http://www.w3.org/2004/02/skos/core#definition> "The minimum temporal resolution in minutes."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#needsBaseline
+:needsBaseline rdf:type owl:DatatypeProperty ;
+               rdfs:domain :EnergyFlexibilityKPI ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#needsVariable
+:needsVariable rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AcousticQuality
+:AcousticQuality rdf:type owl:Class ;
+                 rdfs:subClassOf :IndoorEnvironmentQuality .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AcousticQualityPerception
+:AcousticQualityPerception rdf:type owl:Class ;
+                           rdfs:subClassOf :Perception .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ActiveEnergyStorageFacility
+:ActiveEnergyStorageFacility rdf:type owl:Class ;
+                             rdfs:subClassOf :DistributedEnergyResource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ActiveThermalEnergyStorage
+:ActiveThermalEnergyStorage rdf:type owl:Class ;
+                            rdfs:subClassOf :ActiveEnergyStorageFacility .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ActivityType
+:ActivityType rdf:type owl:Class ;
+              rdfs:subClassOf :OccupantCharacteristic .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AgeRange
+:AgeRange rdf:type owl:Class ;
+          rdfs:subClassOf :Attributes .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AirQuality
+:AirQuality rdf:type owl:Class ;
+            rdfs:subClassOf :IndoorEnvironmentQuality .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AirQualityPerception
+:AirQualityPerception rdf:type owl:Class ;
+                      rdfs:subClassOf :Perception .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ApplicationScope
+:ApplicationScope rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Attitude
+:Attitude rdf:type owl:Class ;
+          rdfs:subClassOf :OccupantCharacteristic .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Attributes
+:Attributes rdf:type owl:Class ;
+            rdfs:subClassOf :OccupantCharacteristic .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BatteryStorage
+:BatteryStorage rdf:type owl:Class ;
+                rdfs:subClassOf :ElectricityStorage .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BehavioralLoadShaping
+:BehavioralLoadShaping rdf:type owl:Class ;
+                       rdfs:subClassOf :FlexibilityResources ;
+                       rdfs:comment """BLS displays live load data with the ability to target messages to consumers based on energy demand, connected distributed energy resources (DERs) and more, empowering utilities and consumers to quickly understand demand reduction results and gain further savings from social norming and behavioral science.
+https://www.copperlabs.com/behavioral-load-shaping-and-flexible-energy/""" ;
+                       <http://www.w3.org/2004/02/skos/core#definition> """Behavioral Load Shaping offers utilities a comprehensive, cloud-based solution for engaging with modern utility customers. This service enables utilities to deliver superior service and engagement with customers on time of use rate plans by providing features that facilitate peak demand reduction.
+https://docs.oracle.com/en/industries/utilities/behaviorial-load-shaping/#:~:text=Behavioral%20Load%20Shaping%20offers%20utilities,that%20facilitate%20peak%20demand%20reduction.""" ;
+                       <http://www.w3.org/2004/02/skos/core#note> "Typical comfort limits can be (temporarily) relaxed or bypassed in some ways without compromising the thermal comfort of occupants."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BinaryOperation
+:BinaryOperation rdf:type owl:Class ;
+                 rdfs:subClassOf :MathOpertion .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingLevel
+:BuildingLevel rdf:type owl:Class ;
+               rdfs:subClassOf :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingService
+:BuildingService rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingServiceKPI
+:BuildingServiceKPI rdf:type owl:Class ;
+                    rdfs:subClassOf :KeyPerformanceIndicator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ChilledWaterStorage
+:ChilledWaterStorage rdf:type owl:Class ;
+                     rdfs:subClassOf :ActiveThermalEnergyStorage .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CombustionEngine
+:CombustionEngine rdf:type owl:Class ;
+                  rdfs:subClassOf :DispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CombustionTurbine
+:CombustionTurbine rdf:type owl:Class ;
+                   rdfs:subClassOf :DispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CommunityLevel
+:CommunityLevel rdf:type owl:Class ;
+                rdfs:subClassOf :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Attributes .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DataCharacteristics
+:DataCharacteristics rdf:type owl:Class ;
+                     rdfs:label "DataCharacteristics"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DataDrivenModel
+:DataDrivenModel rdf:type owl:Class ;
+                 rdfs:subClassOf :Model .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DataSource
+:DataSource rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DataType
+:DataType rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandChangeDuration
+:DemandChangeDuration rdf:type owl:Class ;
+                      rdfs:subClassOf :TimeRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandChangeEndTime
+:DemandChangeEndTime rdf:type owl:Class ;
+                     rdfs:subClassOf :TimeRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandChangeResolution
+:DemandChangeResolution rdf:type owl:Class ;
+                        rdfs:subClassOf :TimeRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandChangeResponsiveTime
+:DemandChangeResponsiveTime rdf:type owl:Class ;
+                            owl:equivalentClass :DurationBetweenStartAndMaximumChange ;
+                            rdfs:subClassOf :TimeRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandChangeStartTime
+:DemandChangeStartTime rdf:type owl:Class ;
+                       rdfs:subClassOf :TimeRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandGoal
+:DemandGoal rdf:type owl:Class ;
+            rdfs:subClassOf :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DeviceLevel
+:DeviceLevel rdf:type owl:Class ;
+             rdfs:subClassOf :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DispatchableEnergyGenerator
+:DispatchableEnergyGenerator rdf:type owl:Class ;
+                             rdfs:subClassOf :EnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DistributedEnergyResource
+:DistributedEnergyResource rdf:type owl:Class ;
+                           rdfs:subClassOf :FlexibilityResources ;
+                           rdfs:comment "DER include any non-BES resource (e.g. generating unit, multiple generating units at a single location, energy storage facility, micro-grid, etc.) located solely within the boundary of any distribution utility, Distribution Provider, or Distribution Provider-UFLS Only." ;
+                           <http://www.w3.org/2004/02/skos/core#definition> """A Distributed Energy Resource (DER) is any resource on the distribution system that produces electricity and is not otherwise included in the formal NERC definition of the Bulk Electric System (BES).
+https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Resources_Report.pdf""" ,
+                                                                            """Distributed energy resources are small, modular, energy generation and storage technologies that provide electric capacity or energy where you need it. Typically producing less than 10 megawatts (MW) of power, DER systems can usually be sized to meet your particular needs and installed on site. 
+https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Duration
+:Duration rdf:type owl:Class ;
+          rdfs:subClassOf :TemporalCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DurationBetweenStartAndMaximumChange
+:DurationBetweenStartAndMaximumChange rdf:type owl:Class ;
+                                      rdfs:subClassOf :TimeRelatedCharacteristics ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "Time needed from the flexible operaiton begins until it reaches the maximum magnitude."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EconomicGoal
+:EconomicGoal rdf:type owl:Class ;
+              rdfs:subClassOf :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricVehicle
+:ElectricVehicle rdf:type owl:Class ;
+                 rdfs:subClassOf :ElectricityStorage .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricityStorage
+:ElectricityStorage rdf:type owl:Class ;
+                    rdfs:subClassOf :ActiveEnergyStorageFacility .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EmissionsGoal
+:EmissionsGoal rdf:type owl:Class ;
+               rdfs:subClassOf :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EndTimestamp
+:EndTimestamp rdf:type owl:Class ;
+              rdfs:subClassOf :TemporalCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyFlexibility
+:EnergyFlexibility rdf:type owl:Class ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "An energy system's (e.g., device, system, building) capability to operate flexibly (i.e., by adjusting its energy demand and generation) to support the electric grid according to local ambient conditions (e.g., weather), without jeopardizing building occupants’ needs (e.g., thermal comfort, productivity)."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyFlexibilityKPI
+:EnergyFlexibilityKPI rdf:type owl:Class ;
+                      rdfs:subClassOf :KeyPerformanceIndicator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyGenerator
+:EnergyGenerator rdf:type owl:Class ;
+                 rdfs:subClassOf :DistributedEnergyResource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyGoal
+:EnergyGoal rdf:type owl:Class ;
+            rdfs:subClassOf :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyRelatedCharacteristics
+:EnergyRelatedCharacteristics rdf:type owl:Class ;
+                              rdfs:subClassOf :FlexibleLoadCharacteristic ;
+                              rdfs:label "EnergyRelatedCharacteristics" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyUseStyle
+:EnergyUseStyle rdf:type owl:Class ;
+                rdfs:subClassOf :Attitude .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnvironmentGoal
+:EnvironmentGoal rdf:type owl:Class ;
+                 rdfs:subClassOf :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityResources
+:FlexibilityResources rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibleLoadCharacteristic
+:FlexibleLoadCharacteristic rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibleOperation
+:FlexibleOperation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flywheel
+:Flywheel rdf:type owl:Class ;
+          rdfs:subClassOf :ElectricityStorage ;
+          <http://www.w3.org/2004/02/skos/core#definition> """Flywheel energy storage (FES) works by accelerating a rotor (flywheel) to a very high speed and maintaining the energy in the system as rotational energy. When energy is extracted from the system, the flywheel's rotational speed is reduced as a consequence of the principle of conservation of energy; adding energy to the system correspondingly results in an increase in the speed of the flywheel.
+https://en.wikipedia.org/wiki/Flywheel_energy_storage""" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Formula
+:Formula rdf:type owl:Class ;
+         rdfs:comment "A mathematical function that defines the relationship between independent and dependent variables."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FuelCell
+:FuelCell rdf:type owl:Class ;
+          rdfs:subClassOf :DispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Gender
+:Gender rdf:type owl:Class ;
+        rdfs:subClassOf :Attributes .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generation
+:Generation rdf:type owl:Class ;
+            rdfs:subClassOf :FlexibleOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GeothermalHeatPump
+:GeothermalHeatPump rdf:type owl:Class ;
+                    rdfs:subClassOf :DispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridSignal
+:GridSignal rdf:type owl:Class ;
+            rdfs:subClassOf :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HotWaterStorage
+:HotWaterStorage rdf:type owl:Class ;
+                 rdfs:subClassOf :ActiveThermalEnergyStorage .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HybridModel
+:HybridModel rdf:type owl:Class ;
+             rdfs:subClassOf :Model .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HydroPower
+:HydroPower rdf:type owl:Class ;
+            rdfs:subClassOf :DispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IceStorage
+:IceStorage rdf:type owl:Class ;
+            rdfs:subClassOf :ActiveThermalEnergyStorage .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IncreasedEnergyConsumption
+:IncreasedEnergyConsumption rdf:type owl:Class ;
+                            rdfs:subClassOf :EnergyRelatedCharacteristics ;
+                            rdfs:comment "Increased energy consumption during flexible period"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IndoorEnvironmentQuality
+:IndoorEnvironmentQuality rdf:type owl:Class ;
+                          rdfs:subClassOf :BuildingService .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IntensiveLabor
+:IntensiveLabor rdf:type owl:Class ;
+                rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#KeyPerformanceIndicator
+:KeyPerformanceIndicator rdf:type owl:Class ;
+                         rdfs:comment "Key Performance Indicator (KPI)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LevelOfDetails
+:LevelOfDetails rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LightingQuality
+:LightingQuality rdf:type owl:Class ;
+                 rdfs:subClassOf :IndoorEnvironmentQuality .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LightingQualityPerception
+:LightingQualityPerception rdf:type owl:Class ;
+                           rdfs:subClassOf :Perception .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MathOpertion
+:MathOpertion rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MaximumIncreasedDemand
+:MaximumIncreasedDemand rdf:type owl:Class ;
+                        rdfs:subClassOf :PowerRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MaximumReboundDemand
+:MaximumReboundDemand rdf:type owl:Class ;
+                      rdfs:subClassOf :PowerRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MaximumReducedDemand
+:MaximumReducedDemand rdf:type owl:Class ;
+                      rdfs:subClassOf :PowerRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Measurement
+:Measurement rdf:type owl:Class ;
+             rdfs:subClassOf :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Microgrid
+:Microgrid rdf:type owl:Class ;
+           rdfs:subClassOf :DistributedEnergyResource ;
+           <http://www.w3.org/2004/02/skos/core#definition> """An aggregation of multiple DER types behind the customer meter at a single point of interconnection that has the capability to island. May range in size and complexity from a single “smart” building to a larger system such as a university campus or industrial/commercial park.
+https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Resources_Report.pdf""" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MiscellaneousElectricLoad
+:MiscellaneousElectricLoad rdf:type owl:Class ;
+                           rdfs:subClassOf :BuildingService .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Mobility
+:Mobility rdf:type owl:Class ;
+          rdfs:subClassOf :BuildingService .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Model
+:Model rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Modulating
+:Modulating rdf:type owl:Class ;
+            rdfs:subClassOf :FlexibleOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NondispatchableEnergyGenerator
+:NondispatchableEnergyGenerator rdf:type owl:Class ;
+                                rdfs:subClassOf :EnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Occupant
+:Occupant rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OccupantCharacteristic
+:OccupantCharacteristic rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Office
+:Office rdf:type owl:Class ;
+        rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OperationCondition
+:OperationCondition rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Other
+:Other rdf:type owl:Class ;
+       rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Perception
+:Perception rdf:type owl:Class ;
+            rdfs:subClassOf :OccupantCharacteristic .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PerformanceGoal
+:PerformanceGoal rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PhysicsBasedModel
+:PhysicsBasedModel rdf:type owl:Class ;
+                   rdfs:subClassOf :Model .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PowerAdjustableSystem
+:PowerAdjustableSystem rdf:type owl:Class ;
+                       rdfs:subClassOf :FlexibilityResources .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PowerRelatedCharacteristics
+:PowerRelatedCharacteristics rdf:type owl:Class ;
+                             rdfs:subClassOf :FlexibleLoadCharacteristic ;
+                             rdfs:label "PowerRelatedCharacteristics" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PrivacyPerception
+:PrivacyPerception rdf:type owl:Class ;
+                   rdfs:subClassOf :Perception .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#RampUpRate
+:RampUpRate rdf:type owl:Class ;
+            rdfs:subClassOf :PowerRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ReboundEnergyConsumption
+:ReboundEnergyConsumption rdf:type owl:Class ;
+                          rdfs:subClassOf :EnergyRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ReducedEnergyConsumption
+:ReducedEnergyConsumption rdf:type owl:Class ;
+                          rdfs:subClassOf :EnergyRelatedCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#RegionLevel
+:RegionLevel rdf:type owl:Class ;
+             rdfs:subClassOf :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Relax
+:Relax rdf:type owl:Class ;
+       rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SchedulableAppliance
+:SchedulableAppliance rdf:type owl:Class ;
+                      rdfs:subClassOf :FlexibilityResources ;
+                      rdfs:comment "Think about what are the characterisitcs of schedulable appliances" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SectorLevel
+:SectorLevel rdf:type owl:Class ;
+             rdfs:subClassOf :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Sensor
+:Sensor rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SerialValue
+:SerialValue rdf:type owl:Class ;
+             rdfs:subClassOf :DataType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Shedding
+:Shedding rdf:type owl:Class ;
+          rdfs:subClassOf :FlexibleOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Shifting
+:Shifting rdf:type owl:Class ;
+          rdfs:subClassOf :FlexibleOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Simulation
+:Simulation rdf:type owl:Class ;
+            rdfs:subClassOf :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SingleValue
+:SingleValue rdf:type owl:Class ;
+             rdfs:subClassOf :DataType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Software
+:Software rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarPhotovoltaic
+:SolarPhotovoltaic rdf:type owl:Class ;
+                   rdfs:subClassOf :NondispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarThermalPlant
+:SolarThermalPlant rdf:type owl:Class ;
+                   rdfs:subClassOf :NondispatchableEnergyGenerator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Space
+:Space rdf:type owl:Class ;
+       rdfs:subClassOf :BuildingService .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SpatialCharacteritics
+:SpatialCharacteritics rdf:type owl:Class ;
+                       rdfs:subClassOf :DataCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Sport
+:Sport rdf:type owl:Class ;
+       rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Stakeholder
+:Stakeholder rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StartTimestamp
+:StartTimestamp rdf:type owl:Class ;
+                rdfs:subClassOf :TemporalCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Study
+:Study rdf:type owl:Class ;
+       rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SystemLevel
+:SystemLevel rdf:type owl:Class ;
+             rdfs:subClassOf :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SystemLevelSimulation
+:SystemLevelSimulation rdf:type owl:Class ;
+                       rdfs:subClassOf :Simulation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TemporalCharacteristics
+:TemporalCharacteristics rdf:type owl:Class ;
+                         rdfs:subClassOf :DataCharacteristics .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TemporalResolution
+:TemporalResolution rdf:type owl:Class ;
+                    rdfs:subClassOf :TemporalCharacteristics ;
+                    rdfs:label "TemporalResolution"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermalPreference
+:ThermalPreference rdf:type owl:Class ;
+                   rdfs:subClassOf :Attitude .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermalQuality
+:ThermalQuality rdf:type owl:Class ;
+                rdfs:subClassOf :IndoorEnvironmentQuality .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermalQualityPerception
+:ThermalQualityPerception rdf:type owl:Class ;
+                          rdfs:subClassOf :Perception .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermallyActivatedBuildingSystem
+:ThermallyActivatedBuildingSystem rdf:type owl:Class ;
+                                  rdfs:subClassOf :FlexibilityResources ;
+                                  rdfs:comment """Some refereces:
+https://www.sciencedirect.com/science/article/pii/S0306261910003260
+https://www.hindawi.com/journals/ace/2018/4928746/"""^^xsd:string ;
+                                  <http://www.w3.org/2004/02/skos/core#definition> """A Thermally Activated Building System (TABS) is a combined heating and cooling system with pipes embedded in the structural concrete slabs or walls of multi storey buildings. TABS operates at temperature close to ambient enabling more efficient utilization of renewable and free cooling sources.
+
+Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Building_System_TABS_Efficient_cooling_and_heating_of_commercial_buildings"""^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TimeRelatedCharacteristics
+:TimeRelatedCharacteristics rdf:type owl:Class ;
+                            rdfs:subClassOf :FlexibleLoadCharacteristic ;
+                            rdfs:label "TimeRelatedCharacteristics" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnaryOperation
+:UnaryOperation rdf:type owl:Class ;
+                rdfs:subClassOf :MathOpertion .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UninterruptiblePowerSupply
+:UninterruptiblePowerSupply rdf:type owl:Class ;
+                            rdfs:subClassOf :ElectricityStorage ;
+                            <http://www.w3.org/2004/02/skos/core#definition> """An uninterruptible power supply or uninterruptible power source (UPS) is an electrical apparatus that provides emergency power to a load when the input power source or mains power fails. The on-battery run-time of most uninterruptible power sources is relatively short (only a few minutes) but sufficient to start a standby power source or properly shut down the protected equipment. It is a type of continual power system.
+https://en.wikipedia.org/wiki/Uninterruptible_power_supply""" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnitOfMeasure
+:UnitOfMeasure rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Variable
+:Variable rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#VectorOperation
+:VectorOperation rdf:type owl:Class ;
+                 rdfs:subClassOf :MathOpertion .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WholeBuildingSimulation
+:WholeBuildingSimulation rdf:type owl:Class ;
+                         rdfs:subClassOf :Simulation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WindPower
+:WindPower rdf:type owl:Class ;
+           rdfs:subClassOf :NondispatchableEnergyGenerator .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AbsoluteValue
+:AbsoluteValue rdf:type owl:NamedIndividual ,
+                        :UnaryOperation ;
+               rdfs:label "absoluteValue" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AnnualResolution
+:AnnualResolution rdf:type owl:NamedIndividual ,
+                           :TemporalResolution .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#AvailableStructureStorageCapacity
+:AvailableStructureStorageCapacity rdf:type owl:NamedIndividual ,
+                                            :EnergyFlexibilityKPI ;
+                                   owl:sameAs :CapacityOfActiveDemandResponse ;
+                                   :ofInterestTo :BuildingDesigner ,
+                                                 :EnergyModeler .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Baseline
+:Baseline rdf:type owl:NamedIndividual ,
+                   :OperationCondition ;
+          rdfs:label "BaselineCondition"^^xsd:string ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Refers to the condition when building is operated normally without any energy-flexibile goal."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BaselineLoadProfile
+:BaselineLoadProfile rdf:type owl:NamedIndividual ,
+                              :Variable ;
+                     :isUnderCondition :Baseline .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingDesigner
+:BuildingDesigner rdf:type owl:NamedIndividual ,
+                           :Stakeholder ;
+                  :hasPerformanceGoal :reduceGridEnergyConsumption .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingLevel
+:BuildingLevel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingOperator
+:BuildingOperator rdf:type owl:NamedIndividual ,
+                           :Stakeholder ;
+                  :ofInterestTo :GridOperator .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CapacityOfADRFormula
+:CapacityOfADRFormula rdf:type owl:NamedIndividual ,
+                               :Formula ;
+                      :hasInput :HighLoadEndTimestamp ,
+                                :HighLoadStartTimestamp ,
+                                :HourlyBaselineLoadProfile ,
+                                :HourlyFlexibleLoadProfile ;
+                      :hasUnitOfMeasure :kWh ;
+                      :needsBaseline "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CapacityOfActiveDemandResponse
+:CapacityOfActiveDemandResponse rdf:type owl:NamedIndividual ,
+                                         :EnergyFlexibilityKPI ;
+                                :hasFormula :CapacityOfADRFormula ;
+                                :ofInterestTo :BuildingDesigner ,
+                                              :Researcher ;
+                                :hasAcronym "CADR"^^xsd:string ;
+                                rdfs:comment """References:
+https://doi.org/10.1016/j.apenergy.2017.04.061
+https://lirias.kuleuven.be/1729317?limo=0
+https://doi.org/10.1016/j.enbuild.2020.110027
+https://doi.org/10.1016/j.scs.2019.101815
+https://doi.org/10.1016/j.enbuild.2019.02.016
+http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
+                                <http://www.w3.org/2004/02/skos/core#definition> "Capacity of ADR - reduced energy consumption during an ADR event."^^xsd:string ,
+                                                                                 "Other definition: Amount of heat that can be added to or extracted from a building’s thermal mass during a predefined charging event, while constrained by thermal comfort."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CarbonEmissionProfile
+:CarbonEmissionProfile rdf:type owl:NamedIndividual ,
+                                :SerialValue ,
+                                :Variable ;
+                       :hasUnitOfMeasure :kg ;
+                       :isUnderCondition :UnspecifiedCondition ;
+                       rdfs:comment "The carbon emission profile with indefinite temporal resolution."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CommunityLevel
+:CommunityLevel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ControlEngineer
+:ControlEngineer rdf:type owl:NamedIndividual ,
+                          :Stakeholder .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DailyPeakPowerDemand
+:DailyPeakPowerDemand rdf:type owl:NamedIndividual ,
+                               :SingleValue ,
+                               :Variable ;
+                      :hasUnitOfMeasure :kW ;
+                      :isUnderCondition :UnspecifiedCondition .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DailyResolution
+:DailyResolution rdf:type owl:NamedIndividual ,
+                          :TemporalResolution .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Datetime
+:Datetime rdf:type owl:NamedIndividual ,
+                   :UnitOfMeasure .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Day
+:Day rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandRecoveryRatio
+:DemandRecoveryRatio rdf:type owl:NamedIndividual ,
+                              :EnergyFlexibilityKPI ;
+                     :hasFormula :DemandRecoveryRatioFormula ;
+                     :ofInterestTo :BuildingDesigner ,
+                                   :Researcher ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "Demand recovery ratio: the ratio between the observed electric energy use by the flexible operation and the minimum electric energy use of the system in baseline operation (used to quantify the impact of load shifting on energy consumption)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandRecoveryRatioFormula
+:DemandRecoveryRatioFormula rdf:type owl:NamedIndividual ,
+                                     :Formula ;
+                            :hasInput :HourlyBaselineLoadProfile ,
+                                      :HourlyFlexibleLoadProfile ;
+                            :hasOperation :scalarDivision ,
+                                          :vectorSum .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EfficiencyOfADRFormula
+:EfficiencyOfADRFormula rdf:type owl:NamedIndividual ,
+                                 :Formula ;
+                        :hasInput :HighLoadEndTimestamp ,
+                                  :HighLoadStartTimestamp ,
+                                  :HourlyBaselineLoadProfile ,
+                                  :HourlyFlexibleLoadProfile ;
+                        :needsBaseline "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EfficiencyOfActiveDemandResponse
+:EfficiencyOfActiveDemandResponse rdf:type owl:NamedIndividual ,
+                                           :EnergyFlexibilityKPI ;
+                                  owl:sameAs :StorageEfficiency ;
+                                  :hasFormula :EfficiencyOfADRFormula ;
+                                  :ofInterestTo :BuildingDesigner ,
+                                                :Researcher ;
+                                  rdfs:comment """References:
+https://doi.org/10.1016/j.apenergy.2017.04.061
+https://lirias.kuleuven.be/1729317?limo=0
+https://doi.org/10.1016/j.enbuild.2020.110027
+https://doi.org/10.1016/j.scs.2019.101815
+https://doi.org/10.1016/j.enbuild.2019.02.016
+http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
+                                  <http://www.w3.org/2004/02/skos/core#definition> "Efficiency of ADR - the energy storage efficiency during an ADR event."^^xsd:string ,
+                                                                                   "Fraction of heat that is stored during an ADR event, later used to reduce heating load power to maintain the thermal comfort."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyCostProfile
+:EnergyCostProfile rdf:type owl:NamedIndividual ,
+                            :SerialValue ;
+                   :hasUnitOfMeasure :dollar ;
+                   :hasMinimumTemporalResolution "525600"^^xsd:int ;
+                   rdfs:comment "Energy cost time series with indefinite temporal resolution."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyModeler
+:EnergyModeler rdf:type owl:NamedIndividual ,
+                        :Stakeholder ;
+               :ofInterestTo :EnergyModeler .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlus
+:EnergyPlus rdf:type owl:NamedIndividual ,
+                     :Software .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityFactor
+:FlexibilityFactor rdf:type owl:NamedIndividual ,
+                            :EnergyFlexibilityKPI ;
+                   :hasFormula :FlexibilityFactorFormula ;
+                   :hasPerformanceGoal :reduceCost ,
+                                       :reduceEmissions ,
+                                       :reduceGridEnergyConsumption ;
+                   :ofInterestTo :BuildingOperator ,
+                                 :Researcher ;
+                   :hasAcronym "FF"^^xsd:string ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Indicator of a quantity (e.g., energy, cost, emissions) during high load hours versus during low load hours, which ranges between -1 (quantity was only during high load hours) and 1 (quantity was only during low load hours)."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityFactorFormula
+:FlexibilityFactorFormula rdf:type owl:NamedIndividual ,
+                                   :Formula ;
+                          :hasInput :GenericLoadProfile ,
+                                    :HighLoadEndTimestamp ,
+                                    :HighLoadStartTimestamp ;
+                          :hasOperation :scalarDeduction ,
+                                        :scalarDivision ;
+                          :needsBaseline "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityIndicator
+:FlexibilityIndicator rdf:type owl:NamedIndividual ,
+                               :EnergyFlexibilityKPI ;
+                      :hasInput :HourlyBaselineLoadProfile ,
+                                :HourlyFlexibleLoadProfile ;
+                      :hasOperation :scalarDeduction ,
+                                    :scalarDivision ,
+                                    :vectorMultiplication ;
+                      :hasPerformanceGoal :reduceCost ;
+                      :hasAcronym "FI"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityIndicatorFormula
+:FlexibilityIndicatorFormula rdf:type owl:NamedIndividual ,
+                                      :Formula ;
+                             :hasInput :EnergyCostProfile ;
+                             :hasOperation :scalarDeduction ,
+                                           :scalarDivision ;
+                             :needsBaseline "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flexible
+:Flexible rdf:type owl:NamedIndividual ,
+                   :OperationCondition ;
+          rdfs:label "FlexibleCondition"^^xsd:string ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Refers to the condition when building is operated with a energy-flexibile goal."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibleLoadProfile
+:FlexibleLoadProfile rdf:type owl:NamedIndividual ,
+                              :Variable ;
+                     :isUnderCondition :Flexible .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GenericLoadProfile
+:GenericLoadProfile rdf:type owl:NamedIndividual ,
+                             :SerialValue ,
+                             :Variable ;
+                    :isUnderCondition :UnspecifiedCondition ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A time series profile with arbitary type (e.g., energy consumption, peak demand, cost, and GHG emissions) and indefinite temporal resolution."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridCarbonImpact
+:GridCarbonImpact rdf:type owl:NamedIndividual ,
+                           :EnergyFlexibilityKPI ;
+                  :hasFormula :GridCarbonImpactFormula ;
+                  :ofInterestTo :GridOperator ;
+                  :hasAcronym "GCI"^^xsd:string ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "GridOptimal - Grid Carbon Impact: measures the alignment between a building's net demand profile and the marginal carbon emissions."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridCarbonImpactFormula
+:GridCarbonImpactFormula rdf:type owl:NamedIndividual ,
+                                  :Formula ;
+                         :hasInput :CarbonEmissionProfile ,
+                                   :NetLoadProfile ;
+                         :hasOperation :vectorAverage ,
+                                       :vectorMax ;
+                         :needsBaseline "false"^^xsd:boolean ;
+                         rdfs:comment "GCI = 1 - (P_avg/P_max)*(C_avg/C_max)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridOperator
+:GridOperator rdf:type owl:NamedIndividual ,
+                       :Stakeholder ;
+              :ofInterestTo :EnergyModeler .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridPeakContribution
+:GridPeakContribution rdf:type owl:NamedIndividual ,
+                               :EnergyFlexibilityKPI ;
+                      :hasFormula :GridPeakContributionFormula ;
+                      :ofInterestTo :BuildingDesigner ,
+                                    :EnergyModeler ;
+                      :hasAcronym "GPC"^^xsd:string ;
+                      rdfs:comment """GridOptimal - Grid Peak Contribution: how much the building's load contributes to peak loads on the grid during peak hours. 
+
+It can be interpreted as the load factor during peak hours."""^^xsd:string ,
+                                   """References:
+https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-help-solve-grid-issues/"""^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridPeakContributionFormula
+:GridPeakContributionFormula rdf:type owl:NamedIndividual ,
+                                      :Formula ;
+                             :hasInput :NetLoadProfile ;
+                             :hasOperation :scalarDivision ,
+                                           :vectorAverage ;
+                             :needsBaseline "false"^^xsd:boolean ;
+                             rdfs:comment "GPC = Avg(Top 5% Demand)/Avg(Top 10 hourly demand)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridSignal
+:GridSignal rdf:type owl:NamedIndividual ,
+                     :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HighLOD
+:HighLOD rdf:type owl:NamedIndividual ,
+                  :LevelOfDetails .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HighLoadEndTimestamp
+:HighLoadEndTimestamp rdf:type owl:NamedIndividual ,
+                               :SingleValue ,
+                               :Variable ;
+                      :hasUnitOfMeasure :Datetime ;
+                      :isUnderCondition :UnspecifiedCondition ;
+                      rdfs:label "EventEndTimestamp"^^xsd:string ;
+                      <http://www.w3.org/2004/02/skos/core#definition> "The datetime when a demand response event ends."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HighLoadStartTimestamp
+:HighLoadStartTimestamp rdf:type owl:NamedIndividual ,
+                                 :SingleValue ,
+                                 :Variable ;
+                        :hasUnitOfMeasure :Datetime ;
+                        :isUnderCondition :UnspecifiedCondition ;
+                        :needsBaseline "false"^^xsd:boolean ;
+                        rdfs:label "EventStartTimestamp"^^xsd:string ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "The datetime when a demand response event starts."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HourlyBaselineLoadProfile
+:HourlyBaselineLoadProfile rdf:type owl:NamedIndividual ,
+                                    :SerialValue ,
+                                    :Variable ;
+                           :hasUnitOfMeasure :kW ;
+                           :isUnderCondition :Baseline ;
+                           :hasMinimumTemporalResolution "60"^^xsd:int ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under baseline condition."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HourlyFlexibleLoadProfile
+:HourlyFlexibleLoadProfile rdf:type owl:NamedIndividual ,
+                                    :SerialValue ,
+                                    :Variable ;
+                           :hasUnitOfMeasure :kW ;
+                           :isUnderCondition :Flexible ;
+                           :hasMinimumTemporalResolution "60"^^xsd:int ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under flexible (a.k.a. demand response) condition."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HourlyResolution
+:HourlyResolution rdf:type owl:NamedIndividual ,
+                           :TemporalResolution .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadCoveringRatio
+:LoadCoveringRatio rdf:type owl:NamedIndividual ,
+                            :EnergyFlexibilityKPI ;
+                   :hasFormula :LoadCoveringRatioFormula ;
+                   :ofInterestTo :BuildingDesigner ;
+                   rdfs:comment "Reference: Tang, H., & Wang, S. (2021). Energy flexibility quantification of grid-responsive buildings: Energy flexibility index and assessment of their effectiveness for applications. Energy, 221, 119756."^^xsd:string ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "The ratio between the energy generated by onsite resources (e.g., PV) and total energy consumption over a certain period."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadCoveringRatioFormula
+:LoadCoveringRatioFormula rdf:type owl:NamedIndividual ,
+                                   :Formula ;
+                          :hasInput :LocalGenerationPowerProfile ,
+                                    :PowerDemandProfile ;
+                          :hasOperation :max ,
+                                        :scalarDivision ,
+                                        :vectorMultiplication .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadShiftingEfficiency
+:LoadShiftingEfficiency rdf:type owl:NamedIndividual ,
+                                 :EnergyFlexibilityKPI ;
+                        owl:sameAs :LoadShiftingRate ;
+                        :hasFormula :LoadShiftingEfficiencyFormula ;
+                        rdfs:comment "Ref: Pajot, C., Delinchant, B., Maréchal, Y., & Frésier, D. (2018). Impact of heat pump flexibility in a French residential eco-district. Buildings, 8(10), 145. https://doi.org/10.3390/buildings8100145" ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "The ratio of the addition of anticipated energy and delayed energy, by the cut-off energy, due to load shifting operation. Specifically, the anticipated energy are the increased energy from pre-conditioning before the peak, and the delayed energy are the increased energy from rebound period. The cut-off energy is the reduced energy during the peak period."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadShiftingEfficiencyFormula
+:LoadShiftingEfficiencyFormula rdf:type owl:NamedIndividual ,
+                                        :Formula ;
+                               :hasInput :BaselineLoadProfile ,
+                                         :FlexibleLoadProfile ,
+                                         :HighLoadStartTimestamp ;
+                               :hasOperation :scalarDivision ,
+                                             :vectorMultiplication ,
+                                             :vectorSum .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadShiftingRate
+:LoadShiftingRate rdf:type owl:NamedIndividual ,
+                           :EnergyFlexibilityKPI .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LocalGenerationConsumedProfile
+:LocalGenerationConsumedProfile rdf:type owl:NamedIndividual ,
+                                         :SerialValue ,
+                                         :Variable ;
+                                :hasUnitOfMeasure :kWh ;
+                                :isUnderCondition :UnspecifiedCondition ;
+                                :hasMinimumDuration "1440"^^xsd:int ;
+                                <http://www.w3.org/2004/02/skos/core#definition> "The on-site electricity generation profile that's actually consumed by the building with an indefinite temporal resolution."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LocalGenerationPowerProfile
+:LocalGenerationPowerProfile rdf:type owl:NamedIndividual ,
+                                      :SerialValue ,
+                                      :Variable ;
+                             :hasDataSource :Measurement ,
+                                            :Simulation ;
+                             :hasUnitOfMeasure :kW ;
+                             :isUnderCondition :UnspecifiedCondition .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LocalGenerationProfile
+:LocalGenerationProfile rdf:type owl:NamedIndividual ,
+                                 :SerialValue ,
+                                 :Variable ;
+                        :hasUnitOfMeasure :kWh ;
+                        :isUnderCondition :UnspecifiedCondition ;
+                        :hasMinimumDuration "1440"^^xsd:int ;
+                        rdfs:label "LocalGenerationEnergyProfile"^^xsd:string ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "The on-site electricity generation profile with an indefinite temporal resolution."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LowLOD
+:LowLOD rdf:type owl:NamedIndividual ,
+                 :LevelOfDetails ;
+        <http://www.w3.org/2004/02/skos/core#definition> "The level of details needed in modeling the energy system." .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Matlab
+:Matlab rdf:type owl:NamedIndividual ,
+                 :Software .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Measurement
+:Measurement rdf:type owl:NamedIndividual ,
+                      :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MediumLOD
+:MediumLOD rdf:type owl:NamedIndividual ,
+                    :LevelOfDetails .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Modelica
+:Modelica rdf:type owl:NamedIndividual ,
+                   :Software .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MonthlyResolution
+:MonthlyResolution rdf:type owl:NamedIndividual ,
+                            :TemporalResolution .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Negation
+:Negation rdf:type owl:NamedIndividual ,
+                   :UnaryOperation ;
+          rdfs:label "negation" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NetLoadProfile
+:NetLoadProfile rdf:type owl:NamedIndividual ,
+                         :SerialValue ,
+                         :Variable ;
+                :hasUnitOfMeasure :kWh ;
+                :isUnderCondition :UnspecifiedCondition ;
+                :hasMinimumDuration "1440"^^xsd:int ;
+                :hasMinimumTemporalResolution "525600"^^xsd:int ;
+                <http://www.w3.org/2004/02/skos/core#definition> "The net electricity load (consumption) profile with indefinite temporal resolution."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OnsiteRenewableUtilizationEfficiency
+:OnsiteRenewableUtilizationEfficiency rdf:type owl:NamedIndividual ,
+                                               :EnergyFlexibilityKPI ;
+                                      owl:sameAs :SelfConsumption ;
+                                      :ofInterestTo :EnergyModeler ;
+                                      :needsBaseline "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakGenerationRatio
+:PeakGenerationRatio rdf:type owl:NamedIndividual ,
+                              :EnergyFlexibilityKPI ;
+                     :ofInterestTo :BuildingDesigner ,
+                                   :Researcher ;
+                     :needsBaseline "false"^^xsd:boolean ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "Demand recovery ratio: the ratio between the observed electric energy use by the flexible operation and the minimum electric energy use of the system in baseline operation (used to quantify the impact of load shifting on energy consumption)"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerDemandDecrease
+:PeakPowerDemandDecrease rdf:type owl:NamedIndividual ,
+                                  :EnergyFlexibilityKPI ;
+                         owl:sameAs :PeakPowerReduction ;
+                         :hasFormula :PeakPowerReductionFormula ;
+                         :hasPerformanceGoal :reducePeakDemand ;
+                         :ofInterestTo :Researcher ;
+                         <http://www.w3.org/2004/02/skos/core#definition> "Reduced power demand during peak hour due to flexible operation."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerReduction
+:PeakPowerReduction rdf:type owl:NamedIndividual ,
+                             :EnergyFlexibilityKPI ;
+                    :hasFormula :PeakPowerReductionFormula ;
+                    :hasPerformanceGoal :reducePeakDemand ;
+                    :ofInterestTo :GridOperator ,
+                                  :Researcher ,
+                                  :UtilityCompany .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerReductionFormula
+:PeakPowerReductionFormula rdf:type owl:NamedIndividual ,
+                                    :Formula ;
+                           :hasInput :HourlyBaselineLoadProfile ,
+                                     :HourlyFlexibleLoadProfile ,
+                                     :PeakTimestamp ;
+                           :hasOperation :scalarDeduction ;
+                           :needsBaseline "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerReductionPercentage
+:PeakPowerReductionPercentage rdf:type owl:NamedIndividual ,
+                                       :EnergyFlexibilityKPI ;
+                              :hasFormula :PeakPowerReductionPercentageFormula ;
+                              :hasPerformanceGoal :reducePeakDemand ;
+                              :ofInterestTo :GridOperator ,
+                                            :Researcher ,
+                                            :UtilityCompany .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerReductionPercentageFormula
+:PeakPowerReductionPercentageFormula rdf:type owl:NamedIndividual ,
+                                              :Formula ;
+                                     :hasInput :HourlyBaselineLoadProfile ,
+                                               :HourlyFlexibleLoadProfile ,
+                                               :PeakTimestamp ;
+                                     :hasOperation :scalarDeduction ,
+                                                   :scalarDivision ;
+                                     :needsBaseline "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakTimestamp
+:PeakTimestamp rdf:type owl:NamedIndividual ,
+                        :SingleValue ,
+                        :Variable ;
+               :hasUnitOfMeasure :Datetime ;
+               :isUnderCondition :UnspecifiedCondition .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PowerDemandProfile
+:PowerDemandProfile rdf:type owl:NamedIndividual ,
+                             :SerialValue ,
+                             :Variable ;
+                    :hasDataSource :Measurement ,
+                                   :Simulation ;
+                    :hasUnitOfMeasure :kW ;
+                    :isUnderCondition :UnspecifiedCondition ;
+                    :hasMinimumTemporalResolution 60 ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A time series of power demand with indefinite temporal resolution"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PriceProfile
+:PriceProfile rdf:type owl:NamedIndividual ,
+                       :SerialValue ,
+                       :Variable ;
+              :hasDataSource :GridSignal ;
+              :hasUnitOfMeasure <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh> ;
+              :isUnderCondition :UnspecifiedCondition ;
+              rdfs:label "EnergyPriceProfile"^^xsd:string ;
+              <http://www.w3.org/2004/02/skos/core#definition> "A series of energy unit prices indexed in time order issued by utility providers."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Researcher
+:Researcher rdf:type owl:NamedIndividual ,
+                     :Stakeholder .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SectorLevel
+:SectorLevel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfConsumption
+:SelfConsumption rdf:type owl:NamedIndividual ,
+                          :EnergyFlexibilityKPI ;
+                 :hasFormula :SelfConsumptionFormula ;
+                 :hasPerformanceGoal :maximizeOnsiteGenerationUtilization ,
+                                     :reduceGridEnergyConsumption ;
+                 :ofInterestTo :BuildingDesigner ;
+                 :hasAcronym "SC"^^xsd:string ;
+                 rdfs:comment """References: 
+https://doi.org/10.1016/j.renene.2019.10.030
+https://doi.org/10.3390/en14061591"""^^xsd:string ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Self-consumption (SC) - the degree to which the on-site generation is directly consumed by the building."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfConsumptionFormula
+:SelfConsumptionFormula rdf:type owl:NamedIndividual ,
+                                 :Formula ;
+                        :hasInput :LocalGenerationConsumedProfile ,
+                                  :LocalGenerationProfile ;
+                        :hasOperation :vectorSum ;
+                        :needsBaseline "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfSufficiency
+:SelfSufficiency rdf:type owl:NamedIndividual ,
+                          :EnergyFlexibilityKPI ;
+                 :hasFormula :SelfSufficiencyFormula ;
+                 :hasPerformanceGoal :maximizeOnsiteGenerationUtilization ,
+                                     :reduceGridEnergyConsumption ;
+                 :ofInterestTo :BuildingDesigner ;
+                 :hasAcronym "SS"^^xsd:string ;
+                 :needsBaseline "false"^^xsd:boolean ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Self-Sufficiency (SS) - the degree to which the on-site generation is sufficient to fill the energy needs of the building."^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfSufficiencyFormula
+:SelfSufficiencyFormula rdf:type owl:NamedIndividual ,
+                                 :Formula ;
+                        :hasInput :LocalGenerationConsumedProfile ,
+                                  :NetLoadProfile ;
+                        :hasOperation :vectorSum ;
+                        :needsBaseline "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Simulation
+:Simulation rdf:type owl:NamedIndividual ,
+                     :DataSource .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StorageEfficiency
+:StorageEfficiency rdf:type owl:NamedIndividual ,
+                            :EnergyFlexibilityKPI .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Sum
+:Sum rdf:type owl:NamedIndividual ,
+              :VectorOperation ;
+     rdfs:label "sum" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SystemLevel
+:SystemLevel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TRNSYS
+:TRNSYS rdf:type owl:NamedIndividual ,
+                 :Software .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnspecifiedCondition
+:UnspecifiedCondition rdf:type owl:NamedIndividual ,
+                               :OperationCondition ;
+                      <http://www.w3.org/2004/02/skos/core#definition> """Refers to any operation condition. 
+Applicable when the condition of the measurements (e.g., power demand profile) are not required by the energy flexibility quantification."""^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UtilityCompany
+:UtilityCompany rdf:type owl:NamedIndividual ,
+                         :Stakeholder .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WeeklyResolution
+:WeeklyResolution rdf:type owl:NamedIndividual ,
+                           :TemporalResolution .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ZoneLevel
+:ZoneLevel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#clothe_dryer
+:clothe_dryer rdf:type owl:NamedIndividual ,
+                       :SchedulableAppliance .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dimmable_light
+:dimmable_light rdf:type owl:NamedIndividual ,
+                         :PowerAdjustableSystem .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dishwasher
+:dishwasher rdf:type owl:NamedIndividual ,
+                     :SchedulableAppliance .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dollar
+:dollar rdf:type owl:NamedIndividual ,
+                 :UnitOfMeasure .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#fraction
+:fraction rdf:type owl:NamedIndividual ,
+                   :UnitOfMeasure ;
+          rdfs:comment "unitless fraction"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#kW
+:kW rdf:type owl:NamedIndividual ,
+             :UnitOfMeasure ;
+    <http://www.w3.org/2004/02/skos/core#definition> "Kilowatt"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#kWh
+:kWh rdf:type owl:NamedIndividual ,
+              :UnitOfMeasure ;
+     <http://www.w3.org/2004/02/skos/core#definition> "Kilowatt Hour"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#kg
+:kg rdf:type owl:NamedIndividual ,
+             :UnitOfMeasure ;
+    rdfs:comment "killogram"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#max
+:max rdf:type owl:NamedIndividual ,
+              :VectorOperation ;
+     owl:sameAs :vectorMax .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#maximizeOnsiteGenerationUtilization
+:maximizeOnsiteGenerationUtilization rdf:type owl:NamedIndividual ,
+                                              :EnergyGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#mean
+:mean rdf:type owl:NamedIndividual ,
+               :VectorOperation ;
+      owl:sameAs :vectorAverage .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#median
+:median rdf:type owl:NamedIndividual ,
+                 :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#min
+:min rdf:type owl:NamedIndividual ,
+              :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#percentage
+:percentage rdf:type owl:NamedIndividual ,
+                     :UnitOfMeasure ;
+            rdfs:comment "unitless percentage"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCost
+:reduceCost rdf:type owl:NamedIndividual ,
+                     :EconomicGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceEmissions
+:reduceEmissions rdf:type owl:NamedIndividual ,
+                          :EmissionsGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceGridEnergyConsumption
+:reduceGridEnergyConsumption rdf:type owl:NamedIndividual ,
+                                      :EnergyGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakDemand
+:reducePeakDemand rdf:type owl:NamedIndividual ,
+                           :DemandGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#scalarAddition
+:scalarAddition rdf:type owl:NamedIndividual ,
+                         :BinaryOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#scalarDeduction
+:scalarDeduction rdf:type owl:NamedIndividual ,
+                          :BinaryOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#scalarDivision
+:scalarDivision rdf:type owl:NamedIndividual ,
+                         :BinaryOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#scalarMultiplication
+:scalarMultiplication rdf:type owl:NamedIndividual ,
+                               :BinaryOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#standardDeviation
+:standardDeviation rdf:type owl:NamedIndividual ,
+                            :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#variable_speed_fan
+:variable_speed_fan rdf:type owl:NamedIndividual ,
+                             :PowerAdjustableSystem .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#variable_speed_pump
+:variable_speed_pump rdf:type owl:NamedIndividual ,
+                              :PowerAdjustableSystem .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#vectorAddition
+:vectorAddition rdf:type owl:NamedIndividual ,
+                         :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#vectorAverage
+:vectorAverage rdf:type owl:NamedIndividual ,
+                        :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#vectorMax
+:vectorMax rdf:type owl:NamedIndividual ,
+                    :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#vectorMultiplication
+:vectorMultiplication rdf:type owl:NamedIndividual ,
+                               :VectorOperation ;
+                      :hasInput :HighLoadEndTimestamp .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#vectorSum
+:vectorSum rdf:type owl:NamedIndividual ,
+                    :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#washing_machine
+:washing_machine rdf:type owl:NamedIndividual ,
+                          :SchedulableAppliance .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh
+<http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh> rdf:type owl:NamedIndividual ,
+                                                                            :UnitOfMeasure .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
