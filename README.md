@@ -31,7 +31,7 @@ The figure below shows a hierarchical ecosystem of major existing data schemas a
 
 
 ### EFOnt vs other Ontologies
-There are already plenty of data schemas and ontologies in the market. EFOnt does not intend to reinvent the wheel and start from scratch. Luckily, the EFOnt is easily adaptive and compatible to other ontologies with the help of same underlying Semantic Web technologies. The table an comparison of a few existing ontologies and data dictionaries related to building.
+There are already plenty of data schemas and ontologies in the market. EFOnt does not intend to reinvent the wheel and start from scratch. Luckily, the EFOnt is easily adaptive and compatible to other ontologies with the help of same underlying Semantic Web technologies. The table shows an comparison of a few existing ontologies and data dictionaries broadly related to energy flexibility, which include building information modeling, energy efficiency, demand response, indoor environment, sensor and controls, energy audits, and performance evaluations.
 
 | Ontology, Schema, Dictionary | Building Construction | Building Geometry | Building Topology | End-use Systems | Distributed Energy Resources | Occupant Behavior | Indoor Environment  | Sensing, IoT | Energy Management, Control | Demand Response | Energy Audit | Metrics, KPIs | Flexibility Resources, Characteristics, Quantification |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
