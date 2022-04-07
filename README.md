@@ -56,7 +56,14 @@ There are already plenty of data schemas and ontologies in the market. EFOnt doe
 | [HPXML](https://www.hpxmlonline.com/) |             x |   | x |   | x | x | x | x |   | x |   |   |   |
 | [BEDES](https://bedes.lbl.gov/bedes-online) |             x |   | x |   | x | x | x | x | x | x | x | x |   |
 
-### EFOnt Example
+### Potential EFOnt Use Cases
+
+1) Understand the what flexible resources are available in buildings.
+2) Characterize and quantify building energy flexibility using the EF KPIs.
+3) Analyze energy flexibility using measured dataset and the EF ontology (enable auto configuration for AI/ML discovery) 
+4) Simulate energy flexibility using BEM tools (e.g., EnergyPlus) and the EF ontology. 
+5) Help configure or automate advanced controls (e.g., MPC, RLC) for Grid-interactive Efficient Buildings (GEBs). 
+
 A few examples will be added to the examples folder in the future for demonstrations.
 
 <hr>
