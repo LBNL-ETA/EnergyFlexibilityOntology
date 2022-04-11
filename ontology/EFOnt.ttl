@@ -51,6 +51,12 @@
          rdfs:range :EnergyFlexibility .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasBEMVariable
+:hasBEMVariable rdf:type owl:ObjectProperty ;
+                rdfs:domain :Variable ;
+                rdfs:range :BEMVariable .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasCharacteristic
 :hasCharacteristic rdf:type owl:ObjectProperty ;
                    owl:inverseOf :isCharacteristicOf ;
@@ -324,6 +330,10 @@ owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
             rdfs:subClassOf :OccupantCharacteristic .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BEMVariable
+:BEMVariable rdf:type owl:Class .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BatteryStorage
 :BatteryStorage rdf:type owl:Class ;
                 rdfs:subClassOf :ElectricityStorage .
@@ -506,6 +516,20 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyGoal
 :EnergyGoal rdf:type owl:Class ;
             rdfs:subClassOf :PerformanceGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusMeter
+:EnergyPlusMeter rdf:type owl:Class ;
+                 rdfs:subClassOf :BEMVariable ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus output variable name."^^xsd:string ;
+                 <http://www.w3.org/2004/02/skos/core#note> "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#outputmeter-and-outputmetermeterfileonly"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusVariable
+:EnergyPlusVariable rdf:type owl:Class ;
+                    rdfs:subClassOf :BEMVariable ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus output variable name."^^xsd:string ;
+                    <http://www.w3.org/2004/02/skos/core#note> "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#output-variabledictionary"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyRelatedCharacteristics
@@ -964,6 +988,8 @@ https://en.wikipedia.org/wiki/Uninterruptible_power_supply""" .
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BaselineLoadProfile
 :BaselineLoadProfile rdf:type owl:NamedIndividual ,
                               :Variable ;
+                     :hasBEMVariable :Electricity:Facility ,
+                                     :Gas:Facility ;
                      :isUnderCondition :Baseline .
 
 
@@ -1117,6 +1143,11 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                      :Software .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Fan_Electric_Power
+:Fan_Electric_Power rdf:type owl:NamedIndividual ,
+                             :EnergyPlusVariable .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityFactor
 :FlexibilityFactor rdf:type owl:NamedIndividual ,
                             :EnergyFlexibilityKPI ;
@@ -1165,6 +1196,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flexible
 :Flexible rdf:type owl:NamedIndividual ,
                    :OperationCondition ;
+          :hasBEMVariable :Electricity:Facility ;
           rdfs:label "FlexibleCondition"^^xsd:string ;
           <http://www.w3.org/2004/02/skos/core#definition> "Refers to the condition when building is operated with a energy-flexibile goal."^^xsd:string .
 
@@ -1179,6 +1211,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 :GenericLoadProfile rdf:type owl:NamedIndividual ,
                              :SerialValue ,
                              :Variable ;
+                    :hasBEMVariable :Electricity:Facility ;
                     :isUnderCondition :UnspecifiedCondition ;
                     <http://www.w3.org/2004/02/skos/core#definition> "A time series profile with arbitary type (e.g., energy consumption, peak demand, cost, and GHG emissions) and indefinite temporal resolution."^^xsd:string .
 
@@ -1511,6 +1544,11 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
               <http://www.w3.org/2004/02/skos/core#definition> "A series of energy unit prices indexed in time order issued by utility providers."^^xsd:string .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Pump_Electric_Power
+:Pump_Electric_Power rdf:type owl:NamedIndividual ,
+                              :EnergyPlusVariable .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Researcher
 :Researcher rdf:type owl:NamedIndividual ,
                      :Stakeholder .
@@ -1569,6 +1607,11 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
                      :DataSource .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Site_Outdoor_Air_Drybulb_Temperature
+:Site_Outdoor_Air_Drybulb_Temperature rdf:type owl:NamedIndividual ,
+                                               :EnergyPlusVariable .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StorageEfficiency
 :StorageEfficiency rdf:type owl:NamedIndividual ,
                             :EnergyFlexibilityKPI .
@@ -1608,6 +1651,36 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ZoneLevel
 :ZoneLevel rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Zone_Electric_Equipment_Electric_Power
+:Zone_Electric_Equipment_Electric_Power rdf:type owl:NamedIndividual ,
+                                                 :EnergyPlusVariable .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Zone_Lights_Electric_Power
+:Zone_Lights_Electric_Power rdf:type owl:NamedIndividual ,
+                                     :EnergyPlusVariable .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Zone_Mean_Air_Temperature
+:Zone_Mean_Air_Temperature rdf:type owl:NamedIndividual ,
+                                    :EnergyPlusVariable .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Zone_People_Occupant_Count
+:Zone_People_Occupant_Count rdf:type owl:NamedIndividual ,
+                                     :EnergyPlusVariable .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Zone_Thermostat_Cooling_Setpoint_Temperature
+:Zone_Thermostat_Cooling_Setpoint_Temperature rdf:type owl:NamedIndividual ,
+                                                       :EnergyPlusVariable .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Zone_Thermostat_Heating_Setpoint_Temperature
+:Zone_Thermostat_Heating_Setpoint_Temperature rdf:type owl:NamedIndividual ,
+                                                       :EnergyPlusVariable .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#clothe_dryer
@@ -1776,6 +1849,46 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh
 <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh> rdf:type owl:NamedIndividual ,
                                                                             :UnitOfMeasure .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Cooling:Electricity
+:Cooling:Electricity rdf:type owl:NamedIndividual ,
+                              :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Electricity:Facility
+:Electricity:Facility rdf:type owl:NamedIndividual ,
+                               :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Electricity:HVAC
+:Electricity:HVAC rdf:type owl:NamedIndividual ,
+                           :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Gas:Facility
+:Gas:Facility rdf:type owl:NamedIndividual ,
+                       :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Heating:Electricity
+:Heating:Electricity rdf:type owl:NamedIndividual ,
+                              :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#InteriorEquipment:Electricity
+:InteriorEquipment:Electricity rdf:type owl:NamedIndividual ,
+                                        :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#InteriorLights:Electricity
+:InteriorLights:Electricity rdf:type owl:NamedIndividual ,
+                                     :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Pumps:Electricity
+:Pumps:Electricity rdf:type owl:NamedIndividual ,
+                            :EnergyPlusMeter .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
