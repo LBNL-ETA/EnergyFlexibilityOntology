@@ -1,9 +1,13 @@
 # -------------------------------- Import gems ------------------------------- #
+# Change to the path where OpenStudio is installed
+require 'C:/openstudio-2.9.1/Ruby/openstudio.rb' # Desktop, Z8
 
-require 'C:/openstudio-2.9.1/Ruby/openstudio.rb' # Change to the path where OpenStudio is installed
-require 'D:/GitHub/OpenStudio_related/openstudio-standards/lib/openstudio-standards.rb' # Change to the path where openstudio-standards is cloned
+# Change to the path where openstudio-standards is cloned
+# require 'D:/GitHub/OpenStudio_related/openstudio-standards/lib/openstudio-standards.rb' # Desktop
+require 'F:/GitHub/openstudio-standards/lib/openstudio-standards.rb' # Z8
 require 'fileutils'
 require 'parallel'
+require './measure_steps.rb'
 
 # --------------------------------- functions -------------------------------- #
 def loadOSM(pathStr)
@@ -61,41 +65,22 @@ def create_seed_model(working_dir, building_type, climate_zone, vintage)
   return new_osm_path, new_epw_path
 end
 
-def prepare_single_osw(seed_osm_path, epw_path, measures_dir, osw_path)
+def prepare_single_osw(seed_osm_path, epw_path, measures_dir, osw_path, scenario)
   # Prepare OSW to add dynamic occupancy, lighting, MELs schedules.
   osw_dir = File.dirname(osw_path)
   unless File.directory?(osw_dir)
     FileUtils.mkdir_p(osw_dir)
   end
+
   osw_str =
-      %({
+  %({
     "weather_file": "#{epw_path}",
     "seed_file": "#{seed_osm_path}",
     "measure_paths": [
-        "#{measures_dir}"
+      "#{measures_dir}"
     ],
-    "steps": [
-        {"measure_dir_name":"AddRooftopPV","arguments":{"fraction_of_surface":0.75, "cell_efficiency":0.18, "inverter_efficiency":0.98}},
-        {"measure_dir_name":"AddEVLoad","arguments":{"delay_type":"Max Delay","charge_behavior":"Free Workplace Charging at Project Site","chg_station_type":"Typical Work"}},
-
-        {"measure_dir_name":"AddOutputVariable","arguments":{"variable_name":"Generator Produced DC Electric Energy","key_value":"*","reporting_frequency":"timestep"}},
-        {"measure_dir_name":"AddOutputVariable","arguments":{"variable_name":"Generator Produced DC Electric Power","key_value":"*","reporting_frequency":"timestep"}},
-        {"measure_dir_name":"AddOutputVariable","arguments":{"variable_name":"Facility Net Purchased Electric Energy","key_value":"*","reporting_frequency":"timestep"}},
-
-        {"measure_dir_name":"AddMeter","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"timestep"}},
-        {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"timestep"}},
-        {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"timestep"}},
-
-        {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"Generator Produced DC Electric Energy","reporting_frequency":"Zone Timestep"}},
-        {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"Generator Produced DC Electric Power","reporting_frequency":"Zone Timestep"}},
-        {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
-        {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"Facility Net Purchased Electric Energy","reporting_frequency":"Zone Timestep"}},
-
-        {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
-        {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"Zone Timestep"}},
-        {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"Zone Timestep"}}
-    ]
-})
+    "steps": [#{get_steps(scenario)}]
+  })
 
   f = File.new(osw_path, "w")
   f.write(osw_str)
@@ -114,7 +99,8 @@ end
 
 
 # --------------------------------- main loop -------------------------------- #
-
+bldg_type = 'SmallOffice'
+# bldg_type = 'MediumOfficeDetailed'
 
 climate_zones = [
   'ASHRAE 169-2006-1A',
@@ -133,32 +119,38 @@ climate_zones = [
   'ASHRAE 169-2006-7A',
   'ASHRAE 169-2006-8A',
 ]
+# measure_steps 
+scenario = 'baseline'
+scenario = 'baseline+pv'
+scenario = 'baseline+pv+ev'
+scenario = 'baseline+dynamic_dr' # doesn't work
+scenario = 'baseline+ST_adjust_steps'
+scenario = 'baseline+pre_cond_steps'
 
+# Desktop
 dir_workflows = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/EF_PV_generation/workflows_pv_ev'
 measures_dir = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/OS_Measures'
+
+# Z8
+dir_workflows = "G:/SDI/FY22_EF/EnergyFlexibilityOntology/example/case_study_1/EF_sim/workflows_#{bldg_type}_#{scenario}"
+measures_dir = 'G:/SDI/FY22_EF/EnergyFlexibilityOntology/example/case_study_1/OS_Measures'
+
 arr_osw_paths = []
-
-bldg_type = 'SmallOffice'
-
 climate_zones.each do |clm|
   seed_osm, seed_epw = create_seed_model('./', bldg_type, clm, '90.1-2013')
   osw_path = File.join(dir_workflows, clm, "#{clm}.osw")
-  prepare_single_osw(seed_osm, seed_epw, measures_dir, osw_path)
+  prepare_single_osw(seed_osm, seed_epw, measures_dir, osw_path, scenario)
   arr_osw_paths << osw_path
 end
 
-File.open("small_office_pv_ev_osws.txt", "w+") do |f|
+File.open("#{bldg_type}_#{scenario}_osws.txt", "w+") do |f|
   arr_osw_paths.each { |element| f.puts("\"#{element}\"") }
 end
 
 
-run_osws('os291', arr_osw_paths, 3)
+# Read OSW order from text file and run 
 
-# ---------------------------------- archive --------------------------------- #
-# osm_path = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/seed/SmallOffice_90.1-2013_1A.osm'
-# epw_path = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/seed/SmallOffice_90.1-2013_1A.epw'
-# measures_dir = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/OS_Measures'
-# osw_path = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/EF_PV_generation/workflows/w_pv/w_pv.osw'
-# osw_path = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/EF_PV_generation/workflows/wo_pv/wo_pv.osw'
-# prepare_single_osw(seed_osm, seed_epw, measures_dir, osw_path)
+run_osws('os291', arr_osw_paths, 8)
+
+
 

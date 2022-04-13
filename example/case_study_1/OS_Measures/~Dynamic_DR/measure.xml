@@ -1,0 +1,246 @@
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>dynamic_dr</name>
+  <uid>5162e186-08f9-406b-9273-b57777f22c98</uid>
+  <version_id>5eb627d3-775d-49f8-ba5c-5c645e593bcb</version_id>
+  <version_modified>20210622T201344Z</version_modified>
+  <xml_checksum>FC9586A7</xml_checksum>
+  <class_name>DynamicDR</class_name>
+  <display_name>Dynamic DR</display_name>
+  <description>This measure implements demand flexibility measures, including lighting, plugloads, cooling, and heating, for Summer, Winter, and All year. Lighting and plugloads measures are applicable in all three scenarios, while cooling and heating are applicable only in the Summer scenario and Winter scenario, respectively.In the Summer scenario, as for example, four individual flexibility strategies, which are applied during the DR event hours of 3-7 PM include 1) lighting dimming, 2) plug load reduction through low-priority device switching, 3) global temperature adjustment (GTA), and 4) GTA + pre-cooling. The reductions are generated using a continuous uniform dbutions bounded from 0 to 100%, adjustment settings for GTA and pre-cooling are generated using a discrete uniform distribution; GTA cooling set point increases during the DR period are sampled between the range of 1F and 6F, while pre-cooling set point decreases are sampled between the range of 1F and 4F with the duration from 1 hour to 8 hours prior to the DR event start. The adjustments are applied on the baseline hourly settings using a Compact:Schedule to maintain the same Design Days settings as those in the baseline.</description>
+  <modeler_description>File:measure.rb, resources/original_schedule.csv, resources/ScheduleGenerator.rb. There are two steps to implement the measure. First, a modeler generates an hourly baseline schedule of the interest by running the model. A previously generated schedule is also available in the resources/original_schedule.csv. The selected schedules are available for three building types (medium office detailed, large office detailed, and retail stand alone) in two vintages (post-1980 and 2010) and a big box retail model in 2010 vintage. The big box retail model is only available in an EnergyPlus model, which this measure is not applicable. Second, a modeler loads the model and runs the measure by selecting "Apply Measure Now" under the menu "Components &amp; Measure" in the top bar of OpenStudio GUI. The measure is located under "Whole Building" >> "Whole Building Schedules".</modeler_description>
+  <arguments>
+    <argument>
+      <name>buildingType</name>
+      <display_name>Select the building type</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>Retail Standalone</default_value>
+      <choices>
+        <choice>
+          <value>Large Office Detailed</value>
+          <display_name>Large Office Detailed</display_name>
+        </choice>
+        <choice>
+          <value>Medium Office Detailed</value>
+          <display_name>Medium Office Detailed</display_name>
+        </choice>
+        <choice>
+          <value>Retail Standalone</value>
+          <display_name>Retail Standalone</display_name>
+        </choice>
+        <choice>
+          <value>Big Box Retail</value>
+          <display_name>Big Box Retail</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>vintage</name>
+      <display_name>Select the vintage</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>2010</default_value>
+      <choices>
+        <choice>
+          <value>Post-1980</value>
+          <display_name>Post-1980</display_name>
+        </choice>
+        <choice>
+          <value>2010</value>
+          <display_name>2010</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>drPeriod</name>
+      <display_name>Select the period</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>All year</default_value>
+      <choices>
+        <choice>
+          <value>All year</value>
+          <display_name>All year</display_name>
+        </choice>
+        <choice>
+          <value>Summer</value>
+          <display_name>Summer</display_name>
+        </choice>
+        <choice>
+          <value>Winter</value>
+          <display_name>Winter</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>drType</name>
+      <display_name>Select the demand response type</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>Lighting</default_value>
+      <choices>
+        <choice>
+          <value>Lighting</value>
+          <display_name>Lighting</display_name>
+        </choice>
+        <choice>
+          <value>Plug loads</value>
+          <display_name>Plug loads</display_name>
+        </choice>
+        <choice>
+          <value>Summer GTA</value>
+          <display_name>Summer GTA</display_name>
+        </choice>
+        <choice>
+          <value>Pre-cool and Summer GTA</value>
+          <display_name>Pre-cool and Summer GTA</display_name>
+        </choice>
+        <choice>
+          <value>Winter GTA</value>
+          <display_name>Winter GTA</display_name>
+        </choice>
+        <choice>
+          <value>Pre-heat and Winter GTA</value>
+          <display_name>Pre-heat and Winter GTA</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>schedule_old</name>
+      <display_name>Choose a schedule to be replaced.</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>*No Change*</default_value>
+      <choices>
+        <choice>
+          <value>{00000000-0000-0000-0000-000000000000}</value>
+          <display_name>*No Change*</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>usepredefined</name>
+      <display_name>Use pre-defined schedule?</display_name>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+  </arguments>
+  <outputs/>
+  <provenances/>
+  <tags>
+    <tag>Whole Building.Whole Building Schedules</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Apply Measure Now</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>OpenStudio Application</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Intended Software Tool</name>
+      <value>Parametric Analysis Tool</value>
+      <datatype>string</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>CD7F5672</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <filename>.gitkeep</filename>
+      <filetype>gitkeep</filetype>
+      <usage_type>doc</usage_type>
+      <checksum>00000000</checksum>
+    </file>
+    <file>
+      <filename>dynamic_dr_test.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>B178F019</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.9.1</identifier>
+        <min_compatible>2.9.1</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>3B688DC3</checksum>
+    </file>
+    <file>
+      <filename>RetailStandalone_1980-2004_4A.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>BFE35B0B</checksum>
+    </file>
+    <file>
+      <filename>RetailStandalone_2010_4A.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>66E76FAE</checksum>
+    </file>
+    <file>
+      <filename>my_schedule.csv</filename>
+      <filetype>csv</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>9B380395</checksum>
+    </file>
+    <file>
+      <filename>predefined_schedule.csv</filename>
+      <filetype>csv</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>6F16D0E9</checksum>
+    </file>
+    <file>
+      <filename>ScheduleGenerator.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>50E9B706</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>9FE67490</checksum>
+    </file>
+  </files>
+</measure>

@@ -1,0 +1,148 @@
+EnergyPlus Starting
+EnergyPlus, Version 8.9.0-eba93e8e1b, YMD=2018.07.12 10:19
+Initializing Response Factors
+Calculating CTFs for "BASEMENT FLOOR CONSTRUCTION", Construction # 1
+Calculating CTFs for "BASEMENT FLOOR CONSTRUCTION", Construction # 1
+Calculating CTFs for "BASEMENT WALL CONSTRUCTION", Construction # 2
+Calculating CTFs for "FLOOR ADIABATIC CONSTRUCTION", Construction # 3
+Calculating CTFs for "INTERIORFURNISHINGS", Construction # 4
+Calculating CTFs for "TYPICAL IEAD ROOF R-20.83", Construction # 5
+Calculating CTFs for "TYPICAL INSULATED EXTERIOR MASS WALL R-11.11", Construction # 9
+Calculating CTFs for "TYPICAL INTERIOR CEILING", Construction # 11
+Calculating CTFs for "TYPICAL INTERIOR WALL", Construction # 15
+Initializing Window Optical Properties
+Initializing Solar Calculations
+Allocate Solar Module Arrays
+Initializing Zone Report Variables
+Initializing Surface (Shading) Report Variables
+Determining Shadowing Combinations
+Computing Window Shade Absorption Factors
+Proceeding with Initializing Solar Calculations
+Initializing Surfaces
+Initializing Outdoor environment for Surfaces
+Setting up Surface Reporting Variables
+Initializing Temperature and Flux Histories
+Initializing Window Shading
+Computing Interior Absorption Factors
+Computing Interior Diffuse Solar Absorption Factors
+Computing Interior Diffuse Solar Exchange through Interzone Windows
+Initializing Solar Heat Gains
+Initializing Internal Heat Gains
+Initializing Interior Solar Distribution
+Initializing Interior Convection Coefficients
+Gathering Information for Predefined Reporting
+Completed Initializing Surface Heat Balance
+Calculate Outside Surface Heat Balance
+Calculate Inside Surface Heat Balance
+Calculate Air Heat Balance
+Initializing HVAC
+Warming up
+Calculating Detailed Daylighting Factors, Start Date=07/21
+Warming up
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #1 CHICAGO OHARE INTL AP ANN CLG .4% CONDNS DB=>MWB
+Warming up
+Calculating Detailed Daylighting Factors, Start Date=01/21
+Warming up
+Warming up
+Warming up
+Warming up
+Warming up
+Warming up
+Warming up
+Warming up
+Warming up
+Performing Zone Sizing Simulation
+...for Sizing Period: #2 CHICAGO OHARE INTL AP ANN HTG 99.6% CONDNS DB
+Calculating System sizing
+...for Sizing Period: #1 CHICAGO OHARE INTL AP ANN CLG .4% CONDNS DB=>MWB
+Calculating System sizing
+...for Sizing Period: #2 CHICAGO OHARE INTL AP ANN HTG 99.6% CONDNS DB
+Adjusting Air System Sizing
+Adjusting Standard 62.1 Ventilation Sizing
+Initializing Simulation
+Reporting Surfaces
+Beginning Primary Simulation
+Initializing New Environment Parameters
+Warming up {1}
+Calculating Detailed Daylighting Factors, Start Date=01/01
+Warming up {2}
+Warming up {3}
+Warming up {4}
+Warming up {5}
+Warming up {6}
+Warming up {7}
+Warming up {8}
+Warming up {9}
+Warming up {10}
+Warming up {11}
+Warming up {12}
+Warming up {13}
+Warming up {14}
+Warming up {15}
+Warming up {16}
+Warming up {17}
+Warming up {18}
+Warming up {19}
+Warming up {20}
+Starting Simulation at 01/01 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=01/21
+Updating Detailed Daylighting Factors, Start Date=01/21
+Continuing Simulation at 01/21 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=02/10
+Updating Detailed Daylighting Factors, Start Date=02/10
+Continuing Simulation at 02/10 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=03/02
+Updating Detailed Daylighting Factors, Start Date=03/02
+Continuing Simulation at 03/02 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=03/22
+Updating Detailed Daylighting Factors, Start Date=03/22
+Continuing Simulation at 03/22 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=04/11
+Updating Detailed Daylighting Factors, Start Date=04/11
+Continuing Simulation at 04/11 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=05/01
+Updating Detailed Daylighting Factors, Start Date=05/01
+Continuing Simulation at 05/01 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=05/21
+Updating Detailed Daylighting Factors, Start Date=05/21
+Continuing Simulation at 05/21 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=06/10
+Updating Detailed Daylighting Factors, Start Date=06/10
+Continuing Simulation at 06/10 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=06/30
+Updating Detailed Daylighting Factors, Start Date=06/30
+Continuing Simulation at 06/30 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=07/20
+Updating Detailed Daylighting Factors, Start Date=07/20
+Continuing Simulation at 07/20 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=08/09
+Updating Detailed Daylighting Factors, Start Date=08/09
+Continuing Simulation at 08/09 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=08/29
+Updating Detailed Daylighting Factors, Start Date=08/29
+Continuing Simulation at 08/29 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=09/18
+Updating Detailed Daylighting Factors, Start Date=09/18
+Continuing Simulation at 09/18 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=10/08
+Updating Detailed Daylighting Factors, Start Date=10/08
+Continuing Simulation at 10/08 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=10/28
+Updating Detailed Daylighting Factors, Start Date=10/28
+Continuing Simulation at 10/28 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=11/17
+Updating Detailed Daylighting Factors, Start Date=11/17
+Continuing Simulation at 11/17 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=12/07
+Updating Detailed Daylighting Factors, Start Date=12/07
+Continuing Simulation at 12/07 for RUN PERIOD 1
+Updating Shadowing Calculations, Start Date=12/27
+Updating Detailed Daylighting Factors, Start Date=12/27
+Continuing Simulation at 12/27 for RUN PERIOD 1
+Writing tabular output file results using HTML format.
+EnergyPlus Completed Successfully.
