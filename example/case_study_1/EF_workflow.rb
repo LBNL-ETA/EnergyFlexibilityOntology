@@ -121,11 +121,14 @@ climate_zones = [
 ]
 # measure_steps 
 scenario = 'baseline'
-scenario = 'baseline+pv'
-scenario = 'baseline+pv+ev'
-scenario = 'baseline+dynamic_dr' # doesn't work
-scenario = 'baseline+ST_adjust_steps'
-scenario = 'baseline+pre_cond_steps'
+# scenario = 'baseline+pv'
+# scenario = 'baseline+pv+ev'
+# scenario = 'baseline+dynamic_dr' # doesn't work
+# scenario = 'baseline+ST_adjust_steps'
+scenario = 'baseline+pre_cond'
+# scenario = 'baseline+dr_light_steps'
+# scenario = 'baseline+dr_mels_steps'
+# scenario = 'baseline+dr_light_mels_steps'
 
 # Desktop
 dir_workflows = 'D:/GitHub/EnergyFlexibilityOntology/example/local_exp/EF_PV_generation/workflows_pv_ev'

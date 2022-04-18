@@ -1,0 +1,207 @@
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>reduce_lighting_loads_by_percentage_and_time_period</name>
+  <uid>5d9d9cbb-ab98-4beb-b186-9e07d8350154</uid>
+  <version_id>c157690b-8310-437b-a3e7-fe59f5544bf2</version_id>
+  <version_modified>20191017T152408Z</version_modified>
+  <xml_checksum>293730A7</xml_checksum>
+  <class_name>ReduceLightingLoadsByPercentageAndTimePeriod</class_name>
+  <display_name>DR Lighting</display_name>
+  <description>This measure adjusts lighting loads by a user-specified percentage and a user-specified time period. This is applied to a specific space type or throughout the entire building.</description>
+  <modeler_description>This measure will clone all of the schedules that are used as lighting power setting for each zone. Then the schedules are adjusted by a specified percentage during a specified time period. If the measure is applied throughout the entire building, the reduction value can be separately defined based on whether this space type is occupied or not.</modeler_description>
+  <arguments>
+    <argument>
+      <name>space_type</name>
+      <display_name>Apply the Measure to a Specific Space Type or to the Entire Model.</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>*Entire Building*</default_value>
+      <choices>
+        <choice>
+          <value>{f5b19196-4b5b-4914-9fa6-f2ad5c381fc4}</value>
+          <display_name>*Entire Building*</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>occupied_space_type</name>
+      <display_name>Please fill in the lighting power reduction in No.1-2, if you chose the 'Entire Building'. Otherwise, please fill in the value in No.3.
+ 1.Lighting Power Reduction for Occupied Spaces (%).</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>30</default_value>
+    </argument>
+    <argument>
+      <name>unoccupied_space_type</name>
+      <display_name>2.Lighting Power Reduction for Unoccupied Spaces (%).</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>60</default_value>
+    </argument>
+    <argument>
+      <name>single_space_type</name>
+      <display_name>3.Lighting Power Reduction for the Selected Space Type (%).</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>30</default_value>
+    </argument>
+    <argument>
+      <name>starttime_winter1</name>
+      <display_name>Start Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>17:00:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_winter1</name>
+      <display_name>End Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>21:00:00</default_value>
+    </argument>
+    <argument>
+      <name>starttime_winter2</name>
+      <display_name>Start Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>17:00:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_winter2</name>
+      <display_name>End Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>21:00:00</default_value>
+    </argument>
+    <argument>
+      <name>starttime_summer</name>
+      <display_name>Start Time for the Reduction during the Special Schedule</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>16:00:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_summer</name>
+      <display_name>End Time for the Reduction during the Special Schedule</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>20:00:00</default_value>
+    </argument>
+    <argument>
+      <name>auto_date</name>
+      <display_name>Enable Climate-specific Periods Setting ?</display_name>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+  </arguments>
+  <outputs/>
+  <provenances/>
+  <tags>
+    <tag>Electric Lighting.Lighting Equipment</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Measure Function</name>
+      <value>Measure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Requires EnergyPlus Results</name>
+      <value>false</value>
+      <datatype>boolean</datatype>
+    </attribute>
+    <attribute>
+      <name>Uses SketchUp API</name>
+      <value>false</value>
+      <datatype>boolean</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>EC_QAQC.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>A0F6342F</checksum>
+    </file>
+    <file>
+      <filename>EnvelopeAndLoadTestModel_01.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>10AA8866</checksum>
+    </file>
+    <file>
+      <filename>EnvelopeAndLoadTestModel_01_FullyCosted.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>824A4C53</checksum>
+    </file>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>9640B6CB</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <filename>ReduceLightingLoadsByPercentageAndTimePeriod_Test.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>77694DB5</checksum>
+    </file>
+    <file>
+      <filename>desktop.ini</filename>
+      <filetype>ini</filetype>
+      <usage_type>test</usage_type>
+      <checksum>96A4B7E7</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>EA7EA243</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.0.0</identifier>
+        <min_compatible>2.0.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>A4DE3B24</checksum>
+    </file>
+  </files>
+</measure>

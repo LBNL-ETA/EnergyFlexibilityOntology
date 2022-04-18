@@ -45,8 +45,9 @@ $baseline_plus_pv_ev_steps = %(
   {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"Zone Timestep"}}
 )
 
-$baseline_plus_dynamic_dr_steps = %(
-  {"measure_dir_name":"~Dynamic_DR","arguments":{}},
+
+$baseline_dr_light_steps = %(
+  {"measure_dir_name":"DR_Lighting","arguments":{}},
   {"measure_dir_name":"AddOutputVariable","arguments":{"variable_name":"Facility Net Purchased Electric Energy","key_value":"*","reporting_frequency":"timestep"}},
   {"measure_dir_name":"AddMeter","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"timestep"}},
   {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"timestep"}},
@@ -56,7 +57,37 @@ $baseline_plus_dynamic_dr_steps = %(
   {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
   {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"Zone Timestep"}},
   {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"Zone Timestep"}}
-)
+  )
+
+$baseline_dr_mels_steps = %(
+  {"measure_dir_name":"DR_MELs","arguments":{}},
+  {"measure_dir_name":"AddOutputVariable","arguments":{"variable_name":"Facility Net Purchased Electric Energy","key_value":"*","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"AddMeter","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"Facility Net Purchased Electric Energy","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"Zone Timestep"}}
+  )
+
+
+$baseline_dr_light_mels_steps = %(
+  {"measure_dir_name":"DR_Lighting","arguments":{}},
+  {"measure_dir_name":"DR_MELs","arguments":{}},
+  {"measure_dir_name":"AddOutputVariable","arguments":{"variable_name":"Facility Net Purchased Electric Energy","key_value":"*","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"AddMeter","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"AddMeter","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"timestep"}},
+  {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportVariabletoCSV","arguments":{"variable_name":"Facility Net Purchased Electric Energy","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"CarbonEquivalentEmissions:Carbon Equivalent","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Electricity:Facility","reporting_frequency":"Zone Timestep"}},
+  {"measure_dir_name":"ExportMetertoCSV","arguments":{"meter_name":"Gas:Facility","reporting_frequency":"Zone Timestep"}}
+  )
+
+
 
 $baseline_plus_ST_adjust_steps = %(
   {"measure_dir_name":"~Adjust_Thermostat_Setpoints_by_Degrees_for_Specific_Time_Period","arguments":{}},
@@ -109,10 +140,16 @@ def get_steps(str_step)
     str_out = $baseline_plus_pv_ev_steps
   elsif str_step == 'baseline+dynamic_dr'
     str_out = $baseline_plus_dynamic_dr_steps
-  elsif str_step == 'baseline+ST_adjust_steps'
+  elsif str_step == 'baseline+ST_adjust'
     str_out = $baseline_plus_ST_adjust_steps
-  elsif str_step == 'baseline+pre_cond_steps'
+  elsif str_step == 'baseline+pre_cond'
     str_out = $baseline_plus_pre_cond_steps
+  elsif str_step == 'baseline+dr_light'
+    str_out = $baseline_dr_light_steps
+  elsif str_step == 'baseline+dr_mels'
+    str_out = $baseline_dr_mels_steps
+  elsif str_step == 'baseline+dr_light_mels'
+    str_out = $baseline_dr_light_mels_steps
   end
   return str_out 
 end
