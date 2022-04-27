@@ -44,6 +44,17 @@
         rdfs:range :FlexibleOperation .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#canBeModeledBy
+:canBeModeledBy rdf:type owl:ObjectProperty ;
+                owl:inverseOf :canModel ;
+                rdfs:domain :FlexibilityResources ;
+                rdfs:range :BEMObject .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#canModel
+:canModel rdf:type owl:ObjectProperty .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#enables
 :enables rdf:type owl:ObjectProperty ;
          owl:inverseOf :isEnabledBy ;
@@ -54,7 +65,7 @@
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasBEMVariable
 :hasBEMVariable rdf:type owl:ObjectProperty ;
                 rdfs:domain :Variable ;
-                rdfs:range :BEMVariable .
+                rdfs:range :BEMObject .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasCharacteristic
@@ -330,8 +341,8 @@ owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
             rdfs:subClassOf :OccupantCharacteristic .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BEMVariable
-:BEMVariable rdf:type owl:Class .
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BEMObject
+:BEMObject rdf:type owl:Class .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BatteryStorage
@@ -520,14 +531,19 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusMeter
 :EnergyPlusMeter rdf:type owl:Class ;
-                 rdfs:subClassOf :BEMVariable ;
+                 rdfs:subClassOf :EnergyPlusObject ;
                  <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus output variable name."^^xsd:string ;
                  <http://www.w3.org/2004/02/skos/core#note> "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#outputmeter-and-outputmetermeterfileonly"^^xsd:string .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusObject
+:EnergyPlusObject rdf:type owl:Class ;
+                  rdfs:subClassOf :BEMObject .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusVariable
 :EnergyPlusVariable rdf:type owl:Class ;
-                    rdfs:subClassOf :BEMVariable ;
+                    rdfs:subClassOf :EnergyPlusObject ;
                     <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus output variable name."^^xsd:string ;
                     <http://www.w3.org/2004/02/skos/core#note> "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#output-variabledictionary"^^xsd:string .
 
@@ -718,6 +734,11 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Office
 :Office rdf:type owl:Class ;
         rdfs:subClassOf :ActivityType .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OpenStudioObject
+:OpenStudioObject rdf:type owl:Class ;
+                  rdfs:subClassOf :BEMObject .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OperationCondition
@@ -1124,6 +1145,13 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                                                                                    "Fraction of heat that is stored during an ADR event, later used to reduce heating load power to maintain the thermal comfort."^^xsd:string .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricEquipment
+:ElectricEquipment rdf:type owl:NamedIndividual ,
+                            :EnergyPlusObject ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Electric equipment (MELs) in EnergyPlus"^^xsd:string ;
+                   <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#electricequipment"^^xsd:string .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyCostProfile
 :EnergyCostProfile rdf:type owl:NamedIndividual ,
                             :SerialValue ;
@@ -1205,6 +1233,11 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 :FlexibleLoadProfile rdf:type owl:NamedIndividual ,
                               :Variable ;
                      :isUnderCondition :Flexible .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator_Produced_DC_Electric_Energy
+:Generator_Produced_DC_Electric_Energy rdf:type owl:NamedIndividual ,
+                                                :EnergyPlusVariable .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GenericLoadProfile
@@ -1322,6 +1355,13 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                            :TemporalResolution .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Lights
+:Lights rdf:type owl:NamedIndividual ,
+                 :EnergyPlusObject ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Interior lights in EnergyPlus"^^xsd:string ;
+        <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#lights-000"^^xsd:string .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadCoveringRatio
 :LoadCoveringRatio rdf:type owl:NamedIndividual ,
                             :EnergyFlexibilityKPI ;
@@ -1403,6 +1443,13 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
         <http://www.w3.org/2004/02/skos/core#definition> "The level of details needed in modeling the energy system." .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MELs_power_reduction
+:MELs_power_reduction rdf:type owl:NamedIndividual ,
+                               :BehavioralLoadShaping ,
+                               :PowerAdjustableSystem ;
+                      :canBeModeledBy :ElectricEquipment .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Matlab
 :Matlab rdf:type owl:NamedIndividual ,
                  :Software .
@@ -1451,6 +1498,13 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                                       owl:sameAs :SelfConsumption ;
                                       :ofInterestTo :EnergyModeler ;
                                       :needsBaseline "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PVGenerationProfile
+:PVGenerationProfile rdf:type owl:NamedIndividual ,
+                              :SerialValue ,
+                              :Variable ;
+                     :hasBEMVariable :Generator_Produced_DC_Electric_Energy .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakGenerationRatio
@@ -1727,6 +1781,14 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
     rdfs:comment "killogram"^^xsd:string .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#lighting_power_reduction
+:lighting_power_reduction rdf:type owl:NamedIndividual ,
+                                   :BehavioralLoadShaping ,
+                                   :PowerAdjustableSystem ;
+                          :canBeModeledBy :Lights ,
+                                          :Exterior:Lights .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#max
 :max rdf:type owl:NamedIndividual ,
               :VectorOperation ;
@@ -1758,6 +1820,20 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 :percentage rdf:type owl:NamedIndividual ,
                      :UnitOfMeasure ;
             rdfs:comment "unitless percentage"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#pre_cooling
+:pre_cooling rdf:type owl:NamedIndividual ,
+                      :BehavioralLoadShaping ,
+                      :ThermallyActivatedBuildingSystem ;
+             :canBeModeledBy :ThermostatSetpoint:DualSetpoint .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#pre_heating
+:pre_heating rdf:type owl:NamedIndividual ,
+                      :BehavioralLoadShaping ,
+                      :ThermallyActivatedBuildingSystem ;
+             :canBeModeledBy :ThermostatSetpoint:DualSetpoint .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCost
@@ -1803,6 +1879,13 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#standardDeviation
 :standardDeviation rdf:type owl:NamedIndividual ,
                             :VectorOperation .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#temperature_setpoint_adjustment
+:temperature_setpoint_adjustment rdf:type owl:NamedIndividual ,
+                                          :BehavioralLoadShaping ,
+                                          :ThermallyActivatedBuildingSystem ;
+                                 :canBeModeledBy :ThermostatSetpoint:DualSetpoint .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#variable_speed_fan
@@ -1866,9 +1949,27 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
                            :EnergyPlusMeter .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Exterior:Lights
+:Exterior:Lights rdf:type owl:NamedIndividual ,
+                          :EnergyPlusObject ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Outdoor lighting object in EnergyPlus"^^xsd:string ;
+                 <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorlights"^^xsd:string .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Gas:Facility
 :Gas:Facility rdf:type owl:NamedIndividual ,
                        :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator:MicroCHP
+:Generator:MicroCHP rdf:type owl:NamedIndividual ,
+                             :EnergyPlusObject .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator:Photovoltaic
+:Generator:Photovoltaic rdf:type owl:NamedIndividual ,
+                                 :EnergyPlusObject ;
+                        <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-electric-load-center-generator.html#photovoltaic-generators"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Heating:Electricity
@@ -1889,6 +1990,19 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Pumps:Electricity
 :Pumps:Electricity rdf:type owl:NamedIndividual ,
                             :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SetpointManager:Scheduled
+:SetpointManager:Scheduled rdf:type owl:NamedIndividual ,
+                                    :EnergyPlusObject ;
+                           <http://www.w3.org/2004/02/skos/core#note> """Doc: 
+https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-setpoint-managers.html#setpointmanagerscheduled"""^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermostatSetpoint:DualSetpoint
+:ThermostatSetpoint:DualSetpoint rdf:type owl:NamedIndividual ,
+                                          :EnergyPlusObject ;
+                                 <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-zone-controls-thermostats.html#zone-thermostat-setpoints"^^xsd:string .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
