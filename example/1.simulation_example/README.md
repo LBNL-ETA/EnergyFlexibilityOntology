@@ -4,10 +4,16 @@ Traditionaly, BEM tools were designed to simulate building energy and thermal pe
 
 As a result, energy modelers who want to simulate energy flexibility need to understand which objects to modify in their models, extract the simulation results and compute the KPIs case-by-case, which can be tedious and error-prone. EFOnt can serve as an interface between energy modelers and BEM tools, which maps typical energy flexibility resources and related output variables with BEM objects. Figure 1 shows an example of such mapping. 
 
-<figure>
-<img src="../../resources/EFOnt_BEM_map_1.png" style="width:100%">
-<figcaption align = "center"><b>Figure 1. EFOnt for simulating Energy Flexibility with EnergyPlus objects</b></figcaption>
-</figure>
+
+<table align="center" border=0>
+  <tr>
+    <td><img src="../../resources/EFOnt_BEM_map_1.png" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td><figcaption align = "center"><b>Figure 1. EFOnt for simulating Energy Flexibility with EnergyPlus objects</b></figcaption></td>
+  </tr>
+</table>
+
 
 # Examples
 
@@ -40,28 +46,29 @@ The following two examples will demonstrate how EFOnt could help simulating and 
 
 
 ## Example 1 - EF with on-site PV generation and EV-charging
-In the first example, we show how EFOnt can help quantify the on-site PV utilization performance using two EF KPIs - Self-Sufficiency and Self-Consumption. As introduced, EFOnt maps energy flexibility resources with BEM objects. 
+In the first example, we show how EFOnt can help quantify the on-site PV utilization performance using two EF KPIs - Self-Sufficiency and Self-Consumption. As introduced, EFOnt maps energy flexibility resources with BEM objects. Figure 2 shows the flexibility resources defined in EFOnt and corresponding EnergyPlus objects to model PV generation and EV demand. Figure 3 shows the mapping between energy EnergyPlus outputs to KPI computation inputs.
 
-Figure 2 shows the flexibility resources defined in EFOnt and corresponding EnergyPlus objects to model PV generation and EV demand.
+<table align="center" border=0>
+  <tr>
+    <td><img alt="Light" src="../../resources/EFOnt_BEM_map_2.png" width="100%"></td>
+    <td><img alt="Light" src="../../resources/EFOnt_BEM_map_2.png" width="100%"></td>
+  </tr>
+  <tr>
+    <td><figcaption align = "center"><b>Figure 2. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption></td>
+    <td><figcaption align = "center"><b>Figure 3. EFOnt maps energy EnergyPlus outputs to KPI computation inputs</b></figcaption></td>
+  </tr>
+</table>
 
-<figure align="center">
-<img src="../../resources/EFOnt_BEM_map_2.png" style="width:60%">
-<figcaption align = "center"><b>Figure 2. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption>
-</figure>
+Figure 4 shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization.
 
-Figure 3 shows the mapping between energy EnergyPlus outputs to KPI computation inputs.
-
-<figure align="center">
-<img src="../../resources/EFOnt_BEM_map_3.png" style="width:60%">
-<figcaption align = "center"><b>Figure 3. EFOnt maps energy EnergyPlus outputs to KPI computation inputs</b></figcaption>
-</figure>
-
-
-Figure 4 shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization. 
-<figure align="center">
-<img src="../../resources/EFOnt_BEM_result_2.png" style="width:80%">
-<figcaption align = "center"><b>Figure 4. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
-</figure>
+<table align="center" border=0>
+  <tr>
+    <td><img src="../../resources/EFOnt_BEM_result_2.png" style="width:90%"></td>
+  </tr>
+  <tr>
+    <td><figcaption align = "center"><b>Figure 4. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+  </tr>
+</table>
 
 
 ## Example 2 - EF with peak reduction operations (pre-cooling and pre-heating, lighting and MELs reduction)
@@ -115,19 +122,29 @@ In the second example, we show how EFOnt can help simulating the peak power redu
 </table>
 
 
-Figure 5 shows how pre-cooling and pre-heating could be simulated with EnergyPlus. Other measures have similar logic, but are not shown for simplicity.  
-<figure align="center">
-<img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%">
-<figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
-</figure>
+Figure 5 shows how pre-cooling and pre-heating could be simulated with EnergyPlus. Other measures have similar logic, but are not shown for simplicity.
+
+<table align="center" border=0>
+  <tr>
+    <td><img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%"></td>
+  </tr>
+  <tr>
+    <td><figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+  </tr>
+</table>
 
 
 Figure 6 shows the simulated measures' influences on the monthly peak energy reduction and the rebound energy. Each box plot shows the range the reduced energy and rebound energy across 15 climate zones. Note that the temperature adjustment measures can reduce the peak demand but also come with rebound effects, while lighting and MELs power reduction measures have almost no rebound effect.
 
-<figure align="center">
-<img src="../../resources/EFOnt_BEM_result_3.png" style="width:100%">
-<figcaption align = "center"><b>Figure 6. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
-</figure>
+
+<table align="center" border=0>
+  <tr>
+    <td><img src="../../resources/EFOnt_BEM_result_3.png" style="width:100%"></td>
+  </tr>
+  <tr>
+    <td><figcaption align = "center"><b>Figure 6. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+  </tr>
+</table>
 
 
 # Notes
