@@ -13,7 +13,7 @@ As a result, energy modelers who want to simulate energy flexibility need to und
 
 The following two examples will demonstrate how EFOnt could help simulating and quantifying building energy flexibility in more details. Both examples used DOE prototype small office building models with OpenStudio and EnergyPlus. 15 climate zones were considered to show the geographical differences. Table 1 shows the geometry and basic information of the building.
 
-<table>
+<table align="center">
     <caption><b>Table 1. Model Description</b></caption>
     <thead>
         <tr>
@@ -42,23 +42,23 @@ The following two examples will demonstrate how EFOnt could help simulating and 
 ## Example 1 - EF with on-site PV generation and EV-charging
 In the first example, we show how EFOnt can help quantify the on-site PV utilization performance using two EF KPIs - Self-Sufficiency and Self-Consumption. As introduced, EFOnt maps energy flexibility resources with BEM objects. 
 
-<b>Figure 2</b> shows the flexibility resources defined in EFOnt and corresponding EnergyPlus objects to model PV generation and EV demand.
+Figure 2 shows the flexibility resources defined in EFOnt and corresponding EnergyPlus objects to model PV generation and EV demand.
 
-<figure>
+<figure align="center">
 <img src="../../resources/EFOnt_BEM_map_2.png" style="width:60%">
 <figcaption align = "center"><b>Figure 2. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption>
 </figure>
 
-<b>Figure 3</b> shows the mapping between energy EnergyPlus outputs to KPI computation inputs.
+Figure 3 shows the mapping between energy EnergyPlus outputs to KPI computation inputs.
 
-<figure>
+<figure align="center">
 <img src="../../resources/EFOnt_BEM_map_3.png" style="width:60%">
 <figcaption align = "center"><b>Figure 3. EFOnt maps energy EnergyPlus outputs to KPI computation inputs</b></figcaption>
 </figure>
 
 
-<b>Figure 4</b> shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization. 
-<figure>
+Figure 4 shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization. 
+<figure align="center">
 <img src="../../resources/EFOnt_BEM_result_2.png" style="width:80%">
 <figcaption align = "center"><b>Figure 4. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
 </figure>
@@ -68,7 +68,7 @@ In the first example, we show how EFOnt can help quantify the on-site PV utiliza
 
 In the second example, we show how EFOnt can help simulating the peak power reduction potential of several measures shown in Table 2.
 
-<table>
+<table align="center">
     <caption><b>Table 2. Peak Power Reduction Measures</b></caption>
     <thead>
         <tr>
@@ -115,18 +115,18 @@ In the second example, we show how EFOnt can help simulating the peak power redu
 </table>
 
 
-<b>Figure 5</b> shows how pre-cooling and pre-heating could be simulated with EnergyPlus. Other measures have similar logic, but are not shown for simplicity.  
-<figure>
+Figure 5 shows how pre-cooling and pre-heating could be simulated with EnergyPlus. Other measures have similar logic, but are not shown for simplicity.  
+<figure align="center">
 <img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%">
 <figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
 </figure>
 
 
-<b>Figure 6</b> shows the simulated measures' influences on the monthly peak energy reduction and the rebound energy. Each box plot shows the range the reduced energy and rebound energy across 15 climate zones. Note that the temperature adjustment measures can reduce the peak demand but also come with rebound effects, while lighting and MELs power reduction measures have almost no rebound effect.
+Figure 6 shows the simulated measures' influences on the monthly peak energy reduction and the rebound energy. Each box plot shows the range the reduced energy and rebound energy across 15 climate zones. Note that the temperature adjustment measures can reduce the peak demand but also come with rebound effects, while lighting and MELs power reduction measures have almost no rebound effect.
 
-<figure>
-<img src="../../resources/EFOnt_BEM_result_3.png" style="width:80%">
-<figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
+<figure align="center">
+<img src="../../resources/EFOnt_BEM_result_3.png" style="width:100%">
+<figcaption align = "center"><b>Figure 6. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
 </figure>
 
 
