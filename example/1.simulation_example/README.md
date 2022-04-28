@@ -64,15 +64,74 @@ In the first example, we show how EFOnt can help quantify the on-site PV utiliza
 </figure>
 
 
-
-
-
-
 ## Example 2 - EF with peak reduction operations (pre-cooling and pre-heating, lighting and MELs reduction)
 
-![](sim_case_building.png)
-![](sim_case_precond_objects.png)
-![](sim_case_peak_reduction_results_1.png)
-![](sim_case_peak_reduction_results_2.png)
+In the second example, we show how EFOnt can help simulating the peak power reduction potential of several measures shown in Table 2.
+
+<table>
+    <caption><b>Table 2. Peak Power Reduction Measures</b></caption>
+    <thead>
+        <tr>
+            <th>Measure Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Temperature setpoint adjustment
+            </td>
+            <td><ul>
+                <li>Increase cooling setpoint by 2 degF between 13 ~ 16pm</li>
+                <li>Decrease heating setpoint by 2 degF between 13 ~ 16pm</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td>
+                Pre-heating and Pre-cooling
+            </td>
+            <td><ul>
+                <li>Pre-heating increase the cooling setpoint by 2 degF between 7am and 11am</li>
+                <li>Pre-cooling lower the cooling setpoint by 2 degF between 7am and 11am</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td>
+                Lighting power adjustment
+            </td>
+            <td><ul>
+                <li>Reduce lighting power by 60% for unoccupied and 30% for occupied zones</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td>
+                MELs power adjustment
+            </td>
+            <td><ul>
+                <li>Reduce lighting power by 80% for unoccupied and 20% for occupied zones</li>
+            </ul></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<b>Figure 5</b> shows how pre-cooling and pre-heating could be simulated with EnergyPlus. Other measures have similar logic, but are not shown for simplicity.  
+<figure>
+<img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%">
+<figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
+</figure>
+
+
+<b>Figure 6</b> shows the simulated measures' influences on the monthly peak energy reduction and the rebound energy. Each box plot shows the range the reduced energy and rebound energy across 15 climate zones. Note that the temperature adjustment measures can reduce the peak demand but also come with rebound effects, while lighting and MELs power reduction measures have almost no rebound effect.
+
+<figure>
+<img src="../../resources/EFOnt_BEM_result_3.png" style="width:80%">
+<figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
+</figure>
+
+
+# Notes
+
+The two examples demonstrate how EFOnt can help simulating building energy flexibility by (1) mapping the flexibility resources with BEM objects, (2) mapping the BEM outputs with EF KPIs, and (3) providing a reference of calculating the EF KPIs. Althogh the case studies were done manually, there are potentials to automate this process by integrating the semantic ontology with BEM tools. An option is to develop intermediate software tools (e.g., OpenStudio measures) that could read BEM models and EFOnt, and prepare the whole simulation workflow.
 
 
