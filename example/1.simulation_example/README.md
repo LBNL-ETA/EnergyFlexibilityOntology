@@ -45,15 +45,22 @@ In the first example, we show how EFOnt can help quantify the on-site PV utiliza
 <b>Figure 2</b> shows the flexibility resources defined in EFOnt and corresponding EnergyPlus objects to model PV generation and EV demand.
 
 <figure>
-<img src="../../resources/EFOnt_BEM_map_2.png" style="width:100%">
+<img src="../../resources/EFOnt_BEM_map_2.png" style="width:60%">
 <figcaption align = "center"><b>Figure 2. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption>
 </figure>
 
-<b>Figure 3</b> maps the energy EnergyPlus outputs to KPI computation inputs.
+<b>Figure 3</b> shows the mapping between energy EnergyPlus outputs to KPI computation inputs.
 
 <figure>
-<img src="../../resources/EFOnt_BEM_map_3.png" style="width:100%">
+<img src="../../resources/EFOnt_BEM_map_3.png" style="width:60%">
 <figcaption align = "center"><b>Figure 3. EFOnt maps energy EnergyPlus outputs to KPI computation inputs</b></figcaption>
+</figure>
+
+
+<b>Figure 4</b> shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization. 
+<figure>
+<img src="../../resources/EFOnt_BEM_result_2.png" style="width:80%">
+<figcaption align = "center"><b>Figure 4. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption>
 </figure>
 
 
