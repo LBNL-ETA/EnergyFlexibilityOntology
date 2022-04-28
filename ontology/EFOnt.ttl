@@ -345,11 +345,6 @@ owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
 :BEMObject rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BatteryStorage
-:BatteryStorage rdf:type owl:Class ;
-                rdfs:subClassOf :ElectricityStorage .
-
-
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BehavioralLoadShaping
 :BehavioralLoadShaping rdf:type owl:Class ;
                        rdfs:subClassOf :FlexibilityResources ;
@@ -489,11 +484,6 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
               rdfs:subClassOf :PerformanceGoal .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricVehicle
-:ElectricVehicle rdf:type owl:Class ;
-                 rdfs:subClassOf :ElectricityStorage .
-
-
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricityStorage
 :ElectricityStorage rdf:type owl:Class ;
                     rdfs:subClassOf :ActiveEnergyStorageFacility .
@@ -574,13 +564,6 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibleOperation
 :FlexibleOperation rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flywheel
-:Flywheel rdf:type owl:Class ;
-          rdfs:subClassOf :ElectricityStorage ;
-          <http://www.w3.org/2004/02/skos/core#definition> """Flywheel energy storage (FES) works by accelerating a rotor (flywheel) to a very high speed and maintaining the energy in the system as rotational energy. When energy is extracted from the system, the flywheel's rotational speed is reduced as a consequence of the principle of conservation of energy; adding energy to the system correspondingly results in an increase in the speed of the flywheel.
-https://en.wikipedia.org/wiki/Flywheel_energy_storage""" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Formula
@@ -946,13 +929,6 @@ Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Buil
                 rdfs:subClassOf :MathOpertion .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UninterruptiblePowerSupply
-:UninterruptiblePowerSupply rdf:type owl:Class ;
-                            rdfs:subClassOf :ElectricityStorage ;
-                            <http://www.w3.org/2004/02/skos/core#definition> """An uninterruptible power supply or uninterruptible power source (UPS) is an electrical apparatus that provides emergency power to a load when the input power source or mains power fails. The on-battery run-time of most uninterruptible power sources is relatively short (only a few minutes) but sufficient to start a standby power source or properly shut down the protected equipment. It is a type of continual power system.
-https://en.wikipedia.org/wiki/Uninterruptible_power_supply""" .
-
-
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnitOfMeasure
 :UnitOfMeasure rdf:type owl:Class .
 
@@ -1012,6 +988,11 @@ https://en.wikipedia.org/wiki/Uninterruptible_power_supply""" .
                      :hasBEMVariable :Electricity:Facility ,
                                      :Gas:Facility ;
                      :isUnderCondition :Baseline .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BatteryStorage
+:BatteryStorage rdf:type owl:NamedIndividual ,
+                         :ElectricityStorage .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingDesigner
@@ -1152,6 +1133,12 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                    <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#electricequipment"^^xsd:string .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricVehicle
+:ElectricVehicle rdf:type owl:NamedIndividual ,
+                          :ElectricityStorage ;
+                 :canBeModeledBy :Exterior:FuelEquipment .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyCostProfile
 :EnergyCostProfile rdf:type owl:NamedIndividual ,
                             :SerialValue ;
@@ -1233,6 +1220,11 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 :FlexibleLoadProfile rdf:type owl:NamedIndividual ,
                               :Variable ;
                      :isUnderCondition :Flexible .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flywheel
+:Flywheel rdf:type owl:NamedIndividual ,
+                   :ElectricityStorage .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator_Produced_DC_Electric_Energy
@@ -1575,6 +1567,12 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                :isUnderCondition :UnspecifiedCondition .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Photovoltaic
+:Photovoltaic rdf:type owl:NamedIndividual ,
+                       :EnergyGenerator ;
+              :canBeModeledBy :Generator:Photovoltaic .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PowerDemandProfile
 :PowerDemandProfile rdf:type owl:NamedIndividual ,
                              :SerialValue ,
@@ -1684,6 +1682,11 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TRNSYS
 :TRNSYS rdf:type owl:NamedIndividual ,
                  :Software .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UninterruptiblePowerSupply
+:UninterruptiblePowerSupply rdf:type owl:NamedIndividual ,
+                                     :ElectricityStorage .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnspecifiedCondition
@@ -1947,6 +1950,13 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Electricity:HVAC
 :Electricity:HVAC rdf:type owl:NamedIndividual ,
                            :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Exterior:FuelEquipment
+:Exterior:FuelEquipment rdf:type owl:NamedIndividual ,
+                                 :EnergyPlusObject ;
+                        rdfs:comment "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorfuelequipment"^^xsd:string ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus object to model EV charging demand"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Exterior:Lights
