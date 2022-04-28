@@ -18,16 +18,34 @@ In the following example, we show how EFOnt can help quantify energy flexibility
   </tr>
 </table>
 
-FF needs the system runtime profile and DR event start and end timestamps. Figure 1 shows how EFOnt defines the KPI and acronym, specifies the required data, performance goals, and stakeholders who might be interested  (left). It also shows how the specified inputs are used in the calculation (right). In this particular day, the purple dash line indicates the cooling system (compressor) runtime, the black dashline shows the cooling setpoint temperature, the green line shows the room air temperature, and the pink shaded area indicates the DR event. It can be seen that the cooling setpoint temperature was raised from around 74.2 °F to 78 °F as the DR event started, the system paused running, and the room air temperature gradually increased. Since most the cooling system almost didn't operate during the DR event, its FF was 0.983.
+FF needs the system runtime profile and DR event start and end timestamps. Figure 1 shows how EFOnt defines the KPI and acronym, specifies the required data, performance goals, and stakeholders who might be interested  (left). It also shows how the specified inputs are used in the calculation (right). In this particular day, the purple dash line indicates the cooling system (compressor) runtime, the black dash line shows the cooling setpoint temperature, the green line shows the room air temperature, and the pink shaded area indicates the DR event. It can be seen that the cooling setpoint temperature was raised from around 74.2 °F to 78 °F as the DR event started, the system paused running, and the room air temperature gradually increased. Since most the cooling system almost didn't operate during the DR event, its FF was 0.983.
 
 <table align="center" border=0>
   <tr>
     <td align="center"><img src="../../resources/EFOnt_FF_example.png" style="width:100%"></td>
   </tr>
   <tr>
-    <td><figcaption><b>Figure 1. Flexibility Factor example</b></figcaption></td>
+    <td align="center"><figcaption><b>Figure 1. Flexibility Factor example</b></figcaption></td>
   </tr>
 </table>
 
 
-# Notes
+# Other Potential Use Cases
+
+EFOnt is based on semantic web framework, which means it is compatible with many other existing ontologies in the broad building, energy, and IoT fields. For example, Brick schema provides standardized semantic description of physical, logical and virtual assets in buildings [2], and can be seamlessly integrated with other tools and databases for data query and analytics [3]. For energy flexibility analytics, EFOnt can provide instructions on which sensors and meters to query, and how to calculate quantify energy flexibility with the queried data. Figure 2 shows conceptually how EFOnt can be supplementary to Brick for energy flexibility analytics using measurements.
+
+<table align="center" border=0>
+  <tr>
+    <td align="center"><img src="../../resources/EFOnt_use_case.png" style="width:80%"></td>
+  </tr>
+  <tr>
+    <td align="center"><figcaption><b>Figure 2. Schematics of how EFOnt + Brick for energy flexibility analytics</b></figcaption></td>
+  </tr>
+</table>
+
+## References
+[1] 2022. EcoBee Donate Your Data Program. Available at: <https://www.ecobee.com/donate-your-data/> [Accessed 26 April 2022].
+
+[2] Balaji, B., Bhattacharya, A., Fierro, G., Gao, J., Gluck, J., Hong, D., ... & Whitehouse, K. (2016, November). [Brick: Towards a unified metadata schema for buildings](https://dl.acm.org/doi/abs/10.1145/2993422.2993577). In Proceedings of the 3rd ACM International Conference on Systems for Energy-Efficient Built Environments (pp. 41-50).
+
+[3] Fierro, G., Pritoni, M., AbdelBaky, M., Lengyel, D., Leyden, J., Prakash, A., ... & Culler, D. E. (2019). [Mortar: an open testbed for portable building analytics](https://dl.acm.org/doi/abs/10.1145/3366375). ACM Transactions on Sensor Networks (TOSN), 16(1), 1-31.

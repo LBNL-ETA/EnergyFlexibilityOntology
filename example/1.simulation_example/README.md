@@ -10,7 +10,7 @@ As a result, energy modelers who want to simulate energy flexibility need to und
     <td><img src="../../resources/EFOnt_BEM_map_1.png" style="width:100%"></td>
   </tr>
   <tr>
-    <td><figcaption align = "center"><b>Figure 1. EFOnt for simulating Energy Flexibility with EnergyPlus objects</b></figcaption></td>
+    <td align="center"><figcaption align = "center"><b>Figure 1. EFOnt for simulating Energy Flexibility with EnergyPlus objects</b></figcaption></td>
   </tr>
 </table>
 
@@ -66,7 +66,7 @@ Figure 4 shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in t
     <td><img src="../../resources/EFOnt_BEM_result_2.png" style="width:90%"></td>
   </tr>
   <tr>
-    <td><figcaption align = "center"><b>Figure 4. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+    <td align="center"><figcaption align = "center"><b>Figure 4. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
   </tr>
 </table>
 
@@ -129,7 +129,7 @@ Figure 5 shows how pre-cooling and pre-heating could be simulated with EnergyPlu
     <td><img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%"></td>
   </tr>
   <tr>
-    <td><figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+    <td align="center"><figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
   </tr>
 </table>
 
@@ -142,7 +142,7 @@ Figure 6 shows the simulated measures' influences on the monthly peak energy red
     <td><img src="../../resources/EFOnt_BEM_result_3.png" style="width:100%"></td>
   </tr>
   <tr>
-    <td><figcaption align = "center"><b>Figure 6. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+    <td align="center"><figcaption align = "center"><b>Figure 6. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
   </tr>
 </table>
 
