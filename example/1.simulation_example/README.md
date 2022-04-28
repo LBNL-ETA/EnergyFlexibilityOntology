@@ -19,8 +19,8 @@ As a result, energy modelers who want to simulate energy flexibility need to und
 
 The following two examples will demonstrate how EFOnt could help simulating and quantifying building energy flexibility in more details. Both examples used DOE prototype small office building models with OpenStudio and EnergyPlus. 15 climate zones were considered to show the geographical differences. Table 1 shows the geometry and basic information of the building.
 
+<p align="center"><b>Table 1. Model Description</b></p>
 <table align="center">
-    <caption align="center"><b>Table 1. Model Description</b></caption>
     <thead>
         <tr>
             <th>Building Geometry</th>
@@ -75,8 +75,8 @@ Figure 4 shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in t
 
 In the second example, we show how EFOnt can help simulating the peak power reduction potential of several measures shown in Table 2.
 
+<p align="center"><b>Table 2. Peak Power Reduction Measures</b></p>
 <table align="center">
-    <caption align="center"><b>Table 2. Peak Power Reduction Measures</b></caption>
     <thead>
         <tr>
             <th>Measure Name</th>
@@ -126,7 +126,7 @@ Figure 5 shows how pre-cooling and pre-heating could be simulated with EnergyPlu
 
 <table align="center" border=0>
   <tr>
-    <td><img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%"></td>
+    <td align="center"><img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%"></td>
   </tr>
   <tr>
     <td align="center"><figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
