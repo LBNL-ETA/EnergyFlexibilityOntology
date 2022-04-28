@@ -6,7 +6,7 @@ As a result, energy modelers who want to simulate energy flexibility need to und
 
 <figure>
 <img src="../../resources/EFOnt_BEM_map_1.png" style="width:100%">
-<figcaption align = "center"><b>Figure 1. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption>
+<figcaption align = "center"><b>Figure 1. EFOnt for simulating Energy Flexibility with EnergyPlus objects</b></figcaption>
 </figure>
 
 # Examples
@@ -39,12 +39,27 @@ The following two examples will demonstrate how EFOnt could help simulating and 
 </table>
 
 
-## Example 1 - EF with on-site PV generation
-In the first example, we show how EFOnt can help quantify the on-site PV utilization performance using two EF KPIs - Self-Sufficiency and Self-Consumption. 
-![](sim_case_building.png)
-![](sim_case_PV_objects.png)
-![](sim_case_PV_results_1.png)
-![](sim_case_PV_results_2.png)
+## Example 1 - EF with on-site PV generation and EV-charging
+In the first example, we show how EFOnt can help quantify the on-site PV utilization performance using two EF KPIs - Self-Sufficiency and Self-Consumption. As introduced, EFOnt maps energy flexibility resources with BEM objects. 
+
+<b>Figure 2</b> shows the flexibility resources defined in EFOnt and corresponding EnergyPlus objects to model PV generation and EV demand.
+
+<figure>
+<img src="../../resources/EFOnt_BEM_map_2.png" style="width:100%">
+<figcaption align = "center"><b>Figure 2. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption>
+</figure>
+
+<b>Figure 3</b> maps the energy EnergyPlus outputs to KPI computation inputs.
+
+<figure>
+<img src="../../resources/EFOnt_BEM_map_3.png" style="width:100%">
+<figcaption align = "center"><b>Figure 3. EFOnt maps energy EnergyPlus outputs to KPI computation inputs</b></figcaption>
+</figure>
+
+
+
+
+
 
 ## Example 2 - EF with peak reduction operations (pre-cooling and pre-heating, lighting and MELs reduction)
 
