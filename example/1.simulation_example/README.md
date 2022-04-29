@@ -129,7 +129,7 @@ Figure 5 shows how pre-cooling and pre-heating could be simulated with EnergyPlu
     <td align="center"><img src="../../resources/EFOnt_BEM_map_4.png" style="width:80%"></td>
   </tr>
   <tr>
-    <td align="center"><figcaption align = "center"><b>Figure 5. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+    <td align="center"><figcaption align = "center"><b>Figure 5. How EFOnt can help simulating peak power reduction measures</b></figcaption></td>
   </tr>
 </table>
 
@@ -142,7 +142,7 @@ Figure 6 shows the simulated measures' influences on the monthly peak energy red
     <td><img src="../../resources/EFOnt_BEM_result_3.png" style="width:100%"></td>
   </tr>
   <tr>
-    <td align="center"><figcaption align = "center"><b>Figure 6. Simulated PV Self-Sufficiency results and how EFOnt helped the calculation</b></figcaption></td>
+    <td align="center"><figcaption align = "center"><b>Figure 6. Simulated peak reductions by measures</b></figcaption></td>
   </tr>
 </table>
 
