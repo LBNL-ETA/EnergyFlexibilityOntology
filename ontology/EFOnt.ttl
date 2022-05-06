@@ -12,6 +12,14 @@
 #    Annotation properties
 #################################################################
 
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/date
+<http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
 
@@ -1143,6 +1151,20 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                      :Software .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Facility_Net_Purchased_Electric_Energy
+:Facility_Net_Purchased_Electric_Energy rdf:type owl:NamedIndividual ,
+                                                 :EnergyPlusVariable ;
+                                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                                        <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:52:37Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Facility_Total_Produced_Electric_Power
+:Facility_Total_Produced_Electric_Power rdf:type owl:NamedIndividual ,
+                                                 :EnergyPlusVariable ;
+                                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                                        <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:52:02Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Fan_Electric_Power
 :Fan_Electric_Power rdf:type owl:NamedIndividual ,
                              :EnergyPlusVariable .
@@ -1864,6 +1886,20 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Electricity:HVAC
 :Electricity:HVAC rdf:type owl:NamedIndividual ,
                            :EnergyPlusMeter .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricityProduced:Facility
+:ElectricityProduced:Facility rdf:type owl:NamedIndividual ,
+                                       :EnergyPlusMeter ;
+                              <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                              <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:53:31Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricityPurchased:Facility
+:ElectricityPurchased:Facility rdf:type owl:NamedIndividual ,
+                                        :EnergyPlusMeter ;
+                               <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                               <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:53:08Z"^^xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Gas:Facility
