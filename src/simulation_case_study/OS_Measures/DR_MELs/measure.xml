@@ -1,0 +1,201 @@
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>reduce_electric_equipment_loads_by_percentage_and_time_period</name>
+  <uid>9c52e90b-5b2b-4afb-abc5-0d26b99412da</uid>
+  <version_id>ee25245d-14a9-44ad-88eb-862568c37ab3</version_id>
+  <version_modified>20191017T042031Z</version_modified>
+  <xml_checksum>F9A5B8F0</xml_checksum>
+  <class_name>ReduceElectricEquipmentLoadsByPercentageAndTimePeriod</class_name>
+  <display_name>DR MELs</display_name>
+  <description>This measure adjusts electric equipment loads by a user-specified percentage and a user-specified time period. This is applied to a specific space type or throughout the entire building.</description>
+  <modeler_description>This measure will clone all of the schedules that are used as electric equipment power setting for each zone. Then the schedules are adjusted by a specified percentage during a specified time period. If the measure is applied throughout the entire building, the reduction value can be separately defined based on whether this space type is occupied or not.</modeler_description>
+  <arguments>
+    <argument>
+      <name>space_type</name>
+      <display_name>Apply the Measure to a Specific Space Type or to the Entire Model.</display_name>
+      <type>Choice</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>*Entire Building*</default_value>
+      <choices>
+        <choice>
+          <value>{e2658972-4b7a-4e6c-a64e-c575a5b1fe0d}</value>
+          <display_name>*Entire Building*</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>occupied_space_type</name>
+      <display_name>Please fill in the equipment loads reduction in No.1-2, if you chose the 'Entire Building'. Otherwise, please fill in the value in No.3.
+ 1.Electric Equipment Loads Reduction for occupied spaces (%).</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>20</default_value>
+    </argument>
+    <argument>
+      <name>unoccupied_space_type</name>
+      <display_name>2.Electric Equipment Loads Reduction for unoccupied spaces (%).</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>100</default_value>
+    </argument>
+    <argument>
+      <name>single_space_type</name>
+      <display_name>3.Electric Equipment Loads Reduction for the selected space type (%).</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>20</default_value>
+    </argument>
+    <argument>
+      <name>starttime_winter2</name>
+      <display_name>Start Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>17:00:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_winter2</name>
+      <display_name>End Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>21:00:00</default_value>
+    </argument>
+    <argument>
+      <name>starttime_winter1</name>
+      <display_name>Start Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>17:00:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_winter1</name>
+      <display_name>End Time for the Reduction</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>21:00:00</default_value>
+    </argument>
+    <argument>
+      <name>starttime_summer</name>
+      <display_name>Start Time for the Reduction during the Special Schedule</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>16:00:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_summer</name>
+      <display_name>End Time for the Reduction during the Special Schedule</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>20:00:00</default_value>
+    </argument>
+    <argument>
+      <name>auto_date</name>
+      <display_name>Enable Climate-specific Periods Setting ?</display_name>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+  </arguments>
+  <outputs/>
+  <provenances/>
+  <tags>
+    <tag>Equipment.Electric Equipment</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Measure Function</name>
+      <value>Measure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Requires EnergyPlus Results</name>
+      <value>false</value>
+      <datatype>boolean</datatype>
+    </attribute>
+    <attribute>
+      <name>Uses SketchUp API</name>
+      <value>false</value>
+      <datatype>boolean</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>EnvelopeAndLoadTestModel_01.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>138E2AAC</checksum>
+    </file>
+    <file>
+      <filename>EnvelopeAndLoadTestModel_01_FullyCosted.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>38E06CA8</checksum>
+    </file>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>9640B6CB</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <filename>ReduceElectricEquipmentLoadsByPercentageAndTimePeriod_Test.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>399ADAD4</checksum>
+    </file>
+    <file>
+      <filename>desktop.ini</filename>
+      <filetype>ini</filetype>
+      <usage_type>test</usage_type>
+      <checksum>F3E456F3</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>18010AD6</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.0.0</identifier>
+        <min_compatible>2.0.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>22353C2C</checksum>
+    </file>
+  </files>
+</measure>

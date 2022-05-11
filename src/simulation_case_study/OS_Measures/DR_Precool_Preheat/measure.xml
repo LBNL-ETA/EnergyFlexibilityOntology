@@ -1,0 +1,162 @@
+<measure>
+  <schema_version>3.0</schema_version>
+  <name>pre_cooling_and_heating</name>
+  <uid>4e3c78f5-43d5-4e40-8cdf-fc9780c13a09</uid>
+  <version_id>d8c7eb39-b7b8-4710-b72f-79a20ccbd174</version_id>
+  <version_modified>20191105T164318Z</version_modified>
+  <xml_checksum>4F7846F2</xml_checksum>
+  <class_name>PreCoolingAndHeating</class_name>
+  <display_name>DR Precooling Preheating</display_name>
+  <description>This measure adjusts cooling and heating schedules by a user specified number of degrees and time period. This is applied throughout the entire building.</description>
+  <modeler_description>This measure will clone all of the schedules that are used as heating and cooling setpoints for thermal zones. The clones are hooked up to the thermostat in place of the original schedules. Then the schedules are adjusted by the specified values. HVAC operation schedule will also be changed if the start time of the pre-cooling/heating is earlier than the default start value. There is a checkbox to determine if the thermostat for design days should be altered.</modeler_description>
+  <arguments>
+    <argument>
+      <name>cooling_adjustment</name>
+      <display_name>Degrees Fahrenheit to Adjust Cooling Setpoint By</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>-2</default_value>
+    </argument>
+    <argument>
+      <name>starttime_cooling</name>
+      <display_name>Start Time for Pre-cooling</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>11:59:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_cooling</name>
+      <display_name>End Time for Pre-cooling</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>15:59:00</default_value>
+    </argument>
+    <argument>
+      <name>heating_adjustment</name>
+      <display_name>Degrees Fahrenheit to Adjust heating Setpoint By</display_name>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>2</default_value>
+    </argument>
+    <argument>
+      <name>starttime_heating</name>
+      <display_name>Start Time for Pre-heating</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>0:01:00</default_value>
+    </argument>
+    <argument>
+      <name>endtime_heating</name>
+      <display_name>End Time for Pre-heating</display_name>
+      <type>String</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>4:59:00</default_value>
+    </argument>
+    <argument>
+      <name>alter_design_days</name>
+      <display_name>Alter Design Day Thermostats</display_name>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>false</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>auto_date</name>
+      <display_name>Enable Climate-specific Periods Setting ?</display_name>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+  </arguments>
+  <outputs/>
+  <provenances/>
+  <tags>
+    <tag>HVAC.HVAC Controls</tag>
+  </tags>
+  <attributes>
+    <attribute>
+      <name>Measure Type</name>
+      <value>ModelMeasure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Measure Function</name>
+      <value>Measure</value>
+      <datatype>string</datatype>
+    </attribute>
+    <attribute>
+      <name>Requires EnergyPlus Results</name>
+      <value>false</value>
+      <datatype>boolean</datatype>
+    </attribute>
+    <attribute>
+      <name>Uses SketchUp API</name>
+      <value>false</value>
+      <datatype>boolean</datatype>
+    </attribute>
+  </attributes>
+  <files>
+    <file>
+      <filename>LICENSE.md</filename>
+      <filetype>md</filetype>
+      <usage_type>license</usage_type>
+      <checksum>9640B6CB</checksum>
+    </file>
+    <file>
+      <filename>README.md.erb</filename>
+      <filetype>erb</filetype>
+      <usage_type>readmeerb</usage_type>
+      <checksum>703C9964</checksum>
+    </file>
+    <file>
+      <filename>desktop.ini</filename>
+      <filetype>ini</filetype>
+      <usage_type>test</usage_type>
+      <checksum>96A4B7E7</checksum>
+    </file>
+    <file>
+      <filename>README.md</filename>
+      <filetype>md</filetype>
+      <usage_type>readme</usage_type>
+      <checksum>71A6EADD</checksum>
+    </file>
+    <file>
+      <version>
+        <software_program>OpenStudio</software_program>
+        <identifier>2.0.0</identifier>
+        <min_compatible>2.0.0</min_compatible>
+      </version>
+      <filename>measure.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>script</usage_type>
+      <checksum>6E12EA4F</checksum>
+    </file>
+  </files>
+</measure>

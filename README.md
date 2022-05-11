@@ -64,7 +64,7 @@ There are already plenty of data schemas and ontologies in the market. EFOnt doe
 4) Simulate energy flexibility using BEM tools (e.g., EnergyPlus) and the EF ontology. 
 5) Help configure or automate advanced controls (e.g., MPC, RLC) for Grid-interactive Efficient Buildings (GEBs). 
 
-A few examples will be added to the examples folder in the future for demonstrations.
+A few examples can be found [here](example).
 
 <hr>
 

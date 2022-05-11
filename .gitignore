@@ -1,1 +1,6 @@
 local*
+1~seeds
+2~processed_models
+EF_PV_generation
+EF_sim
+*_osws.txt
