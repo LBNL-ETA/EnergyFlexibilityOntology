@@ -70,6 +70,15 @@
          rdfs:range :EnergyFlexibility .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasApplication
+:hasApplication rdf:type owl:ObjectProperty ;
+                owl:inverseOf :hasScope ;
+                rdfs:domain :FlexibilityResources ;
+                rdfs:range :ApplicationScope ;
+                <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                <http://purl.org/dc/elements/1.1/date> "2022-05-20T17:37:48Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasBEMVariable
 :hasBEMVariable rdf:type owl:ObjectProperty ;
                 rdfs:domain :Variable .
@@ -518,11 +527,6 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
                 rdfs:subClassOf :Attitude .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnvironmentGoal
-:EnvironmentGoal rdf:type owl:Class ;
-                 rdfs:subClassOf :PerformanceGoal .
-
-
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityResources
 :FlexibilityResources rdf:type owl:Class ;
                       <http://www.w3.org/2004/02/skos/core#definition> "Technologies (e.g., infrasctucture, equipment, behaviors, or any combination) that enable building energy flexibility."@en .
@@ -910,8 +914,6 @@ Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Buil
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingLevelApplication
 :BuildingLevelApplication rdf:type owl:NamedIndividual ,
                                    :ApplicationScope ;
-                          :hasScope :BuildingLevelApplication ,
-                                    :DistrictLevelApplication ;
                           <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
                           <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:11:32Z"^^xsd:dateTime .
 
@@ -951,6 +953,13 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                                                                                  "Other definition: Amount of heat that can be added to or extracted from a building’s thermal mass during a predefined charging event, while constrained by thermal comfort."^^xsd:string .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CarbonDioxideConcentration
+:CarbonDioxideConcentration rdf:type owl:NamedIndividual ,
+                                     :AirQuality ;
+                            <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                            <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:56:15Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CarbonEmissionProfile
 :CarbonEmissionProfile rdf:type owl:NamedIndividual ,
                                 :SerialValue ,
@@ -965,6 +974,13 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                               :ActiveThermalEnergyStorage ;
                      :hasScope :BuildingLevelApplication ,
                                :DistrictLevelApplication .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ClotheDryer
+:ClotheDryer rdf:type owl:NamedIndividual ,
+                      :SchedulableAppliance ;
+             :hasScope :BuildingLevelApplication ,
+                       :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CombustionEngine
@@ -1033,12 +1049,28 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                                           :vectorSum .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Desktop
+:Desktop rdf:type owl:NamedIndividual ,
+                  :MiscellaneousElectricLoad ,
+                  :SchedulableAppliance ;
+         <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+         <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:13Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DeviceLevelApplication
 :DeviceLevelApplication rdf:type owl:NamedIndividual ,
                                  :ApplicationScope ;
                         owl:sameAs :EquipmentLevelApplication ;
                         <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
                         <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:12:38Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Dishwasher
+:Dishwasher rdf:type owl:NamedIndividual ,
+                     :MiscellaneousElectricLoad ,
+                     :SchedulableAppliance ;
+            :hasScope :BuildingLevelApplication ,
+                      :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DistrictLevelApplication
@@ -1393,6 +1425,21 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
          <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:41:10Z"^^xsd:dateTime .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IlluminanceLevel
+:IlluminanceLevel rdf:type owl:NamedIndividual ,
+                           :LightingQuality ;
+                  <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                  <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:56:36Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Laptop
+:Laptop rdf:type owl:NamedIndividual ,
+                 :MiscellaneousElectricLoad ,
+                 :SchedulableAppliance ;
+        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+        <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:07Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Lights
 :Lights rdf:type owl:NamedIndividual ,
                  :EnergyPlusObject ,
@@ -1635,6 +1682,22 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                :isUnderCondition :UnspecifiedCondition .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PersonalFan
+:PersonalFan rdf:type owl:NamedIndividual ,
+                      :MiscellaneousElectricLoad ,
+                      :SchedulableAppliance ;
+             <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+             <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:24Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PersonalHeater
+:PersonalHeater rdf:type owl:NamedIndividual ,
+                         :MiscellaneousElectricLoad ,
+                         :SchedulableAppliance ;
+                <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:31Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Photovoltaic
 :Photovoltaic rdf:type owl:NamedIndividual ,
                        :EnergyGenerator ;
@@ -1651,6 +1714,22 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                     :isUnderCondition :UnspecifiedCondition ;
                     :hasMinimumTemporalResolution 60 ;
                     <http://www.w3.org/2004/02/skos/core#definition> "A time series of power demand with indefinite temporal resolution"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PredictedMeanVote
+:PredictedMeanVote rdf:type owl:NamedIndividual ,
+                            :ThermalQuality ;
+                   :hasAcronym "PMV"^^xsd:string ;
+                   <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                   <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:57:43Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PredictedPercentageOfDissatisfied
+:PredictedPercentageOfDissatisfied rdf:type owl:NamedIndividual ,
+                                            :ThermalQuality ;
+                                   :hasAcronym "PPD"^^xsd:string ;
+                                   <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                                   <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:59:00Z"^^xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PriceProfile
@@ -1760,6 +1839,14 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
                              :RegionalLevelApplication .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StandardEffectiveTemperature
+:StandardEffectiveTemperature rdf:type owl:NamedIndividual ,
+                                       :ThermalQuality ;
+                              :hasAcronym "SET"^^xsd:string ;
+                              <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                              <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:57:17Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StartTimestamp
 :StartTimestamp rdf:type owl:NamedIndividual ,
                          :TemporalCharacteristics .
@@ -1818,6 +1905,21 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
                          :Stakeholder .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#VOCs
+:VOCs rdf:type owl:NamedIndividual ,
+               :AirQuality ;
+      <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+      <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:56:21Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WashingMachine
+:WashingMachine rdf:type owl:NamedIndividual ,
+                         :MiscellaneousElectricLoad ,
+                         :SchedulableAppliance ;
+                :hasScope :BuildingLevelApplication ,
+                          :DeviceLevelApplication .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WeeklyResolution
 :WeeklyResolution rdf:type owl:NamedIndividual .
 
@@ -1864,23 +1966,9 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
                                                        :EnergyPlusVariable .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#clothe_dryer
-:clothe_dryer rdf:type owl:NamedIndividual ,
-                       :SchedulableAppliance ;
-              :hasScope :BuildingLevelApplication ,
-                        :DeviceLevelApplication .
-
-
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dimmable_light
 :dimmable_light rdf:type owl:NamedIndividual ,
                          :PowerAdjustableSystem .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dishwasher
-:dishwasher rdf:type owl:NamedIndividual ,
-                     :SchedulableAppliance ;
-            :hasScope :BuildingLevelApplication ,
-                      :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dollar
@@ -1970,6 +2058,13 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
              :hasScope :SystemLevelApplication .
 
 
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCapitalInvestment
+:reduceCapitalInvestment rdf:type owl:NamedIndividual ,
+                                  :EconomicGoal ;
+                         <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                         <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:54:08Z"^^xsd:dateTime .
+
+
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCost
 :reduceCost rdf:type owl:NamedIndividual ,
                      :EconomicGoal .
@@ -1983,6 +2078,20 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceGridEnergyConsumption
 :reduceGridEnergyConsumption rdf:type owl:NamedIndividual ,
                                       :EnergyGoal .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceOperationalCost
+:reduceOperationalCost rdf:type owl:NamedIndividual ,
+                                :EconomicGoal ;
+                       <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                       <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:53:57Z"^^xsd:dateTime .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakCharges
+:reducePeakCharges rdf:type owl:NamedIndividual ,
+                            :EconomicGoal ;
+                   <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
+                   <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:54:49Z"^^xsd:dateTime .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakDemand
@@ -2057,13 +2166,6 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#vectorSum
 :vectorSum rdf:type owl:NamedIndividual ,
                     :VectorOperation .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#washing_machine
-:washing_machine rdf:type owl:NamedIndividual ,
-                          :SchedulableAppliance ;
-                 :hasScope :BuildingLevelApplication ,
-                           :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh
