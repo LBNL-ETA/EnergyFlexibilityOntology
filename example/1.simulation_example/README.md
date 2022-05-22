@@ -1,6 +1,6 @@
 # How EFOnt can help building energy flexibility simulations
 
-Traditionaly, BEM tools were designed to simulate building energy and thermal performance. As energy flexibility becomes an increasingly important building performance aspect, there are growing needs for simulating energy flexibility using BEM. However, the data dictionaries and input/output specifications of existing BEM tools do not have clear guidance on how to simulate energy flexibility. The barriers are mainly two-folds. Firstly, there is no description of which energy flexibility resources could be simulated using which objects in the BEM tools. Secondly, there is no description of which KPIs can be used to evaluate the energy flexibility, and which BEM sensor, meter, and variables are needed to compute the KPIs.
+Traditionally, BEM tools were designed to simulate building energy and thermal performance. As energy flexibility becomes an increasingly important building performance aspect, there are growing needs for simulating energy flexibility using BEM. However, the data dictionaries and input/output specifications of existing BEM tools do not have clear guidance on how to simulate energy flexibility. The barriers are mainly two-folds. Firstly, there is no description of which energy flexibility resources could be simulated using which objects in the BEM tools. Secondly, there is no description of which KPIs can be used to evaluate the energy flexibility, and which BEM sensor, meter, and variables are needed to compute the KPIs.
 
 As a result, energy modelers who want to simulate energy flexibility need to understand which objects to modify in their models, extract the simulation results and compute the KPIs case-by-case, which can be tedious and error-prone. EFOnt can serve as an interface between energy modelers and BEM tools, which maps typical energy flexibility resources and related output variables with BEM objects. Figure 1 shows an example of such mapping. 
 
@@ -51,7 +51,7 @@ In the first example, we show how EFOnt can help quantify the on-site PV utiliza
 <table align="center" border=0>
   <tr>
     <td><img alt="Light" src="../../resources/EFOnt_BEM_map_2.png" width="100%"></td>
-    <td><img alt="Light" src="../../resources/EFOnt_BEM_map_2.png" width="100%"></td>
+    <td><img alt="Light" src="../../resources/EFOnt_BEM_map_3.png" width="100%"></td>
   </tr>
   <tr>
     <td><figcaption align = "center"><b>Figure 2. EFOnt maps energy flexibility resources with EnergyPlus objects</b></figcaption></td>
@@ -59,7 +59,7 @@ In the first example, we show how EFOnt can help quantify the on-site PV utiliza
   </tr>
 </table>
 
-Figure 4 shows (1) left: the heatmap of the monthly PV Self-Suffciency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization.
+Figure 4 shows (1) left: the heatmap of the monthly PV Self-Sufficiency (SS) in the building at different locations with and without EV charging, and (2) right: how EFOnt can help computing the KPI. It can be seen that with EV charging could benefit the on-site generated PV utilization.
 
 <table align="center" border=0>
   <tr>
