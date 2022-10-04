@@ -818,8 +818,7 @@ Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Buil
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingOperator
 :BuildingOperator rdf:type owl:NamedIndividual ,
-                           :Stakeholder ;
-                  :ofInterestTo :GridOperator .
+                           :Stakeholder .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CapacityOfADRFormula
@@ -1076,8 +1075,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyModeler
 :EnergyModeler rdf:type owl:NamedIndividual ,
-                        :Stakeholder ;
-               :ofInterestTo :EnergyModeler .
+                        :Stakeholder .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlus
@@ -1237,8 +1235,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridOperator
 :GridOperator rdf:type owl:NamedIndividual ,
-                       :Stakeholder ;
-              :ofInterestTo :EnergyModeler .
+                       :Stakeholder .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridPeakContribution
