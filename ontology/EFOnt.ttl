@@ -4,6 +4,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core> .
 
 <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core> rdf:type owl:Ontology .
@@ -12,20 +13,19 @@
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/elements/1.1/creator
-<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
-
-
 ###  http://purl.org/dc/elements/1.1/date
 <http://purl.org/dc/elements/1.1/date> rdf:type owl:AnnotationProperty .
 
 
-###  http://www.w3.org/2004/02/skos/core#definition
-<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+###  http://www.w3.org/1999/02/22-rdf-syntax-ns#label
+rdf:label rdf:type owl:AnnotationProperty .
+
+
+skos:definition rdf:type owl:AnnotationProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#note
-<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+skos:note rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -74,9 +74,7 @@
 :hasApplication rdf:type owl:ObjectProperty ;
                 owl:inverseOf :hasScope ;
                 rdfs:domain :FlexibilityResources ;
-                rdfs:range :ApplicationScope ;
-                <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                <http://purl.org/dc/elements/1.1/date> "2022-05-20T17:37:48Z"^^xsd:dateTime .
+                rdfs:range :ApplicationScope .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasBEMVariable
@@ -281,13 +279,13 @@ owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasMinimumDuration
 :hasMinimumDuration rdf:type owl:DatatypeProperty ;
                     rdfs:domain :SerialValue ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "Minimum duration of a timeseries in minutes."^^xsd:string .
+                    skos:definition "Minimum duration of a timeseries in minutes."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#hasMinimumTemporalResolution
 :hasMinimumTemporalResolution rdf:type owl:DatatypeProperty ;
                               rdfs:domain :SerialValue ;
-                              <http://www.w3.org/2004/02/skos/core#definition> "The minimum temporal resolution in minutes."^^xsd:string .
+                              skos:definition "The minimum temporal resolution in minutes."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#needsBaseline
@@ -360,7 +358,7 @@ owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BEMObject
 :BEMObject rdf:type owl:Class ;
-           <http://www.w3.org/2004/02/skos/core#definition> "A generic object in Building Energy Modeling tool, which could be system, equipment, output variables and meters, etc."@en .
+           skos:definition "A generic object in Building Energy Modeling tool, which could be system, equipment, output variables and meters, etc."@en .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BehavioralLoadShaping
@@ -368,9 +366,9 @@ owl:topObjectProperty rdfs:subPropertyOf :hasUnitOfMeasure .
                        rdfs:subClassOf :FlexibilityResources ;
                        rdfs:comment """BLS displays live load data with the ability to target messages to consumers based on energy demand, connected distributed energy resources (DERs) and more, empowering utilities and consumers to quickly understand demand reduction results and gain further savings from social norming and behavioral science.
 https://www.copperlabs.com/behavioral-load-shaping-and-flexible-energy/""" ;
-                       <http://www.w3.org/2004/02/skos/core#definition> """Behavioral Load Shaping offers utilities a comprehensive, cloud-based solution for engaging with modern utility customers. This service enables utilities to deliver superior service and engagement with customers on time of use rate plans by providing features that facilitate peak demand reduction.
+                       skos:definition """Behavioral Load Shaping offers utilities a comprehensive, cloud-based solution for engaging with modern utility customers. This service enables utilities to deliver superior service and engagement with customers on time of use rate plans by providing features that facilitate peak demand reduction.
 https://docs.oracle.com/en/industries/utilities/behaviorial-load-shaping/#:~:text=Behavioral%20Load%20Shaping%20offers%20utilities,that%20facilitate%20peak%20demand%20reduction.""" ;
-                       <http://www.w3.org/2004/02/skos/core#note> "Typical comfort limits can be (temporarily) relaxed or bypassed in some ways without compromising the thermal comfort of occupants."^^xsd:string .
+                       skos:note "Typical comfort limits can be (temporarily) relaxed or bypassed in some ways without compromising the thermal comfort of occupants."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BinaryOperation
@@ -419,7 +417,7 @@ https://docs.oracle.com/en/industries/utilities/behaviorial-load-shaping/#:~:tex
 :DistributedEnergyResource rdf:type owl:Class ;
                            rdfs:subClassOf :FlexibilityResources ;
                            rdfs:comment "DER include any non-BES resource (e.g. generating unit, multiple generating units at a single location, energy storage facility, micro-grid, etc.) located solely within the boundary of any distribution utility, Distribution Provider, or Distribution Provider-UFLS Only." ;
-                           <http://www.w3.org/2004/02/skos/core#definition> """A Distributed Energy Resource (DER) is any resource on the distribution system that produces electricity and is not otherwise included in the formal NERC definition of the Bulk Electric System (BES).
+                           skos:definition """A Distributed Energy Resource (DER) is any resource on the distribution system that produces electricity and is not otherwise included in the formal NERC definition of the Bulk Electric System (BES).
 https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Resources_Report.pdf""" ,
                                                                             """Distributed energy resources are small, modular, energy generation and storage technologies that provide electric capacity or energy where you need it. Typically producing less than 10 megawatts (MW) of power, DER systems can usually be sized to meet your particular needs and installed on site. 
 https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
@@ -442,7 +440,7 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyFlexibility
 :EnergyFlexibility rdf:type owl:Class ;
-                   <http://www.w3.org/2004/02/skos/core#definition> "An energy system's (e.g., device, system, building) capability to operate flexibly (i.e., by adjusting its energy demand and generation) to support the electric grid according to local ambient conditions (e.g., weather), without jeopardizing building occupants’ needs (e.g., thermal comfort, productivity)."^^xsd:string .
+                   skos:definition "An energy system's (e.g., device, system, building) capability to operate flexibly (i.e., by adjusting its energy demand and generation) to support the electric grid according to local ambient conditions (e.g., weather), without jeopardizing building occupants’ needs (e.g., thermal comfort, productivity)."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyFlexibilityKPI
@@ -463,8 +461,8 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusMeter
 :EnergyPlusMeter rdf:type owl:Class ;
                  rdfs:subClassOf :EnergyPlusObject ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus output meter name."^^xsd:string ;
-                 <http://www.w3.org/2004/02/skos/core#note> "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#outputmeter-and-outputmetermeterfileonly"^^xsd:string .
+                 skos:definition "EnergyPlus output meter name."^^xsd:string ;
+                 skos:note "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#outputmeter-and-outputmetermeterfileonly"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusObject
@@ -475,8 +473,8 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyPlusVariable
 :EnergyPlusVariable rdf:type owl:Class ;
                     rdfs:subClassOf :EnergyPlusObject ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus output variable name."^^xsd:string ;
-                    <http://www.w3.org/2004/02/skos/core#note> "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#output-variabledictionary"^^xsd:string .
+                    skos:definition "EnergyPlus output variable name."^^xsd:string ;
+                    skos:note "More details at: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/input-for-output.html#output-variabledictionary"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyRelatedCharacteristics
@@ -492,7 +490,7 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityResources
 :FlexibilityResources rdf:type owl:Class ;
-                      <http://www.w3.org/2004/02/skos/core#definition> "Technologies (e.g., infrasctucture, equipment, behaviors, or any combination) that enable building energy flexibility."@en .
+                      skos:definition "Technologies (e.g., infrasctucture, equipment, behaviors, or any combination) that enable building energy flexibility."@en .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibleLoadCharacteristic
@@ -564,7 +562,7 @@ https://www.nrel.gov/docs/fy02osti/31570.pdf""" .
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Microgrid
 :Microgrid rdf:type owl:Class ;
            rdfs:subClassOf :DistributedEnergyResource ;
-           <http://www.w3.org/2004/02/skos/core#definition> """An aggregation of multiple DER types behind the customer meter at a single point of interconnection that has the capability to island. May range in size and complexity from a single “smart” building to a larger system such as a university campus or industrial/commercial park.
+           skos:definition """An aggregation of multiple DER types behind the customer meter at a single point of interconnection that has the capability to island. May range in size and complexity from a single “smart” building to a larger system such as a university campus or industrial/commercial park.
 https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Resources_Report.pdf""" .
 
 
@@ -604,7 +602,7 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
 :OpenStudioObject rdf:type owl:Class ;
                   rdfs:subClassOf :BEMObject ;
                   rdfs:comment "See more details on OpenStudio SDK: https://s3.amazonaws.com/openstudio-sdk-documentation/cpp/OpenStudio-3.4.0-doc/model/html/index.html"@en ;
-                  <http://www.w3.org/2004/02/skos/core#definition> "OpenStudio object."@en .
+                  skos:definition "OpenStudio object."@en .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OperationCondition
@@ -732,7 +730,7 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
                                   rdfs:comment """Some refereces:
 https://www.sciencedirect.com/science/article/pii/S0306261910003260
 https://www.hindawi.com/journals/ace/2018/4928746/"""^^xsd:string ;
-                                  <http://www.w3.org/2004/02/skos/core#definition> """A Thermally Activated Building System (TABS) is a combined heating and cooling system with pipes embedded in the structural concrete slabs or walls of multi storey buildings. TABS operates at temperature close to ambient enabling more efficient utilization of renewable and free cooling sources.
+                                  skos:definition """A Thermally Activated Building System (TABS) is a combined heating and cooling system with pipes embedded in the structural concrete slabs or walls of multi storey buildings. TABS operates at temperature close to ambient enabling more efficient utilization of renewable and free cooling sources.
 
 Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Building_System_TABS_Efficient_cooling_and_heating_of_commercial_buildings"""^^xsd:string .
 
@@ -786,14 +784,14 @@ Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Buil
 :Baseline rdf:type owl:NamedIndividual ,
                    :OperationCondition ;
           rdfs:label "BaselineCondition"^^xsd:string ;
-          <http://www.w3.org/2004/02/skos/core#definition> "Refers to the condition when building is operated normally without any energy-flexibile goal."^^xsd:string .
+          skos:definition "Refers to the condition when building is operated normally without any energy-flexibile goal."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BaselineLoadProfile
 :BaselineLoadProfile rdf:type owl:NamedIndividual ,
                               :Variable ;
-                     :hasBEMVariable :Electricity:Facility ,
-                                     :Gas:Facility ;
+                     :hasBEMVariable :EP_ElectricityFacility ,
+                                     :EP_GasFacility ;
                      :isUnderCondition :Baseline .
 
 
@@ -811,9 +809,7 @@ Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Buil
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingLevelApplication
 :BuildingLevelApplication rdf:type owl:NamedIndividual ,
-                                   :ApplicationScope ;
-                          <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                          <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:11:32Z"^^xsd:dateTime .
+                                   :ApplicationScope .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#BuildingOperator
@@ -846,15 +842,13 @@ https://doi.org/10.1016/j.enbuild.2020.110027
 https://doi.org/10.1016/j.scs.2019.101815
 https://doi.org/10.1016/j.enbuild.2019.02.016
 http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
-                                <http://www.w3.org/2004/02/skos/core#definition> "Capacity of ADR - reduced energy consumption during an ADR event."^^xsd:string ,
+                                skos:definition "Capacity of ADR - reduced energy consumption during an ADR event."^^xsd:string ,
                                                                                  "Other definition: Amount of heat that can be added to or extracted from a building’s thermal mass during a predefined charging event, while constrained by thermal comfort."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CarbonDioxideConcentration
 :CarbonDioxideConcentration rdf:type owl:NamedIndividual ,
-                                     :AirQuality ;
-                            <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                            <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:56:15Z"^^xsd:dateTime .
+                                     :AirQuality .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CarbonEmissionProfile
@@ -903,9 +897,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#CommunityLevelApplication
 :CommunityLevelApplication rdf:type owl:NamedIndividual ,
                                     :ApplicationScope ;
-                           owl:sameAs :DistrictLevelApplication ;
-                           <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                           <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:11:46Z"^^xsd:dateTime .
+                           owl:sameAs :DistrictLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ControlEngineer
@@ -961,7 +953,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                      :hasFormula :DemandRecoveryRatioFormula ;
                      :ofInterestTo :BuildingDesigner ,
                                    :Researcher ;
-                     <http://www.w3.org/2004/02/skos/core#definition> "Demand recovery ratio: the ratio between the observed electric energy use by the flexible operation and the minimum electric energy use of the system in baseline operation (used to quantify the impact of load shifting on energy consumption)"^^xsd:string .
+                     skos:definition "Demand recovery ratio: the ratio between the observed electric energy use by the flexible operation and the minimum electric energy use of the system in baseline operation (used to quantify the impact of load shifting on energy consumption)"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DemandRecoveryRatioFormula
@@ -981,9 +973,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DesktopRescheduling
 :DesktopRescheduling rdf:type owl:NamedIndividual ,
                               :SchedulableAppliance ;
-                     :hasInfluenceOn :Desktop ;
-                     <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                     <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:13Z"^^xsd:dateTime .
+                     :hasInfluenceOn :Desktop .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DeviceLevelApplication
@@ -996,9 +986,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                                         :LaptopRescheduling ,
                                         :PersonalFanRescheduling ,
                                         :PersonalHeaterRescheduling ,
-                                        :WashingMachineRescheduling ;
-                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                        <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:12:38Z"^^xsd:dateTime .
+                                        :WashingMachineRescheduling .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Dishwasher
@@ -1016,9 +1004,119 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#DistrictLevelApplication
 :DistrictLevelApplication rdf:type owl:NamedIndividual ,
-                                   :ApplicationScope ;
-                          <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                          <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:11:56Z"^^xsd:dateTime .
+                                   :ApplicationScope .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_CoolingElectricity
+:EP_CoolingElectricity rdf:type owl:NamedIndividual ,
+                                :EnergyPlusMeter ;
+                       rdfs:label "Cooling:Electricity" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ElectricEquipment
+:EP_ElectricEquipment rdf:type owl:NamedIndividual ,
+                               :EnergyPlusObject ,
+                               :OpenStudioObject ;
+                      rdfs:label "Electric:Equipment" ;
+                      skos:definition "Electric equipment (MELs) in EnergyPlus"^^xsd:string ;
+                      skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#EP_electricequipment"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ElectricityFacility
+:EP_ElectricityFacility rdf:type owl:NamedIndividual ,
+                                 :EnergyPlusMeter ;
+                        rdfs:label "Electricity:Facility" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ElectricityPurchasedFacility
+:EP_ElectricityPurchasedFacility rdf:type owl:NamedIndividual ,
+                                          :EnergyPlusMeter ;
+                                 rdfs:label "ElectricityPurchased:Facility" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ExteriorFuelEquipment
+:EP_ExteriorFuelEquipment rdf:type owl:NamedIndividual ,
+                                   :EnergyPlusObject ;
+                          rdfs:comment "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorfuelequipment"^^xsd:string ;
+                          rdfs:label "Exterior:FuelEquipment" ;
+                          skos:definition "EnergyPlus object to model EV charging demand"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ExteriorLights
+:EP_ExteriorLights rdf:type owl:NamedIndividual ,
+                            :EnergyPlusObject ;
+                   :hasScope :DeviceLevelApplication ;
+                   rdf:label "Exterior:Lights" ;
+                   skos:definition "Outdoor lighting object in EnergyPlus"^^xsd:string ;
+                   skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorlights"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_GasFacility
+:EP_GasFacility rdf:type owl:NamedIndividual ,
+                         :EnergyPlusMeter ;
+                rdf:label "Gas:Facility" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_GeneratorMicroCHP
+:EP_GeneratorMicroCHP rdf:type owl:NamedIndividual ,
+                               :EnergyPlusObject ;
+                      rdfs:label "Generator:MicroCHP" ;
+                      skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-electric-load-center-generator.html#generatormicrochp"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_GeneratorPhotovoltaic
+:EP_GeneratorPhotovoltaic rdf:type owl:NamedIndividual ,
+                                   :EnergyPlusObject ;
+                          rdfs:label "Generator:Photovoltaic" ;
+                          skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-electric-load-center-generator.html#photovoltaic-generators"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_HeatingElectricity
+:EP_HeatingElectricity rdf:type owl:NamedIndividual ,
+                                :EnergyPlusMeter ;
+                       rdfs:label "Heating:Electricity" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_InteriorEquipmentElectricity
+:EP_InteriorEquipmentElectricity rdf:type owl:NamedIndividual ,
+                                          :EnergyPlusMeter ;
+                                 rdfs:label "InteriorEquipment:Electricity" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_InteriorLightsElectricity
+:EP_InteriorLightsElectricity rdf:type owl:NamedIndividual ,
+                                       :EnergyPlusMeter ;
+                              rdfs:label "InteriorLights:Electricity" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_Lights
+:EP_Lights rdf:type owl:NamedIndividual ,
+                    :EnergyPlusObject ,
+                    :OpenStudioObject ;
+           rdfs:label "Lights" ;
+           skos:definition "Interior lights in EnergyPlus"^^xsd:string ;
+           skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#lights-000"^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_PumpsElectricity
+:EP_PumpsElectricity rdf:type owl:NamedIndividual ,
+                              :EnergyPlusMeter ;
+                     rdfs:label "Pumps:Electricity" .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_SetpointManagerScheduled
+:EP_SetpointManagerScheduled rdf:type owl:NamedIndividual ,
+                                      :EnergyPlusObject ;
+                             rdfs:label "SetpointManager:Scheduled" ;
+                             skos:note """Doc: 
+https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-setpoint-managers.html#setpointmanagerscheduled"""^^xsd:string .
+
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ThermostatSetpointDualSetpoint
+:EP_ThermostatSetpointDualSetpoint rdf:type owl:NamedIndividual ,
+                                            :EnergyPlusObject ;
+                                   rdfs:label "ThermostatSetpoint:DualSetpoint" ;
+                                   skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-zone-controls-thermostats.html#zone-thermostat-setpoints"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EfficiencyOfADRFormula
@@ -1045,24 +1143,16 @@ https://doi.org/10.1016/j.enbuild.2020.110027
 https://doi.org/10.1016/j.scs.2019.101815
 https://doi.org/10.1016/j.enbuild.2019.02.016
 http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
-                                  <http://www.w3.org/2004/02/skos/core#definition> "Efficiency of ADR - the energy storage efficiency during an ADR event."^^xsd:string ,
+                                  skos:definition "Efficiency of ADR - the energy storage efficiency during an ADR event."^^xsd:string ,
                                                                                    "Fraction of heat that is stored during an ADR event, later used to reduce heating load power to maintain the thermal comfort."^^xsd:string .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricEquipment
-:ElectricEquipment rdf:type owl:NamedIndividual ,
-                            :EnergyPlusObject ,
-                            :OpenStudioObject ;
-                   <http://www.w3.org/2004/02/skos/core#definition> "Electric equipment (MELs) in EnergyPlus"^^xsd:string ;
-                   <http://www.w3.org/2004/02/skos/core#note> "EnergyPlus Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#electricequipment"^^xsd:string ,
-                                                              "OpenStudio SDK: https://s3.amazonaws.com/openstudio-sdk-documentation/cpp/OpenStudio-3.4.0-doc/model/html/classopenstudio_1_1model_1_1_electric_equipment.html"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricVehicle
 :ElectricVehicle rdf:type owl:NamedIndividual ,
                           :ElectricityStorage ;
-                 :canBeModeledBy :Exterior:FuelEquipment ;
-                 :hasScope :BuildingLevelApplication .
+                 :canBeModeledBy :EP_ExteriorFuelEquipment ;
+                 :hasScope :BuildingLevelApplication ;
+                 rdfs:label "Electric:Vehicle" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EnergyCostProfile
@@ -1085,28 +1175,25 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EquipmentLevelApplication
 :EquipmentLevelApplication rdf:type owl:NamedIndividual ,
-                                    :ApplicationScope ;
-                           <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                           <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:12:45Z"^^xsd:dateTime .
+                                    :ApplicationScope .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Facility_Net_Purchased_Electric_Energy
-:Facility_Net_Purchased_Electric_Energy rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_FacilityNetPurchasedElectricEnergy
+:EP_FacilityNetPurchasedElectricEnergy rdf:type owl:NamedIndividual ,
                                                  :EnergyPlusVariable ;
-                                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                                        <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:52:37Z"^^xsd:dateTime .
+                                       rdfs:label "Facility Net Purchased Electric Energy" .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Facility_Total_Produced_Electric_Power
-:Facility_Total_Produced_Electric_Power rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_FacilityTotalProducedElectricPower
+:EP_FacilityTotalProducedElectricPower rdf:type owl:NamedIndividual ,
                                                  :EnergyPlusVariable ;
-                                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                                        <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:52:02Z"^^xsd:dateTime .
+                                   rdfs:label "Facility Total Purchased Electric Power" .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Fan_Electric_Power
-:Fan_Electric_Power rdf:type owl:NamedIndividual ,
-                             :EnergyPlusVariable .
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_FanElectricPower
+:EP_FanElectricPower rdf:type owl:NamedIndividual ,
+                             :EnergyPlusVariable ;
+                     rdfs:label "Fan Electric Power" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityFactor
@@ -1119,7 +1206,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                    :ofInterestTo :BuildingOperator ,
                                  :Researcher ;
                    :hasAcronym "FF"^^xsd:string ;
-                   <http://www.w3.org/2004/02/skos/core#definition> "Indicator of a quantity (e.g., energy, cost, emissions) during high load hours versus during low load hours, which ranges between -1 (quantity was only during high load hours) and 1 (quantity was only during low load hours)."^^xsd:string .
+                   skos:definition "Indicator of a quantity (e.g., energy, cost, emissions) during high load hours versus during low load hours, which ranges between -1 (quantity was only during high load hours) and 1 (quantity was only during low load hours)."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibilityFactorFormula
@@ -1157,9 +1244,9 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flexible
 :Flexible rdf:type owl:NamedIndividual ,
                    :OperationCondition ;
-          :hasBEMVariable :Electricity:Facility ;
+          :hasBEMVariable :EP_ElectricityFacility ;
           rdfs:label "FlexibleCondition"^^xsd:string ;
-          <http://www.w3.org/2004/02/skos/core#definition> "Refers to the condition when building is operated with a energy-flexibile goal."^^xsd:string .
+          skos:definition "Refers to the condition when building is operated with a energy-flexibile goal."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FlexibleLoadProfile
@@ -1170,9 +1257,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#FloorArea
 :FloorArea rdf:type owl:NamedIndividual ,
-                    :SpatialCharacteritics ;
-           <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-           <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:26:29Z"^^xsd:dateTime .
+                    :SpatialCharacteritics .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Flywheel
@@ -1189,9 +1274,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GasEquipment
 :GasEquipment rdf:type owl:NamedIndividual ,
                        :OpenStudioObject ;
-              <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-              <http://purl.org/dc/elements/1.1/date> "2022-05-11T04:27:26Z"^^xsd:dateTime ;
-              <http://www.w3.org/2004/02/skos/core#note> "OpenStudio SDK: https://s3.amazonaws.com/openstudio-sdk-documentation/cpp/OpenStudio-3.4.0-doc/model/html/classopenstudio_1_1model_1_1_gas_equipment.html"^^xsd:string .
+              skos:note "OpenStudio SDK: https://s3.a.azonaws.com/openstudio-sdk-documentation/cpp/OpenStudio-3.4.0-doc/model/html/classopenstudio_1_1model_1_1_gas_equipment.html"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generation
@@ -1199,18 +1282,19 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                      :FlexibleOperation .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator_Produced_DC_Electric_Energy
-:Generator_Produced_DC_Electric_Energy rdf:type owl:NamedIndividual ,
-                                                :EnergyPlusVariable .
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#rdfs:label "Fan Electric Power" .
+:EP_GeneratorProducedDCElectricEnergy rdf:type owl:NamedIndividual ,
+                                                :EnergyPlusVariable ;
+                                      rdfs:label "Generator Produced DC Electric Energy" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GenericLoadProfile
 :GenericLoadProfile rdf:type owl:NamedIndividual ,
                              :SerialValue ,
                              :Variable ;
-                    :hasBEMVariable :Electricity:Facility ;
+                    :hasBEMVariable :EP_ElectricityFacility ;
                     :isUnderCondition :UnspecifiedCondition ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A time series profile with arbitary type (e.g., energy consumption, peak demand, cost, and GHG emissions) and indefinite temporal resolution."^^xsd:string .
+                    skos:definition "A time series profile with arbitary type (e.g., energy consumption, peak demand, cost, and GHG emissions) and indefinite temporal resolution."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridCarbonImpact
@@ -1219,7 +1303,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                   :hasFormula :GridCarbonImpactFormula ;
                   :ofInterestTo :GridOperator ;
                   :hasAcronym "GCI"^^xsd:string ;
-                  <http://www.w3.org/2004/02/skos/core#definition> "GridOptimal - Grid Carbon Impact: measures the alignment between a building's net demand profile and the marginal carbon emissions."^^xsd:string .
+                  skos:definition "GridOptimal - Grid Carbon Impact: measures the alignment between a building's net demand profile and the marginal carbon emissions."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#GridCarbonImpactFormula
@@ -1279,7 +1363,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                       :hasUnitOfMeasure :Datetime ;
                       :isUnderCondition :UnspecifiedCondition ;
                       rdfs:label "EventEndTimestamp"^^xsd:string ;
-                      <http://www.w3.org/2004/02/skos/core#definition> "The datetime when a demand response event ends."^^xsd:string .
+                      skos:definition "The datetime when a demand response event ends."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HighLoadStartTimestamp
@@ -1290,7 +1374,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                         :isUnderCondition :UnspecifiedCondition ;
                         :needsBaseline "false"^^xsd:boolean ;
                         rdfs:label "EventStartTimestamp"^^xsd:string ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "The datetime when a demand response event starts."^^xsd:string .
+                        skos:definition "The datetime when a demand response event starts."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HotWaterStorage
@@ -1305,9 +1389,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 :HotWaterTank rdf:type owl:NamedIndividual ,
                        :ActiveThermalEnergyStorage ;
               :hasScope :BuildingLevelApplication ,
-                        :DistrictLevelApplication ;
-              <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-              <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:41:20Z"^^xsd:dateTime .
+                        :DistrictLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HourlyBaselineLoadProfile
@@ -1317,7 +1399,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                            :hasUnitOfMeasure :kW ;
                            :isUnderCondition :Baseline ;
                            :hasMinimumTemporalResolution "60"^^xsd:int ;
-                           <http://www.w3.org/2004/02/skos/core#definition> "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under baseline condition."^^xsd:string .
+                           skos:definition "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under baseline condition."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HourlyFlexibleLoadProfile
@@ -1327,7 +1409,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                            :hasUnitOfMeasure :kW ;
                            :isUnderCondition :Flexible ;
                            :hasMinimumTemporalResolution "60"^^xsd:int ;
-                           <http://www.w3.org/2004/02/skos/core#definition> "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under flexible (a.k.a. demand response) condition."^^xsd:string .
+                           skos:definition "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under flexible (a.k.a. demand response) condition."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HourlyResolution
@@ -1336,9 +1418,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#HydroPowerGenerator
 :HydroPowerGenerator rdf:type owl:NamedIndividual ,
-                              :DispatchableEnergyGenerator ;
-                     <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                     <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:33:21Z"^^xsd:dateTime .
+                              :DispatchableEnergyGenerator .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IceStorage
@@ -1353,16 +1433,12 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 :IceTank rdf:type owl:NamedIndividual ,
                   :ActiveThermalEnergyStorage ;
          :hasScope :BuildingLevelApplication ,
-                   :DistrictLevelApplication ;
-         <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-         <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:41:10Z"^^xsd:dateTime .
+                   :DistrictLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IlluminanceLevel
 :IlluminanceLevel rdf:type owl:NamedIndividual ,
-                           :LightingQuality ;
-                  <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                  <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:56:36Z"^^xsd:dateTime .
+                           :LightingQuality .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#IncreasedEnergyConsumption
@@ -1380,17 +1456,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                              :SchedulableAppliance ;
                     :hasInfluenceOn :Laptop ;
                     :hasScope :BuildingLevelApplication ,
-                              :DeviceLevelApplication ;
-                    <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                    <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:07Z"^^xsd:dateTime .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Lights
-:Lights rdf:type owl:NamedIndividual ,
-                 :EnergyPlusObject ,
-                 :OpenStudioObject ;
-        <http://www.w3.org/2004/02/skos/core#definition> "Interior lights in EnergyPlus"^^xsd:string ;
-        <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-internal-gains-people-lights-other.html#lights-000"^^xsd:string .
+                              :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadCoveringRatio
@@ -1399,7 +1465,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                    :hasFormula :LoadCoveringRatioFormula ;
                    :ofInterestTo :BuildingDesigner ;
                    rdfs:comment "Reference: Tang, H., & Wang, S. (2021). Energy flexibility quantification of grid-responsive buildings: Energy flexibility index and assessment of their effectiveness for applications. Energy, 221, 119756."^^xsd:string ;
-                   <http://www.w3.org/2004/02/skos/core#definition> "The ratio between the energy generated by onsite resources (e.g., PV) and total energy consumption over a certain period."^^xsd:string .
+                   skos:definition "The ratio between the energy generated by onsite resources (e.g., PV) and total energy consumption over a certain period."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadCoveringRatioFormula
@@ -1418,7 +1484,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                         owl:sameAs :LoadShiftingRate ;
                         :hasFormula :LoadShiftingEfficiencyFormula ;
                         rdfs:comment "Ref: Pajot, C., Delinchant, B., Maréchal, Y., & Frésier, D. (2018). Impact of heat pump flexibility in a French residential eco-district. Buildings, 8(10), 145. https://doi.org/10.3390/buildings8100145" ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "The ratio of the addition of anticipated energy and delayed energy, by the cut-off energy, due to load shifting operation. Specifically, the anticipated energy are the increased energy from pre-conditioning before the peak, and the delayed energy are the increased energy from rebound period. The cut-off energy is the reduced energy during the peak period."^^xsd:string .
+                        skos:definition "The ratio of the addition of anticipated energy and delayed energy, by the cut-off energy, due to load shifting operation. Specifically, the anticipated energy are the increased energy from pre-conditioning before the peak, and the delayed energy are the increased energy from rebound period. The cut-off energy is the reduced energy during the peak period."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LoadShiftingEfficiencyFormula
@@ -1444,7 +1510,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                                 :hasUnitOfMeasure :kWh ;
                                 :isUnderCondition :UnspecifiedCondition ;
                                 :hasMinimumDuration "1440"^^xsd:int ;
-                                <http://www.w3.org/2004/02/skos/core#definition> "The on-site electricity generation profile that's actually consumed by the building with an indefinite temporal resolution."^^xsd:string .
+                                skos:definition "The on-site electricity generation profile that's actually consumed by the building with an indefinite temporal resolution."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LocalGenerationPowerProfile
@@ -1465,20 +1531,20 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                         :isUnderCondition :UnspecifiedCondition ;
                         :hasMinimumDuration "1440"^^xsd:int ;
                         rdfs:label "LocalGenerationEnergyProfile"^^xsd:string ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "The on-site electricity generation profile with an indefinite temporal resolution."^^xsd:string .
+                        skos:definition "The on-site electricity generation profile with an indefinite temporal resolution."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LowLOD
 :LowLOD rdf:type owl:NamedIndividual ,
                  :LevelOfDetails ;
-        <http://www.w3.org/2004/02/skos/core#definition> "The level of details needed in modeling the energy system." .
+        skos:definition "The level of details needed in modeling the energy system." .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#MELs_power_reduction
 :MELs_power_reduction rdf:type owl:NamedIndividual ,
                                :BehavioralLoadShaping ,
                                :PowerAdjustableSystem ;
-                      :canBeModeledBy :ElectricEquipment ;
+                      :canBeModeledBy :EP_ElectricEquipment ;
                       :hasScope :SystemLevelApplication ;
                       rdfs:label "MELsPowerReduction"@en .
 
@@ -1541,7 +1607,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                 :isUnderCondition :UnspecifiedCondition ;
                 :hasMinimumDuration "1440"^^xsd:int ;
                 :hasMinimumTemporalResolution "525600"^^xsd:int ;
-                <http://www.w3.org/2004/02/skos/core#definition> "The net electricity load (consumption) profile with indefinite temporal resolution."^^xsd:string .
+                skos:definition "The net electricity load (consumption) profile with indefinite temporal resolution."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NumberOfBuildings
@@ -1551,23 +1617,17 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NumberOfFloors
 :NumberOfFloors rdf:type owl:NamedIndividual ,
-                         :SpatialCharacteritics ;
-                <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:26:40Z"^^xsd:dateTime .
+                         :SpatialCharacteritics .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NumberOfRooms
 :NumberOfRooms rdf:type owl:NamedIndividual ,
-                        :SpatialCharacteritics ;
-               <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-               <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:26:54Z"^^xsd:dateTime .
+                        :SpatialCharacteritics .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NumberOfZones
 :NumberOfZones rdf:type owl:NamedIndividual ,
-                        :SpatialCharacteritics ;
-               <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-               <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:27:03Z"^^xsd:dateTime .
+                        :SpatialCharacteritics .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OnsiteRenewableUtilizationEfficiency
@@ -1591,7 +1651,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                      :ofInterestTo :BuildingDesigner ,
                                    :Researcher ;
                      :needsBaseline "false"^^xsd:boolean ;
-                     <http://www.w3.org/2004/02/skos/core#definition> "Demand recovery ratio: the ratio between the observed electric energy use by the flexible operation and the minimum electric energy use of the system in baseline operation (used to quantify the impact of load shifting on energy consumption)"^^xsd:string .
+                     skos:definition "Demand recovery ratio: the ratio between the observed electric energy use by the flexible operation and the minimum electric energy use of the system in baseline operation (used to quantify the impact of load shifting on energy consumption)"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerDemandDecrease
@@ -1601,7 +1661,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                          :hasFormula :PeakPowerReductionFormula ;
                          :hasPerformanceGoal :reducePeakDemand ;
                          :ofInterestTo :Researcher ;
-                         <http://www.w3.org/2004/02/skos/core#definition> "Reduced power demand during peak hour due to flexible operation."^^xsd:string .
+                         skos:definition "Reduced power demand during peak hour due to flexible operation."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PeakPowerReduction
@@ -1662,9 +1722,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 :PersonalFanRescheduling rdf:type owl:NamedIndividual ,
                                   :SchedulableAppliance ;
                          :hasInfluenceOn :PersonalFan ;
-                         :hasScope :DeviceLevelApplication ;
-                         <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                         <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:24Z"^^xsd:dateTime .
+                         :hasScope :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PersonalHeater
@@ -1676,15 +1734,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 :PersonalHeaterRescheduling rdf:type owl:NamedIndividual ,
                                      :SchedulableAppliance ;
                             :hasInfluenceOn :PersonalHeater ;
-                            :hasScope :DeviceLevelApplication ;
-                            <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                            <http://purl.org/dc/elements/1.1/date> "2022-05-20T01:00:31Z"^^xsd:dateTime .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Photovoltaic
-:Photovoltaic rdf:type owl:NamedIndividual ,
-                       :EnergyGenerator ;
-              :canBeModeledBy :Generator:Photovoltaic .
+                            :hasScope :DeviceLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PowerDemandProfile
@@ -1696,23 +1746,19 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                     :hasUnitOfMeasure :kW ;
                     :isUnderCondition :UnspecifiedCondition ;
                     :hasMinimumTemporalResolution 60 ;
-                    <http://www.w3.org/2004/02/skos/core#definition> "A time series of power demand with indefinite temporal resolution"^^xsd:string .
+                    skos:definition "A time series of power demand with indefinite temporal resolution"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PredictedMeanVote
 :PredictedMeanVote rdf:type owl:NamedIndividual ,
                             :ThermalQuality ;
-                   :hasAcronym "PMV"^^xsd:string ;
-                   <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                   <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:57:43Z"^^xsd:dateTime .
+                   :hasAcronym "PMV"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PredictedPercentageOfDissatisfied
 :PredictedPercentageOfDissatisfied rdf:type owl:NamedIndividual ,
                                             :ThermalQuality ;
-                                   :hasAcronym "PPD"^^xsd:string ;
-                                   <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                                   <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:59:00Z"^^xsd:dateTime .
+                                   :hasAcronym "PPD"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#PriceProfile
@@ -1720,10 +1766,10 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                        :SerialValue ,
                        :Variable ;
               :hasDataSource :GridSignal ;
-              :hasUnitOfMeasure <http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh> ;
+              :hasUnitOfMeasure :kWh ;
               :isUnderCondition :UnspecifiedCondition ;
               rdfs:label "EnergyPriceProfile"^^xsd:string ;
-              <http://www.w3.org/2004/02/skos/core#definition> "A series of energy unit prices indexed in time order issued by utility providers."^^xsd:string .
+              skos:definition "A series of energy unit prices indexed in time order issued by utility providers."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Pump_Electric_Power
@@ -1749,9 +1795,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#RegionalLevelApplication
 :RegionalLevelApplication rdf:type owl:NamedIndividual ,
-                                   :ApplicationScope ;
-                          <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                          <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:12:23Z"^^xsd:dateTime .
+                                   :ApplicationScope .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Researcher
@@ -1765,9 +1809,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SectorLevelApplication
 :SectorLevelApplication rdf:type owl:NamedIndividual ,
-                                 :ApplicationScope ;
-                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                        <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:13:14Z"^^xsd:dateTime .
+                                 :ApplicationScope .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfConsumption
@@ -1781,7 +1823,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                  rdfs:comment """References: 
 https://doi.org/10.1016/j.renene.2019.10.030
 https://doi.org/10.3390/en14061591"""^^xsd:string ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "Self-consumption (SC) - the degree to which the on-site generation is directly consumed by the building."^^xsd:string .
+                 skos:definition "Self-consumption (SC) - the degree to which the on-site generation is directly consumed by the building."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfConsumptionFormula
@@ -1802,7 +1844,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
                  :ofInterestTo :BuildingDesigner ;
                  :hasAcronym "SS"^^xsd:string ;
                  :needsBaseline "false"^^xsd:boolean ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "Self-Sufficiency (SS) - the degree to which the on-site generation is sufficient to fill the energy needs of the building."^^xsd:string .
+                 skos:definition "Self-Sufficiency (SS) - the degree to which the on-site generation is sufficient to fill the energy needs of the building."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfSufficiencyFormula
@@ -1837,8 +1879,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarPhtotovoltaic
 :SolarPhtotovoltaic rdf:type owl:NamedIndividual ,
                              :NondispatchableEnergyGenerator ;
-                    <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                    <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:33:43Z"^^xsd:dateTime .
+                    :canBeModeledBy :EP_GeneratorPhotovoltaic .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarThermalPlant
@@ -1851,9 +1892,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StandardEffectiveTemperature
 :StandardEffectiveTemperature rdf:type owl:NamedIndividual ,
                                        :ThermalQuality ;
-                              :hasAcronym "SET"^^xsd:string ;
-                              <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                              <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:57:17Z"^^xsd:dateTime .
+                              :hasAcronym "SET"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StorageEfficiency
@@ -1869,9 +1908,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SystemLevelApplication
 :SystemLevelApplication rdf:type owl:NamedIndividual ,
-                                 :ApplicationScope ;
-                        <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                        <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:12:30Z"^^xsd:dateTime .
+                                 :ApplicationScope .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TRNSYS
@@ -1886,9 +1923,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TimeDifference
 :TimeDifference rdf:type owl:NamedIndividual ,
-                         :TemporalCharacteristics ;
-                <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:27:22Z"^^xsd:dateTime .
+                         :TemporalCharacteristics .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UninterruptiblePowerSupply
@@ -1900,7 +1935,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnspecifiedCondition
 :UnspecifiedCondition rdf:type owl:NamedIndividual ,
                                :OperationCondition ;
-                      <http://www.w3.org/2004/02/skos/core#definition> """Refers to any operation condition. 
+                      skos:definition """Refers to any operation condition. 
 Applicable when the condition of the measurements (e.g., power demand profile) are not required by the energy flexibility quantification."""^^xsd:string .
 
 
@@ -1911,9 +1946,7 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#VOCs
 :VOCs rdf:type owl:NamedIndividual ,
-               :AirQuality ;
-      <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-      <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:56:21Z"^^xsd:dateTime .
+               :AirQuality .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WashingMachine
@@ -1936,9 +1969,7 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#WindPowerGenerator
 :WindPowerGenerator rdf:type owl:NamedIndividual ,
                              :NondispatchableEnergyGenerator ;
-                    :hasScope :RegionalLevelApplication ;
-                    <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                    <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:34:05Z"^^xsd:dateTime .
+                    :hasScope :RegionalLevelApplication .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ZoneLevel
@@ -1977,7 +2008,8 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dimmable_light
 :dimmable_light rdf:type owl:NamedIndividual ,
-                         :PowerAdjustableSystem .
+                         :PowerAdjustableSystem ;
+                :canBeModeledBy :EP_ExteriorLights .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#dollar
@@ -1994,13 +2026,13 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#kW
 :kW rdf:type owl:NamedIndividual ,
              :UnitOfMeasure ;
-    <http://www.w3.org/2004/02/skos/core#definition> "Kilowatt"^^xsd:string .
+    skos:definition "Kilowatt"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#kWh
 :kWh rdf:type owl:NamedIndividual ,
               :UnitOfMeasure ;
-     <http://www.w3.org/2004/02/skos/core#definition> "Kilowatt Hour"^^xsd:string .
+     skos:definition "Kilowatt Hour"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#kg
@@ -2013,8 +2045,8 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 :lighting_power_reduction rdf:type owl:NamedIndividual ,
                                    :BehavioralLoadShaping ,
                                    :PowerAdjustableSystem ;
-                          :canBeModeledBy :Lights ,
-                                          :Exterior:Lights ;
+                          :canBeModeledBy :EP_ExteriorLights ,
+                                          :EP_Lights ;
                           :hasScope :SystemLevelApplication ;
                           rdfs:label "LightingPowerReduction"@en .
 
@@ -2056,7 +2088,7 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 :pre_cooling rdf:type owl:NamedIndividual ,
                       :BehavioralLoadShaping ,
                       :ThermallyActivatedBuildingSystem ;
-             :canBeModeledBy :ThermostatSetpoint:DualSetpoint ;
+             :canBeModeledBy :EP_ThermostatSetpointDualSetpoint ;
              :hasScope :SystemLevelApplication ;
              rdfs:label "PreCooling"@en .
 
@@ -2065,16 +2097,14 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 :pre_heating rdf:type owl:NamedIndividual ,
                       :BehavioralLoadShaping ,
                       :ThermallyActivatedBuildingSystem ;
-             :canBeModeledBy :ThermostatSetpoint:DualSetpoint ;
+             :canBeModeledBy :EP_ThermostatSetpointDualSetpoint ;
              :hasScope :SystemLevelApplication ;
              rdfs:label "PreHeating"@en .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCapitalInvestment
 :reduceCapitalInvestment rdf:type owl:NamedIndividual ,
-                                  :EconomicGoal ;
-                         <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                         <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:54:08Z"^^xsd:dateTime .
+                                  :EconomicGoal .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCost
@@ -2094,16 +2124,12 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceOperationalCost
 :reduceOperationalCost rdf:type owl:NamedIndividual ,
-                                :EconomicGoal ;
-                       <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                       <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:53:57Z"^^xsd:dateTime .
+                                :EconomicGoal .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakCharges
 :reducePeakCharges rdf:type owl:NamedIndividual ,
-                            :EconomicGoal ;
-                   <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                   <http://purl.org/dc/elements/1.1/date> "2022-05-20T00:54:49Z"^^xsd:dateTime .
+                            :EconomicGoal .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakDemand
@@ -2140,7 +2166,7 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 :temperature_setpoint_adjustment rdf:type owl:NamedIndividual ,
                                           :BehavioralLoadShaping ,
                                           :ThermallyActivatedBuildingSystem ;
-                                 :canBeModeledBy :ThermostatSetpoint:DualSetpoint ;
+                                 :canBeModeledBy :EP_ThermostatSetpointDualSetpoint ;
                                  :hasScope :SystemLevelApplication ;
                                  rdfs:label "TemperatureSetpointAdjustment"@en .
 
@@ -2181,21 +2207,6 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
                     :VectorOperation .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh
-<http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#$/kWh> rdf:type owl:NamedIndividual ,
-                                                                            :UnitOfMeasure .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Cooling:Electricity
-:Cooling:Electricity rdf:type owl:NamedIndividual ,
-                              :EnergyPlusMeter .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Electricity:Facility
-:Electricity:Facility rdf:type owl:NamedIndividual ,
-                               :EnergyPlusMeter .
-
-
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Electricity:HVAC
 :Electricity:HVAC rdf:type owl:NamedIndividual ,
                            :EnergyPlusMeter .
@@ -2203,80 +2214,7 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricityProduced:Facility
 :ElectricityProduced:Facility rdf:type owl:NamedIndividual ,
-                                       :EnergyPlusMeter ;
-                              <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                              <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:53:31Z"^^xsd:dateTime .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ElectricityPurchased:Facility
-:ElectricityPurchased:Facility rdf:type owl:NamedIndividual ,
-                                        :EnergyPlusMeter ;
-                               <http://purl.org/dc/elements/1.1/creator> "hanli"^^xsd:string ;
-                               <http://purl.org/dc/elements/1.1/date> "2022-05-06T16:53:08Z"^^xsd:dateTime .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Exterior:FuelEquipment
-:Exterior:FuelEquipment rdf:type owl:NamedIndividual ,
-                                 :EnergyPlusObject ;
-                        rdfs:comment "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorfuelequipment"^^xsd:string ;
-                        <http://www.w3.org/2004/02/skos/core#definition> "EnergyPlus object to model EV charging demand"^^xsd:string .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Exterior:Lights
-:Exterior:Lights rdf:type owl:NamedIndividual ,
-                          :EnergyPlusObject ;
-                 :hasScope :DeviceLevelApplication ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "Outdoor lighting object in EnergyPlus"^^xsd:string ;
-                 <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorlights"^^xsd:string .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Gas:Facility
-:Gas:Facility rdf:type owl:NamedIndividual ,
-                       :EnergyPlusMeter .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator:MicroCHP
-:Generator:MicroCHP rdf:type owl:NamedIndividual ,
-                             :EnergyPlusObject .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Generator:Photovoltaic
-:Generator:Photovoltaic rdf:type owl:NamedIndividual ,
-                                 :EnergyPlusObject ;
-                        <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-electric-load-center-generator.html#photovoltaic-generators"^^xsd:string .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Heating:Electricity
-:Heating:Electricity rdf:type owl:NamedIndividual ,
-                              :EnergyPlusMeter .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#InteriorEquipment:Electricity
-:InteriorEquipment:Electricity rdf:type owl:NamedIndividual ,
-                                        :EnergyPlusMeter .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#InteriorLights:Electricity
-:InteriorLights:Electricity rdf:type owl:NamedIndividual ,
-                                     :EnergyPlusMeter .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Pumps:Electricity
-:Pumps:Electricity rdf:type owl:NamedIndividual ,
-                            :EnergyPlusMeter .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SetpointManager:Scheduled
-:SetpointManager:Scheduled rdf:type owl:NamedIndividual ,
-                                    :EnergyPlusObject ;
-                           <http://www.w3.org/2004/02/skos/core#note> """Doc: 
-https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-setpoint-managers.html#setpointmanagerscheduled"""^^xsd:string .
-
-
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermostatSetpoint:DualSetpoint
-:ThermostatSetpoint:DualSetpoint rdf:type owl:NamedIndividual ,
-                                          :EnergyPlusObject ;
-                                 <http://www.w3.org/2004/02/skos/core#note> "Doc: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-zone-controls-thermostats.html#zone-thermostat-setpoints"^^xsd:string .
+                                       :EnergyPlusMeter .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
