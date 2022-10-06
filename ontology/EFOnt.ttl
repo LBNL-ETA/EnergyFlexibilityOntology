@@ -661,7 +661,8 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SerialValue
 :SerialValue rdf:type owl:Class ;
-             rdfs:subClassOf :DataType .
+             rdfs:subClassOf :DataType ;
+             rdfs:label "Serial Value" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Simulation
@@ -671,7 +672,8 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SingleValue
 :SingleValue rdf:type owl:Class ;
-             rdfs:subClassOf :DataType .
+             rdfs:subClassOf :DataType ;
+             rdfs:label "Single Value" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Software
@@ -681,7 +683,7 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SpatialCharacteritics
 :SpatialCharacteritics rdf:type owl:Class ;
                        rdfs:subClassOf :FlexibleLoadCharacteristic ;
-                       rdfs:label "SpatialCharacteristics" .
+                       rdfs:label "Spatial Characteristics" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Sport
@@ -706,7 +708,7 @@ https://www.nerc.com/comm/Other/essntlrlbltysrvcstskfrcDL/Distributed_Energy_Res
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TemporalCharacteristics
 :TemporalCharacteristics rdf:type owl:Class ;
                          rdfs:subClassOf :FlexibleLoadCharacteristic ;
-                         rdfs:label "TemporalCharacteristics" .
+                         rdfs:label "Temporal Characteristics" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ThermalPreference
@@ -1055,9 +1057,9 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ExteriorFuelEquipment
 :EP_ExteriorFuelEquipment rdf:type owl:NamedIndividual ,
                                    :EnergyPlusObject ;
-                          rdfs:comment "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorfuelequipment"^^xsd:string ;
                           rdfs:label "Exterior:FuelEquipment" ;
-                          skos:definition "EnergyPlus object to model EV charging demand"^^xsd:string .
+                          skos:definition "EnergyPlus object to model EV charging demand"^^xsd:string ;
+                          skos:note "URL: https://bigladdersoftware.com/epx/docs/9-6/input-output-reference/group-exterior-energy-use-equipment.html#exteriorfuelequipment"^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#EP_ExteriorLights
@@ -1528,8 +1530,8 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                            :EnergyFlexibilityKPI .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LocalGenerationConsumedProfile
-:LocalGenerationConsumedProfile rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OnsiteGenerationConsumedProfile
+:OnsiteGenerationConsumedProfile rdf:type owl:NamedIndividual ,
                                          :SerialValue ,
                                          :Variable ;
                                 :hasUnitOfMeasure :kWh ;
@@ -1548,13 +1550,14 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                              :isUnderCondition :UnspecifiedCondition .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#LocalGenerationProfile
-:LocalGenerationProfile rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#OnsiteGenerationProfile
+:OnsiteGenerationProfile rdf:type owl:NamedIndividual ,
                                  :SerialValue ,
                                  :Variable ;
                         :hasUnitOfMeasure :kWh ;
                         :isUnderCondition :UnspecifiedCondition ;
                         :hasMinimumDuration "1440"^^xsd:int ;
+                        :canBeModeledBy :EP_GeneratorProducedDCElectricEnergy ;
                         rdfs:label "LocalGenerationEnergyProfile"^^xsd:string ;
                         skos:definition "The on-site electricity generation profile with an indefinite temporal resolution."^^xsd:string .
 
@@ -1632,7 +1635,20 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                 :isUnderCondition :UnspecifiedCondition ;
                 :hasMinimumDuration "1440"^^xsd:int ;
                 :hasMinimumTemporalResolution "525600"^^xsd:int ;
+                :canBeModeledBy :EP_FacilityNetPurchasedElectricEnergy;
                 skos:definition "The net electricity load (consumption) profile with indefinite temporal resolution."^^xsd:string .
+
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#TotalLoadProfile
+:TotalLoadProfile rdf:type owl:NamedIndividual ,
+                         :SerialValue ,
+                         :Variable ;
+                :hasUnitOfMeasure :kWh ;
+                :isUnderCondition :UnspecifiedCondition ;
+                :hasMinimumDuration "1440"^^xsd:int ;
+                :hasMinimumTemporalResolution "525600"^^xsd:int ;
+                :canBeModeledBy :EP_ElectricityFacility;
+                skos:definition "The total electricity load (consumption) profile with indefinite temporal resolution."^^xsd:string .
+
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#NumberOfBuildings
@@ -1848,7 +1864,8 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                                      :reduceGridEnergyConsumption ;
                  :ofInterestTo :BuildingDesigner ;
                  :hasAcronym "SC"^^xsd:string ;
-                 rdfs:comment """References: 
+                 rdfs:label "Self Consumption" ;
+                 skos:note """References: 
 https://doi.org/10.1016/j.renene.2019.10.030
 https://doi.org/10.3390/en14061591"""^^xsd:string ;
                  skos:definition "Self-consumption (SC) - the degree to which the on-site generation is directly consumed by the building."^^xsd:string .
@@ -1857,8 +1874,8 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfConsumptionFormula
 :SelfConsumptionFormula rdf:type owl:NamedIndividual ,
                                  :Formula ;
-                        :hasInput :LocalGenerationConsumedProfile ,
-                                  :LocalGenerationProfile ;
+                        :hasInput :OnsiteGenerationConsumedProfile ,
+                                  :OnsiteGenerationProfile ;
                         :hasOperation :vectorSum ;
                         :needsBaseline "false"^^xsd:boolean .
 
@@ -1872,14 +1889,18 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
                  :ofInterestTo :BuildingDesigner ;
                  :hasAcronym "SS"^^xsd:string ;
                  :needsBaseline "false"^^xsd:boolean ;
+                 rdfs:label "Self Sufficiency" ;
+                 skos:note """References: 
+                     https://doi.org/10.1016/j.renene.2019.10.030
+                     https://doi.org/10.3390/en14061591"""^^xsd:string ;
                  skos:definition "Self-Sufficiency (SS) - the degree to which the on-site generation is sufficient to fill the energy needs of the building."^^xsd:string .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SelfSufficiencyFormula
 :SelfSufficiencyFormula rdf:type owl:NamedIndividual ,
                                  :Formula ;
-                        :hasInput :LocalGenerationConsumedProfile ,
-                                  :NetLoadProfile ;
+                        :hasInput :OnsiteGenerationProfile ,
+                                  :TotalLoadProfile ;
                         :hasOperation :vectorSum ;
                         :needsBaseline "false"^^xsd:boolean .
 
@@ -1905,17 +1926,20 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
                                      rdfs:label "Site Outdoor Air Drybulb Temperature" .
 
 
-###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarPhtotovoltaic
-:SolarPhtotovoltaic rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarPhotovoltaic
+:SolarPhotovoltaic rdf:type owl:NamedIndividual ,
                              :NondispatchableEnergyGenerator ;
-                    :canBeModeledBy :EP_GeneratorPhotovoltaic .
+                    :canBeModeledBy :EP_GeneratorPhotovoltaic ;
+                    rdfs:label "Solar Photovoltaic" .
+                    
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#SolarThermalPlant
 :SolarThermalPlant rdf:type owl:NamedIndividual ,
                             :NondispatchableEnergyGenerator ;
                    :hasScope :DistrictLevelApplication ,
-                             :RegionalLevelApplication .
+                             :RegionalLevelApplication ;
+                             rdfs:label "Solar Thermal Plant" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#StandardEffectiveTemperature
@@ -2001,7 +2025,8 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 :WindPowerGenerator rdf:type owl:NamedIndividual ,
                              :NondispatchableEnergyGenerator ;
                     :hasScope :RegionalLevelApplication ;
-                    :canBeModeledBy :EP_GeneratorWindTurbine .
+                    :canBeModeledBy :EP_GeneratorWindTurbine ;
+                    rdfs:label "Wind Power Generator" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#ZoneLevel
@@ -2098,7 +2123,8 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#maximizeOnsiteGenerationUtilization
 :maximizeOnsiteGenerationUtilization rdf:type owl:NamedIndividual ,
-                                              :EnergyGoal .
+                                              :EnergyGoal ;
+                                   rdfs:label "Maximize Onsite Generation Utilization" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#mean
@@ -2143,37 +2169,44 @@ Applicable when the condition of the measurements (e.g., power demand profile) a
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCapitalInvestment
 :reduceCapitalInvestment rdf:type owl:NamedIndividual ,
-                                  :EconomicGoal .
+                                  :EconomicGoal ;
+              rdfs:label "Reduce Capital Investment" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceCost
 :reduceCost rdf:type owl:NamedIndividual ,
-                     :EconomicGoal .
+                     :EconomicGoal ;
+              rdfs:label "Reduce Cost" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceEmissions
 :reduceEmissions rdf:type owl:NamedIndividual ,
-                          :EmissionsGoal .
+                          :EmissionsGoal ;
+              rdfs:label "Reduce Emissions" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceGridEnergyConsumption
 :reduceGridEnergyConsumption rdf:type owl:NamedIndividual ,
-                                      :EnergyGoal .
+                                      :EnergyGoal ;
+                       rdfs:label "Reduce Grid Energy Consumption" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reduceOperationalCost
 :reduceOperationalCost rdf:type owl:NamedIndividual ,
-                                :EconomicGoal .
+                                :EconomicGoal ;
+                       rdfs:label "Reduce Operational Cost" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakCharges
 :reducePeakCharges rdf:type owl:NamedIndividual ,
-                            :EconomicGoal .
+                            :EconomicGoal ;
+                   rdfs:label "Reduce Peak Charges" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#reducePeakDemand
 :reducePeakDemand rdf:type owl:NamedIndividual ,
-                           :DemandGoal .
+                           :DemandGoal ;
+                  rdfs:label "Reduce Peak Demand" .
 
 
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#scalarAddition
