@@ -785,7 +785,7 @@ Ref: https://www.researchgate.net/publication/281968993_Thermally_Activated_Buil
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#Baseline
 :Baseline rdf:type owl:NamedIndividual ,
                    :OperationCondition ;
-          rdfs:label "BaselineCondition"^^xsd:string ;
+          rdfs:label "Baseline Condition"^^xsd:string ;
           skos:definition "Refers to the condition when building is operated normally without any energy-flexibile goal."^^xsd:string .
 
 
@@ -1233,6 +1233,8 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                    :ofInterestTo :BuildingOperator ,
                                  :Researcher ;
                    :hasAcronym "FF"^^xsd:string ;
+                   rdfs:label "Flexibility Factor" ;
+                   skos:note "https://doi.org/10.1016/j.energy.2016.05.076" ;
                    skos:definition "Indicator of a quantity (e.g., energy, cost, emissions) during high load hours versus during low load hours, which ranges between -1 (quantity was only during high load hours) and 1 (quantity was only during low load hours)."^^xsd:string .
 
 
@@ -1272,7 +1274,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
 :Flexible rdf:type owl:NamedIndividual ,
                    :OperationCondition ;
           :hasBEMVariable :EP_ElectricityFacility ;
-          rdfs:label "FlexibleCondition"^^xsd:string ;
+          rdfs:label "Flexible Condition"^^xsd:string ;
           skos:definition "Refers to the condition when building is operated with a energy-flexibile goal."^^xsd:string .
 
 
@@ -1315,6 +1317,7 @@ http://www.ibpsa.org/proceedings/eSimPapers/2018/1-3-A-2.pdf"""^^xsd:string ;
                              :Variable ;
                     :hasBEMVariable :EP_ElectricityFacility ;
                     :isUnderCondition :UnspecifiedCondition ;
+                    rdfs:label "Generic Load Profile" ;
                     skos:definition "A time series profile with arbitary type (e.g., energy consumption, peak demand, cost, and GHG emissions) and indefinite temporal resolution."^^xsd:string .
 
 
@@ -1383,7 +1386,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                                :Variable ;
                       :hasUnitOfMeasure :Datetime ;
                       :isUnderCondition :UnspecifiedCondition ;
-                      rdfs:label "EventEndTimestamp"^^xsd:string ;
+                      rdfs:label "HighLoad End Timestamp"^^xsd:string ;
                       skos:definition "The datetime when a demand response event ends."^^xsd:string .
 
 
@@ -1394,7 +1397,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                         :hasUnitOfMeasure :Datetime ;
                         :isUnderCondition :UnspecifiedCondition ;
                         :needsBaseline "false"^^xsd:boolean ;
-                        rdfs:label "EventStartTimestamp"^^xsd:string ;
+                        rdfs:label "High Load Start Timestamp"^^xsd:string ;
                         skos:definition "The datetime when a demand response event starts."^^xsd:string .
 
 
@@ -1422,6 +1425,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                            :hasUnitOfMeasure :kW ;
                            :isUnderCondition :Baseline ;
                            :hasMinimumTemporalResolution "60"^^xsd:int ;
+                           rdfs:label "Hourly Baseline Load Profile" ;
                            skos:definition "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under baseline condition."^^xsd:string .
 
 
@@ -1432,6 +1436,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                            :hasUnitOfMeasure :kW ;
                            :isUnderCondition :Flexible ;
                            :hasMinimumTemporalResolution "60"^^xsd:int ;
+                           rdfs:label "Hourly Flexible Load Profile" ;
                            skos:definition "The energy consumption (could also be cost, emissions) timeseries data with hourly resolution under flexible (a.k.a. demand response) condition."^^xsd:string .
 
 
@@ -1558,7 +1563,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
                         :isUnderCondition :UnspecifiedCondition ;
                         :hasMinimumDuration "1440"^^xsd:int ;
                         :canBeModeledBy :EP_GeneratorProducedDCElectricEnergy ;
-                        rdfs:label "LocalGenerationEnergyProfile"^^xsd:string ;
+                        rdfs:label "Onsite Generation Profile"^^xsd:string ;
                         skos:definition "The on-site electricity generation profile with an indefinite temporal resolution."^^xsd:string .
 
 
@@ -1811,7 +1816,7 @@ https://newbuildings.org/gridoptimal-leed-pilot-credit-encourages-designers-to-h
               :hasDataSource :GridSignal ;
               :hasUnitOfMeasure :kWh ;
               :isUnderCondition :UnspecifiedCondition ;
-              rdfs:label "EnergyPriceProfile"^^xsd:string ;
+              rdfs:label "Energy Price Profile"^^xsd:string ;
               skos:definition "A series of energy unit prices indexed in time order issued by utility providers."^^xsd:string .
 
 
@@ -1989,6 +1994,7 @@ https://doi.org/10.3390/en14061591"""^^xsd:string ;
 ###  http://www.semanticweb.org/hlee9/ontologies/2021/4/EF-core#UnspecifiedCondition
 :UnspecifiedCondition rdf:type owl:NamedIndividual ,
                                :OperationCondition ;
+                      rdfs:label "Unspecified Condition" ;
                       skos:definition """Refers to any operation condition. 
 Applicable when the condition of the measurements (e.g., power demand profile) are not required by the energy flexibility quantification."""^^xsd:string .
 
